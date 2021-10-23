@@ -1,7 +1,11 @@
 /* File: charmachine.c */
 /* Implementasi Character Engine */
 
+<<<<<<< HEAD
 #include "../h/charmachine.h"
+=======
+#include "charmachine.h"
+>>>>>>> 61faddac6674c7afb8e3016bf44d0b80999c47ce
 #include <stdio.h>
 
 char currentChar;
