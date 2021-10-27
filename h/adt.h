@@ -5,5 +5,7 @@
 #include "boolean.h"
 #include "wordmachine.h"
 #include "pcolor.h"
+#include "../c/charmachine.c"
+#include "../c/wordmachine.c"
 
 #endif

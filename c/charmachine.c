@@ -1,11 +1,7 @@
 /* File: charmachine.c */
 /* Implementasi Character Engine */
 
-<<<<<<< HEAD
-#include "../h/charmachine.h"
-=======
-#include "charmachine.h"
->>>>>>> 61faddac6674c7afb8e3016bf44d0b80999c47ce
+#include "..\h\charmachine.h"
 #include <stdio.h>
 
 char currentChar;
@@ -25,6 +21,11 @@ void start() {
 	/* Algoritma */
 	tape = stdin;
 	adv();
+}
+
+void startFromFile(char *str){
+       tape = fopen(str, "w");
+       adv();
 }
 
 void adv() {

@@ -35,6 +35,19 @@ void startWord()
         copyWord();
     }
 }
+
+void startWordFromFile(char *str){
+    startFromFile(str);
+    ignoreBlank();
+    if (currentChar == MARK){
+        endWord = true;
+    }
+    else{
+        endWord = false;
+        copyWord();
+    }
+}
+
 void advWord()
 /* I.S. : currentChar adalah karakter pertama kata yang akan diakuisisi 
    F.S. : currentWord adalah kata terakhir yang sudah diakuisisi, 
