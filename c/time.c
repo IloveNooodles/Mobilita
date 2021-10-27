@@ -1,60 +1,36 @@
 #include <stdio.h>
 #include "../h/time.h"
+#include "point.c"
 
-boolean IsTIMEValid(int H, int M, int S){
-  return (H >= 0 && H <= 23) && (M >= 0 && M <= 59) && (S >= 0 && S <= 59);
+boolean IsTIMEValid(int S){
+  return S >= 0;
 }
 
-TIME MakeTIME(int HH, int MM, int SS){
+TIME MakeTIME(int SS){
   TIME a;
-  Hour(a) = HH;
-  Minute(a) = MM;
   Second(a) = SS;
   return a;
 }
 
 void BacaTIME(TIME *T){
-  int HH, MM, SS;
-  scanf("%d %d %d", &HH, &MM, &SS);
-  if(IsTIMEValid(HH, MM, SS)){
-    *T = MakeTIME(HH, MM, SS);
+  int SS;
+  scanf("%d", &SS);
+  if(IsTIMEValid(SS)){
+    *T = MakeTIME(SS);
   }
   else {
-    while(!IsTIMEValid(HH, MM, SS)){
+    while(!IsTIMEValid(SS)){
       printf("Jam tidak valid\n");
-      scanf("%d %d %d", &HH, &MM, &SS);
+      scanf("%d", &SS);
     }
-    *T = MakeTIME(HH, MM, SS);
+    *T = MakeTIME(SS);
   }
 }
 
 void TulisTIME(TIME T){
-  int HH, MM, SS;
-  HH = Hour(T);
-  MM = Minute(T);
+  int SS;
   SS = Second(T);
-  printf("%d:%d:%d", HH, MM, SS);
-}
-
-long TIMEToDetik(TIME T){
-  int HH, MM, SS;
-  HH = Hour(T);
-  MM = Minute(T);
-  SS = Second(T);
-  long second = 3600*HH + 60*MM + SS;
-  return second;
-}
-
-TIME DetikToTIME(long N){
-  N = N % 86400;
-  int HH, MM, SS;
-  HH = N / 3600;
-  N = N % 3600;
-  MM = N / 60;
-  N = N % 60;
-  SS = N;
-  TIME T = MakeTIME(HH, MM, SS);
-  return T;
+  printf("%d", SS);
 }
 
 boolean TEQ(TIME T1, TIME T2){
@@ -73,29 +49,29 @@ boolean TGT(TIME T1, TIME T2){
   return (TIMEToDetik(T1) > TIMEToDetik(T2));
 }
 
-TIME NextDetik(TIME T){
-  long second = TIMEToDetik(T);
-  second++;
-  return DetikToTIME(second);
-}
-TIME NextNDetik(TIME T, int N){
-  long second = TIMEToDetik(T);
-  second += N;
-  return DetikToTIME(second);
-}
-TIME PrevDetik(TIME T){
-  return DetikToTIME(TIMEToDetik(T)-1+86400);
-}
-TIME PrevNDetik(TIME T, int N){
-  return DetikToTIME(TIMEToDetik(T)-N+86400);
+void NextNDetik(TIME T, int N){
+  Second(T) += N;
 }
 
-long Durasi(TIME TAw, TIME TAkh){
-  if(TEQ(TAw, TAkh)){
-    return 0;
-  }else if(TLT(TAw, TAkh)){
-    return (TIMEToDetik(TAkh) - TIMEToDetik(TAw));
-  }else{
-    return(TIMEToDetik(TAkh) + 86400 - TIMEToDetik(TAw));
-  }
+TIME NextNDetikTime(TIME T, int N){
+  TIME t1;
+  Second(t1) = Second(T);
+  Second(t1) += N;
+  return t1;
+}
+
+void PrevNDetik(TIME T, int N){
+  Second(T) -= N;
+}
+
+TIME PrevNDetikTime(TIME T, int N){
+  TIME t1;
+  Second(t1) = Second(T);
+  Second(t1) -= N;
+  return t1;
+}
+
+//NOTE karena bentuk petanya persegi makannya nguranginnya gini implementasinya bisa diliat di point.c
+void pindah(TIME T, POINT a, POINT b){
+  NextNDetik(T, selisih(a, b));
 }

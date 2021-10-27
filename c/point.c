@@ -126,3 +126,8 @@ void Putar (POINT *P, float sudut){
   Absis(*P) = x;
   Ordinat(*P) = y;
 }
+
+//NOTE ngereturn selisih koordinat p1 sama p2 atau langkah yang harus dilalui;
+int selisih(POINT P1, POINT P2){
+  return abs(Absis(P1) - Absis(P2)) + abs(Ordinat(P1) - Ordinat(P2));
+}
