@@ -37,12 +37,20 @@ int checkStartInput(Word a[]){
     Word EXIT = {"EXIT", 4};
     Word NEW = {"NEW", 3};
     Word GAME = {"GAME", 4};
+    Word EMPTY = {"", 0};
     if(isWordEqual(a[0], EXIT)){
-        return 2;
+        if(isWordEqual(a[1], EMPTY)){
+            return 2;
+        }
+        else{
+            return 0;
+        }
     }
     else if(isWordEqual(a[0], NEW)){
         if(isWordEqual(a[1], GAME)){
-            return 1;
+            if(isWordEqual(a[2], EMPTY)){
+                return 1;
+            }
         }
         return 0;
     }
