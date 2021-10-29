@@ -1,6 +1,7 @@
 #include <stdio.h>
-#include "h\adt.h"
-#include "h\util.h"
+#include "lib\adt.h"
+#include "utility\utility.h"
+#include "lib\temp.h"
 
 int main(){
     Word EMPTY = {"", 0};
