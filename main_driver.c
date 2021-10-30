@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include "c/pcolor.c"
-#include "c/point.c"
-#include "c/time.c"
+#include "h/time.h"
 
 int main(){
   printf("Selamat datang di game mobilita\n");
-  TIME t = MakeTIME(23, 59, 59);
+  TIME t = MakeTIME(59);
   TulisTIME(t);
   return 0;
 }

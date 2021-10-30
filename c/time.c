@@ -34,19 +34,19 @@ void TulisTIME(TIME T){
 }
 
 boolean TEQ(TIME T1, TIME T2){
-  return (TIMEToDetik(T1) == TIMEToDetik(T2));
+  return (Second(T1) == Second(T2));
 }
 
 boolean TNEQ(TIME T1, TIME T2){
-  return (TIMEToDetik(T1) != TIMEToDetik(T2));
+  return (Second(T1) != Second(T2));
 }
 
 boolean TLT(TIME T1, TIME T2){
-  return (TIMEToDetik(T1) < TIMEToDetik(T2));
+  return (Second(T1) < Second(T2));
 }
 
 boolean TGT(TIME T1, TIME T2){
-  return (TIMEToDetik(T1) > TIMEToDetik(T2));
+  return (Second(T1) > Second(T2));
 }
 
 void NextNDetik(TIME T, int N){
