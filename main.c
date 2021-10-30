@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "lib\adt.h"
-#include "utility\utility.h"
-#include "lib\temp.h"
+#include "lib\utility\utility.h"
+#include "lib\tempdriver.h"
 
 int main(){
     Word EMPTY = {"", 0};
@@ -33,7 +33,10 @@ int main(){
 
     //Input == NEW GAME
     if(input == 1){
+        Game game;
         // TODO: Masuk ke New Game
+        startWord();
+        inputConfigFile(&game, currentWord);
         checker();
     }
 

@@ -6,9 +6,10 @@
 #define STACK_H
 
 #include "../utility/boolean.h"
+#include "../utility/const.h"
 
-#define IDX_UNDEF -1
-#define CAPACITY 100
+// #define IDX_UNDEF -1
+// #define CAPACITY 100
 
 typedef int ElType;
 typedef struct {

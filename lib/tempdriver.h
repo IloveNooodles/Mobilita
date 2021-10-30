@@ -1,5 +1,5 @@
-#ifndef TEMP_H
-#define TEMP_H
+#ifndef TEMPDRIVER_H
+#define TEMPDRIVER_H
 
 #include "adt.h"
 #include "./wordmachine/charmachine.c"
@@ -15,5 +15,6 @@
 #include "./listdin/listdin.c"
 #include "./list_linked/list_linked.c"
 #include "./list_linked/node.c"
+#include "./time/time.c"
 
 #endif

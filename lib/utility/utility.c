@@ -59,6 +59,10 @@ int checkStartInput(Word a[]){
     }
 }
 
+void inputConfigFile(Game *g, Word cfg){
+    // TODO
+}
+
 void checker(){
     printf("Masuk!\n");
 }

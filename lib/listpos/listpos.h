@@ -8,11 +8,13 @@
 #define LISTPOS_H
 
 #include "../utility/boolean.h"
+#include "../utility/const.h"
+
 
 /*  Kamus Umum */
-#define CAPACITY 100
+// #define CAPACITY 100
 /* Kapasitas penyimpanan */
-#define IDX_UNDEF -1
+// #define IDX_UNDEF -1
 /* Indeks tak terdefinisi*/
 #define VAL_UNDEF -999
 /* Nilai elemen tak terdefinisi*/

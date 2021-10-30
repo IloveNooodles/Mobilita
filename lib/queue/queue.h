@@ -4,10 +4,11 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
-#include "boolean.h"
+#include "../utility/boolean.h"
+#include "../utility/const.h"
 
-#define IDX_UNDEF -1
-#define CAPACITY 100
+// #define IDX_UNDEF -1
+// #define CAPACITY 100
 
 /* Definisi elemen dan address */
 typedef int ElType;
