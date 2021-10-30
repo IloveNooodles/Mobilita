@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include "../point/point.h"
 #include "../time/time.h"
+#include "../matrix/matrix.h"
 #include "../adt.h"
 
 //NOTE pake . buat nandai whitespace kayaknya enak

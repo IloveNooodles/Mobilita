@@ -1,11 +1,7 @@
 /* File : stack.h */
 /* Definisi ADT Stack dengan representasi array secara eksplisit dan alokasi statik */
 /* TOP adalah alamat elemen puncak */
-// Muhammad Garebaldhie ER Rahman
-// 13520029
-// 16 Oktober 2021
-// Pra praktikum 8
-// Stack
+
 
 #include "stack.h"
 
@@ -19,11 +15,11 @@ void CreateStack(Stack *s){
 /* Proses : Melakukan alokasi, membuat sebuah s kosong */
 
 /* ************ Prototype ************ */
-boolean isEmpty(Stack s){
+boolean isStackEmpty(Stack s){
   return IDX_TOP(s) == IDX_UNDEF;
 }
 /* Mengirim true jika s kosong: lihat definisi di atas */
-boolean isFull(Stack s){
+boolean isStackFull(Stack s){
   return IDX_TOP(s) == CAPACITY-1;
 }
 /* Mengirim true jika tabel penampung nilai s stack penuh */

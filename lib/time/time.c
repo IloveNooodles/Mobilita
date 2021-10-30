@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "time.h"
-#include "../point/point.c"
 
 boolean IsTIMEValid(int S){
   return S >= 0;
@@ -31,6 +30,10 @@ void TulisTIME(TIME T){
   int SS;
   SS = Second(T);
   printf("%d", SS);
+}
+
+int TIMEToDetik(TIME T){
+  return Second(T);
 }
 
 boolean TEQ(TIME T1, TIME T2){

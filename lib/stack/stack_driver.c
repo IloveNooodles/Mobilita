@@ -32,21 +32,21 @@ int main(){
         i++;
     }
 
-    while(!isEmpty(s1) && !isEmpty(s2)){
+    while(!isStackEmpty(s1) && !isStackEmpty(s2)){
         pop(&s1, &temp1);
         pop(&s2, &temp2);
         push(&ans, (temp1+temp2+carry) % 10);
         carry = (temp1+temp2+carry) / 10;
     }
-    if(isEmpty(s1)){
-        while(!isEmpty(s2)){
+    if(isStackEmpty(s1)){
+        while(!isStackEmpty(s2)){
             pop(&s2, &temp2);
             push(&ans, (temp2+carry) % 10);
             carry = (temp2+carry)/10;
         }
     }
     else{
-        while(!isEmpty(s1)){
+        while(!isStackEmpty(s1)){
             pop(&s1, &temp1);
             push(&ans, (temp1+carry) % 10);
             carry = (temp1+carry)/10;
@@ -57,7 +57,7 @@ int main(){
         push(&ans, carry);
     }
 
-    while(!isEmpty(ans)){
+    while(!isStackEmpty(ans)){
         pop(&ans, &temp1);
         printf("%i", temp1);
     }

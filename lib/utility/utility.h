@@ -1,8 +1,10 @@
-#ifndef UTIL_H
-#define UTIL_H
+#ifndef UTILITY_H
+#define UTILITY_H
 
 #include "game.h"
 #include "../adt.h"
+// #include "../wordmachine/wordmachine.h"
+
 // Functions
 void startMenu();
 // Memulai startmenu

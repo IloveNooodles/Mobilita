@@ -2,10 +2,10 @@
 #define ADT_H
 
 #include "./wordmachine/charmachine.h"
+#include "./wordmachine/wordmachine.h"
 #include "./utility/boolean.h"
 #include "./utility/utility.h"
 #include "./utility/game.h"
-#include "./wordmachine/wordmachine.h"
 #include "./pcolor/pcolor.h"
 #include "./stack/stack.h"
 #include "./queue/queue.h"

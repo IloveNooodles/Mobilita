@@ -4,37 +4,37 @@
 void CreateListPos(ListPos *l){
   int i = 0;
   while(i != CAPACITY){
-    ELMT(*l, i) = VAL_UNDEF;
+    (*l).contents[i] = VAL_UNDEF;
     i++;
   }
 }
 
-int length(ListPos l){
+int listPosLength(ListPos l){
   int length = 0;
   for(int i = 0; i < CAPACITY; i++){
-    if(ELMT(l, i) != VAL_UNDEF)length++;
+    if((l).contents[i] != VAL_UNDEF)length++;
     else break;
   }
   return length;
 }
 
-boolean isIdxValid(ListPos l, int i){
+boolean isIdxListPosValid(ListPos l, int i){
   return ((i >= 0 && i < CAPACITY));
 }
 
-boolean isIdxEff(ListPos l, int i){
-  return((i >= 0 && i < length(l)));
+boolean isIdxListPosEff(ListPos l, int i){
+  return((i >= 0 && i < listPosLength(l)));
 }
 
-boolean isEmpty(ListPos l){
-  return (length(l) == 0);
+boolean isListPosEmpty(ListPos l){
+  return (listPosLength(l) == 0);
 }
 
-boolean isFull(ListPos l){
-  return (length(l) == CAPACITY);
+boolean isListPosFull(ListPos l){
+  return (listPosLength(l) == CAPACITY);
 }
 
-void readList(ListPos *l){
+void readListPos(ListPos *l){
   CreateListPos(l);
   int n;
   scanf("%d", &n);
@@ -44,18 +44,18 @@ void readList(ListPos *l){
   int x;
   for(int i = 0; i < n; i++){
     scanf("%d", &x);
-    ELMT(*l, i) = x;
+    (*l).contents[i] = x;
   }
 }
 
-void displayList(ListPos l){ 
-  if(isEmpty(l)){
+void displayListPos(ListPos l){ 
+  if(isListPosEmpty(l)){
     printf("[]");
   }else{
     printf("[");
-    for(int i = 0; i < length(l); i++){
-      printf("%d", ELMT(l, i));
-      if(i != length(l) - 1){
+    for(int i = 0; i < listPosLength(l); i++){
+      printf("%d", (l).contents[i]);
+      if(i != listPosLength(l) - 1){
         printf(",");
       }
     }
@@ -67,22 +67,22 @@ ListPos plusMinusTab(ListPos l1, ListPos l2, boolean plus){
   ListPos l;
   CreateListPos(&l);
   if(plus){
-    for(int i = 0; i < length(l1); i++){
-      ELMT(l, i) = ELMT(l1, i) + ELMT(l2, i);
+    for(int i = 0; i < listPosLength(l1); i++){
+      (l).contents[i] = (l1).contents[i] + (l2).contents[i];
     }
   }else{
-    for(int i = 0; i < length(l1); i++){
-      ELMT(l, i) = ELMT(l1, i) - ELMT(l2, i);
+    for(int i = 0; i < listPosLength(l1); i++){
+      (l).contents[i] = (l1).contents[i] - (l2).contents[i];
     }
   }
   return l;
 }
 
-boolean isListEqual(ListPos l1, ListPos l2){
+boolean isListPosEqual(ListPos l1, ListPos l2){
   boolean eq = true;
-  if(length(l1) == length(l2)){
-    for(int i = 0; i < length(l1); i++){
-      if(ELMT(l1, i) != ELMT(l2, i)){
+  if(listPosLength(l1) == listPosLength(l2)){
+    for(int i = 0; i < listPosLength(l1); i++){
+      if(l1.contents[i] != (l2).contents[i]){
         eq = false;
         break;
       }
@@ -93,11 +93,11 @@ boolean isListEqual(ListPos l1, ListPos l2){
   return eq;
 }
 
-int indexOf(ListPos l, ElType val){
+int indexOfListPos(ListPos l, ElType val){
   int ans = IDX_UNDEF;
   boolean ada = false;
-  for(int i = 0; i < length(l); i++){
-    if(ELMT(l, i) == val){
+  for(int i = 0; i < listPosLength(l); i++){
+    if((l).contents[i] == val){
       ans = i;
       ada = true;
       break;
@@ -108,24 +108,24 @@ int indexOf(ListPos l, ElType val){
 }
 
 void extremes(ListPos l, ElType *max, ElType *min){
-  for(int i = 0; i < length(l); i++){
+  for(int i = 0; i < listPosLength(l); i++){
     if(i == 0){
-      *min = ELMT(l, i);
-      *max = ELMT(l, i);
+      *min = (l).contents[i];
+      *max = (l).contents[i];
     }
-    if(*min > ELMT(l, i)){
-      *min = ELMT(l, i);
+    if(*min > (l).contents[i]){
+      *min = (l).contents[i];
     }
-    if(*max < ELMT(l, i)){
-      *max = ELMT(l, i);
+    if(*max < (l).contents[i]){
+      *max = (l).contents[i];
     }
   }
 }
 
-boolean isAllEven(ListPos l){
+boolean isAllEvenListPos(ListPos l){
   boolean genap = true;
-  for(int i = 0; i < length(l); i++){
-    if(ELMT(l,i) % 2 != 0){
+  for(int i = 0; i < listPosLength(l); i++){
+    if(l.contents[i] % 2 != 0){
       genap = false;
       break;
     }
@@ -133,22 +133,22 @@ boolean isAllEven(ListPos l){
   return genap;
 }
 
-void sort(ListPos *l, boolean asc){
-  if(!isEmpty(*l)){
-    for(int i = 0; i < length(*l); i++){
-      for(int j = i+1; j < length(*l); j++){
+void sortListPos(ListPos *l, boolean asc){
+  if(!isListPosEmpty(*l)){
+    for(int i = 0; i < listPosLength(*l); i++){
+      for(int j = i+1; j < listPosLength(*l); j++){
         int temp;
         if(asc){
-          if(ELMT(*l, i) > ELMT(*l, j)){
-            temp = ELMT(*l, i);
-            ELMT(*l, i) = ELMT(*l, j);
-            ELMT(*l, j) = temp;
+          if((*l).contents[i] > (*l).contents[j]){
+            temp = (*l).contents[i];
+            (*l).contents[i] = (*l).contents[j];
+            (*l).contents[j] = temp;
           }
         }else{
-          if(ELMT(*l, i) < ELMT(*l, j)){
-            temp = ELMT(*l, i);
-            ELMT(*l, i) = ELMT(*l, j);
-            ELMT(*l, j) = temp;
+          if((*l).contents[i] < (*l).contents[j]){
+            temp = (*l).contents[i];
+            (*l).contents[i] = (*l).contents[j];
+            (*l).contents[j] = temp;
           }
         }
       }
@@ -156,11 +156,11 @@ void sort(ListPos *l, boolean asc){
   }
 }
 
-void insertLast(ListPos *l, ElType val){
-  ELMT(*l, length(*l)) = val;
+void insertListPosLast(ListPos *l, ElType val){
+  (*l).contents[listPosLength(*l)] = val;
 }
 
-void deleteLast(ListPos *l, ElType *val){
-  *val = ELMT(*l, length(*l) - 1);
-  ELMT(*l, length(*l) - 1) = VAL_UNDEF;
+void deleteListPosLast(ListPos *l, ElType *val){
+  *val = (*l).contents[listPosLength(*l)-1];
+  (*l).contents[listPosLength(*l)-1] = VAL_UNDEF;
 }
