@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include "game.h"
 
-Lokasi peta[10][15]; //N x M isi dengan nol kemungkinan bisa diisi sama spasi / whitespace;
-peta[1][1] = 1;
+//N x M isi dengan nol kemungkinan bisa diisi sama spasi / whitespace;
+
 // peta[1][1] = 1;
 // buat tipe data lokasi sebanyak 17 berarti ini ada 2 tipe data kayaknya  buat lokasi
 // 1 character 1 point

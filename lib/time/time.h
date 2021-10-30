@@ -5,7 +5,7 @@
 #ifndef TIME_H
 #define TIME_H
 
-#include "boolean.h"
+#include "../utility/boolean.h"
 #include "../point/point.h"
 
 /* *** Definisi TYPE TIME <HH:MM:SS> *** */

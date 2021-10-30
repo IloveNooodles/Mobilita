@@ -7,10 +7,11 @@
 #ifndef LISTDIN_H
 #define LISTDIN_H
 
-#include "boolean.h"
+#include "../utility/boolean.h"
+#include "../utility/const.h"
 
 /*  Kamus Umum */
-#define IDX_UNDEF -1
+// #define IDX_UNDEF -1
 /* Indeks tak terdefinisi*/
 
 /* Definisi elemen dan koleksi objek */

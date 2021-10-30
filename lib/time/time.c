@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "../h/time.h"
-#include "point.c"
+#include "time.h"
+#include "../point/point.c"
 
 boolean IsTIMEValid(int S){
   return S >= 0;

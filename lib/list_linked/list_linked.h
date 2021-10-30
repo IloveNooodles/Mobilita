@@ -8,10 +8,11 @@
 
 #include "../utility/boolean.h"
 #include "node.h"
+#include "../utility/const.h"
 
 typedef Address List;
 
-#define IDX_UNDEF (-1)
+// #define IDX_UNDEF (-1)
 #define FIRST(l) (l)
 
 /* Definisi List : */

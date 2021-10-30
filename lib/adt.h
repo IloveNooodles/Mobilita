@@ -15,5 +15,6 @@
 #include "./listdin/listdin.h"
 #include "./list_linked/list_linked.h"
 #include "./list_linked/node.h"
+#include "./time/time.h"
 
 #endif
