@@ -4,13 +4,10 @@
 /* Versi II : dengan banyaknya elemen didefinisikan secara eksplisit,
    memori list dinamik */
 
-
-
 #include "../utility/boolean.h"
 #include "listdin.h"
 #include <stdio.h>
 #include <stdlib.h>
-
 
 /* ********** KONSTRUKTOR ********** */
 /* Konstruktor : create list kosong  */
@@ -18,18 +15,18 @@ void CreateListDin(ListDin *l, int capacity)
 /* I.S. l sembarang, capacity > 0 */
 /* F.S. Terbentuk list dinamis l kosong dengan kapasitas capacity */
 {
-   LISTBUFFER(*l) = (int*) malloc(capacity*sizeof(int));
-   NEFF(*l) = 0;
-   CAP(*l) = capacity;
+  LISTBUFFER(*l) = (int*) malloc(capacity*sizeof(int));
+  NEFF(*l) = 0;
+  CAP(*l) = capacity;
 }
 
 void dealocate(ListDin *l)
 /* I.S. l terdefinisi; */
 /* F.S. (l) dikembalikan ke system, CAPACITY(l)=0; NEFF(l)=0 */
 {
-   free(LISTBUFFER(*l));
-   NEFF(*l) = 0;
-   CAP(*l) = 0;
+  free(LISTBUFFER(*l));
+  NEFF(*l) = 0;
+  CAP(*l) = 0;
 }
 /* ********** SELEKTOR (TAMBAHAN) ********** */
 /* *** Banyaknya elemen *** */
@@ -38,7 +35,7 @@ int listDinLength(ListDin l)
 /* Mengirimkan nol jika list l kosong */
 /* *** Daya tampung container *** */
 {
-   return NEFF(l);
+  return NEFF(l);
 }
 
 
@@ -47,33 +44,33 @@ IdxType getLastIdx(ListDin l)
 /* Prekondisi : List l tidak kosong */
 /* Mengirimkan indeks elemen l terakhir */
 {
-   return NEFF(l) - 1;
+  return NEFF(l) - 1;
 }
 /* ********** Test Indeks yang valid ********** */
 boolean isIdxListDinValid(ListDin l, int i)
 /* Mengirimkan true jika i adalah indeks yang valid utk kapasitas list l */
 /* yaitu antara indeks yang terdefinisi utk container*/
 {
-   return (i >= 0 && i < CAP(l));
+  return (i >= 0 && i < CAP(l));
 }
 boolean isIdxListDinEff(ListDin l, IdxType i)
 /* Mengirimkan true jika i adalah indeks yang terdefinisi utk list */
 /* yaitu antara 0..NEFF(l) */
 {
-   return (i >= 0 && i < NEFF(l));
+  return (i >= 0 && i < NEFF(l));
 }
 /* ********** TEST KOSONG/PENUH ********** */
 /* *** Test list kosong *** */
 boolean isListDinEmpty(ListDin l)
 /* Mengirimkan true jika list l kosong, mengirimkan false jika tidak */
 {
-   return (NEFF(l) == 0);
+  return (NEFF(l) == 0);
 }
 /* *** Test list penuh *** */
 boolean isListDinFull(ListDin l)
 /* Mengirimkan true jika list l penuh, mengirimkan false jika tidak */
 {
-   return (NEFF(l) == CAP(l));
+  return (NEFF(l) == CAP(l));
 }
 /* ********** BACA dan TULIS dengan INPUT/OUTPUT device ********** */
 /* *** Mendefinisikan isi list dari pembacaan *** */
@@ -88,17 +85,17 @@ void readListDin(ListDin *l)
       0 satu per satu diakhiri enter */
 /*    Jika N = 0; hanya terbentuk l kosong */
 {
-   int n, i;
-   scanf("%i", &n);
-   while (n < 0 || n > CAP(*l)){
-        scanf("%i", &n);
-   }
-   NEFF(*l) = n;
-   if (n != 0){
-      for (i=0; i<n; i++){
-         scanf("%i", &LISTELMT(*l, i));
-      }
-   }
+  int n, i;
+  scanf("%i", &n);
+  while (n < 0 || n > CAP(*l)){
+      scanf("%i", &n);
+  }
+  NEFF(*l) = n;
+  if (n != 0){
+    for (i=0; i<n; i++){
+        scanf("%i", &LISTELMT(*l, i));
+    }
+  }
 }
 
 void displayListDin(ListDin l)
@@ -111,16 +108,16 @@ void displayListDin(ListDin l)
 /* Jika list kosong : menulis [] */
 
 {
-   int i, len;
-   len = listDinLength(l);
-   printf("[");
-   if (len != 0){
-       for (i = 0; i < len-1; i++){
-           printf("%i,", LISTELMT(l, i));
-       }
-       printf("%i", LISTELMT(l, len-1));
-   }
-   printf("]");
+  int i, len;
+  len = listDinLength(l);
+  printf("[");
+  if (len != 0){
+      for (i = 0; i < len-1; i++){
+          printf("%i,", LISTELMT(l, i));
+      }
+      printf("%i", LISTELMT(l, len-1));
+  }
+  printf("]");
 }
 
 /* ********** OPERATOR ARITMATIKA ********** */
