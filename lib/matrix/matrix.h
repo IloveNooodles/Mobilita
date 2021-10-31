@@ -6,8 +6,8 @@
 #include "../utility/boolean.h"
 
 /* Ukuran minimum dan maksimum baris dan kolom */
-#define ROW_CAP 100
-#define COL_CAP 100
+#define ROW_CAP 35
+#define COL_CAP 35
 
 typedef int Index; /* Index baris, kolom */
 typedef int ElType;

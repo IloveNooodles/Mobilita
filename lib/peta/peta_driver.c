@@ -1,4 +1,8 @@
 #include <stdio.h>
 #include "peta.h"
 
-Peta;
+int main(){
+  Peta p;
+  CreatePeta(&p);
+  
+}

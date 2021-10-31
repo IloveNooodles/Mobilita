@@ -1,6 +1,10 @@
 #include <stdio.h>
-#include "../h/adjmatrix.h"
+#include "adjmatrix.h"
 
-int main(){
-  printf("%c", indexToChar(25));
+int charToIndex(char a){
+  return a - 65;
+}
+
+char indexToChar(int a){
+  return (char)(a+65);
 }

@@ -260,42 +260,6 @@ void swapRow(Matrix *m, int row1, int row2){
   }
 }
 
-//square matrix
-float determinant(Matrix m){
-  int a, b, index;
-  float total = 1, det = 1;
-  int size = ROWS(m);
-  int temp[size+1];
-  Matrix c;
-  copyMatrix(m, &c);
-  for(int i = 0; i < size; i++){
-    index = i;
-    while(MATRIXELMT(c, index, i) == 0 && index < size){
-      index++;
-    }
-    if(index == size)continue;
-    if(index != i){
-      swapRow(&c, index, i);
-      det = -det;
-    }
-    for(int j = 0; j < size; j++){
-      temp[j] = MATRIXELMT(c, i, j);
-    }
-    for(int j = i+1; j < size; j++){
-      a = temp[i];
-      b = MATRIXELMT(c, j, i);
-      for(int k = 0; k < size; k++){
-        MATRIXELMT(c, j, k) = a*MATRIXELMT(c,j,k) - b*temp[k];
-      }
-      total = total * a;
-    }
-  }
-  for(int i = 0; i < size; i++){
-    det *= getElmtDiagonal(c, i);
-  }
-  return det/total;
-}
-
 /* Prekondisi: isSquare(m) */
 /* Menghitung nilai determinan m */
 void transpose(Matrix *m){

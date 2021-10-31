@@ -2,17 +2,14 @@
 #define ADJMATRIX_H
 
 #include "boolean.h"
-#include "matrix.h"
+#include "../matrix/matrix.h"
+
+typedef Matrix AdjMatrix;
 
 #define ALPHABET "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-int charToIndex(char a){
-  return a - 65;
-}
-
-char indexToChar(int a){
-  return (char)(a+65);
-}
+int charToIndex(char a);
+char indexToChar(int a);
 
 
 #endif

@@ -2,7 +2,7 @@
 #include <math.h>
 #include "point.h"
 
-POINT MakePOINT(float x, float y){
+POINT MakePOINT(int x, int y){
   POINT p;
   Absis(p) = x;
   Ordinat(p) = y;
@@ -10,13 +10,13 @@ POINT MakePOINT(float x, float y){
 }
 
 void BacaPOINT(POINT* P){
-  float x, y;
-  scanf("%f %f", &x, &y);
+  int x, y;
+  scanf("%d %d", &x, &y);
   *P = MakePOINT(x, y);
 }
 
 void TulisPOINT(POINT P){
-  printf("(%.2f,%.2f)", Absis(P), Ordinat(P));
+  printf("(%d,%d)", Absis(P), Ordinat(P));
 }
 
 boolean EQ (POINT P1, POINT P2){
@@ -40,7 +40,7 @@ boolean IsOnSbY(POINT P){
 }
 
 int Kuadran(POINT P){
-  float x, y;
+  int x, y;
   x = Absis(P);
   y = Ordinat(P);
   if(x > 0 && y > 0){
@@ -68,7 +68,7 @@ POINT NextY(POINT P){
   return P2;
 }
 
-POINT PlusDelta(POINT P, float deltaX, float deltaY){
+POINT PlusDelta(POINT P, int deltaX, int deltaY){
   POINT P2;
   Absis(P2) = Absis(P) + deltaX;
   Ordinat(P2) = Ordinat(P) + deltaY;
@@ -77,7 +77,7 @@ POINT PlusDelta(POINT P, float deltaX, float deltaY){
 
 POINT MirrorOf(POINT P, boolean Sbx){
   POINT P2;
-  float x, y;
+  int x, y;
   x = Absis(P);
   y = Ordinat(P);
   if(Sbx){
@@ -96,7 +96,7 @@ float Panjang(POINT P1, POINT P2){
   return sqrt(pow((Absis(P1) - Absis(P2)), 2) + pow((Ordinat(P1) - Ordinat(P2)), 2));
 }
 
-void Geser(POINT *P, float deltaX, float deltaY){
+void Geser(POINT *P, int deltaX, int deltaY){
   Absis(*P) += deltaX;
   Ordinat(*P) += deltaY;
 }
@@ -115,16 +115,6 @@ void Mirror(POINT* P, boolean SbX){
   }else{
     Absis(*P) = -Absis(*P);
   }
-}
-
-void Putar (POINT *P, float sudut){
-  float x, y;
-  const float PI = 3.1415926535;
-  float deg = sudut * (PI/180);
-  x = cos(deg)*Absis(*P) + sin(deg)*Ordinat(*P);
-  y = -sin(deg)*Absis(*P) + cos(deg)*Ordinat(*P);
-  Absis(*P) = x;
-  Ordinat(*P) = y;
 }
 
 //NOTE ngereturn selisih koordinat p1 sama p2 atau langkah yang harus dilalui;
