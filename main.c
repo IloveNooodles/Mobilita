@@ -5,6 +5,7 @@
 
 
 int main(){
+    Game game;
     Word EMPTY = {"", 0};
     Word wordAr[3];
     int input = 0;
@@ -34,9 +35,9 @@ int main(){
 
     // Input == NEW GAME
     if(input == 1){
-        // Game game;
-        // // TODO: Masuk ke New Game
-        startWord();
+        Game game;
+        // TODO: Masuk ke New Game
+        // startWord();
         // inputConfigFile(&game, currentWord);
         checker();
     }
