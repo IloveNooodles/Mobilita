@@ -8,6 +8,9 @@ typedef struct {
   POINT koor;
 } Lokasi;
 
-//NOTE buat selektronya dong tolong
+void TulisLokasi(Lokasi c);
+
+#define getTipeBangunan(l) (l).tipeBangunan
+#define getKoordinat(l) (l).koor
 
 #endif  

@@ -12,7 +12,8 @@ POINT MakePOINT(int x, int y){
 void BacaPOINT(POINT* P){
   int x, y;
   scanf("%d %d", &x, &y);
-  *P = MakePOINT(x, y);
+  Absis(*P) = x;
+  Ordinat(*P) = y;
 }
 
 void TulisPOINT(POINT P){

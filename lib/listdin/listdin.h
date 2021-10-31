@@ -8,6 +8,7 @@
 #define LISTDIN_H
 
 #include "../utility/boolean.h"
+#include "../lokasi/lokasi.h"
 
 /*  Kamus Umum */
 #define IDX_UNDEF -1
@@ -18,7 +19,7 @@ typedef int ElType; /* type elemen list */
 typedef int IdxType;
 typedef struct
 {
-    ElType *buffer; /* memori tempat penyimpan elemen (container) */
+    Lokasi *buffer; /* memori tempat penyimpan elemen (container) */
     int nEff;       /* >=0, banyaknya elemen efektif */
     int capacity;   /* ukuran elemen */
 } ListDin;
