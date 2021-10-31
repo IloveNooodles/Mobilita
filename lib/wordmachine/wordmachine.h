@@ -5,9 +5,10 @@
 #define WORD_ENGINE_H
 
 #include "../utility/boolean.h"
+#include "../utility/const.h"
 #include "charmachine.h"
 
-#define CAPACITY 50
+// #define CAPACITY 50
 #define BLANK ' '
 
 typedef struct {

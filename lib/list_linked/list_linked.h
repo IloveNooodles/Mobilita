@@ -22,12 +22,12 @@ typedef Address List;
 
 /* PROTOTYPE */
 /****************** PEMBUATAN LIST KOSONG ******************/
-void CreateList(List *l);
+void CreateLinkedList(List *l);
 /* I.S. sembarang             */
 /* F.S. Terbentuk list kosong */
 
 /****************** TEST LIST KOSONG ******************/
-boolean isEmpty(List l);
+boolean isLinkedListEmpty(List l);
 /* Mengirim true jika list kosong */
 
 /****************** GETTER SETTER ******************/
@@ -39,7 +39,7 @@ void setElmt(List *l, int idx, ElType val);
 /* I.S. l terdefinisi, idx indeks yang valid dalam l, yaitu 0..length(l) */
 /* F.S. Mengubah elemen l pada indeks ke-idx menjadi val */
 
-int indexOf(List l, ElType val);
+int indexOfLinkedList(List l, ElType val);
 /* I.S. l, val terdefinisi */
 /* F.S. Mencari apakah ada elemen list l yang bernilai val */
 /* Jika ada, mengembalikan indeks elemen pertama l yang bernilai val */
@@ -82,7 +82,7 @@ void deleteAt(List *l, int idx, ElType *val);
 
 
 /****************** PROSES SEMUA ELEMEN LIST ******************/
-void displayList(List l);
+void displayListLinked(List l);
 // void printInfo(List l);
 /* I.S. List mungkin kosong */
 /* F.S. Jika list tidak kosong, iai list dicetak ke kanan: [e1,e2,...,en] */
@@ -90,7 +90,7 @@ void displayList(List l);
 /* Jika list kosong : menulis [] */
 /* Tidak ada tambahan karakter apa pun di awal, akhir, atau di tengah */
 
-int length(List l);
+int listLinkedLength(List l);
 /* Mengirimkan banyaknya elemen list; mengirimkan 0 jika list kosong */
 
 /****************** PROSES TERHADAP LIST ******************/

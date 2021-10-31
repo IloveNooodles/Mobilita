@@ -20,24 +20,24 @@ void CreateQueue(Queue *q){
 /* Proses : Melakukan alokasi, membuat sebuah q kosong */
 
 /* ********* Prototype ********* */
-boolean isEmpty(Queue q){
+boolean isQueueEmpty(Queue q){
   return (IDX_HEAD(q) == IDX_UNDEF && IDX_TAIL(q) == IDX_UNDEF);
 }
 /* Mengirim true jika q kosong: lihat definisi di atas */
-boolean isFull(Queue q){
+boolean isQueueFull(Queue q){
   return(IDX_HEAD(q) == 0 && IDX_TAIL(q) == CAPACITY - 1);
 }
 /* Mengirim true jika tabel penampung elemen q sudah penuh */
 /* yaitu jika index head bernilai 0 dan index tail bernilai CAPACITY-1 */
-int length(Queue q){
-  if(isEmpty(q)) return 0;
+int queueLength(Queue q){
+  if(isQueueEmpty(q)) return 0;
   return IDX_TAIL(q) - IDX_HEAD(q) + 1;
 }
 /* Mengirimkan banyaknya elemen queue. Mengirimkan 0 jika q kosong. */
 
 /* *** Primitif Add/Delete *** */
 void enqueue(Queue *q, ElType val){
-  if(isEmpty(*q)){
+  if(isQueueEmpty(*q)){
     IDX_HEAD(*q) = 0;
     IDX_TAIL(*q) = 0; 
   }else{
@@ -75,7 +75,7 @@ void dequeue(Queue *q, ElType *val){
 /* *** Display Queue *** */
 void displayQueue(Queue q){
   printf("[");
-  if(!isEmpty(q)){
+  if(!isQueueEmpty(q)){
     for(int i = IDX_HEAD(q); i <= IDX_TAIL(q); i++){
       printf("%d", q.buffer[i]);
       if(i != IDX_TAIL(q)){

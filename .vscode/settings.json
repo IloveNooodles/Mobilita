@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "initializer_list": "c",
+        "iosfwd": "c",
+        "type_traits": "c",
+        "boolean.h": "c"
+    }
+}

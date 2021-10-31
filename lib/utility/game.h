@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include "../point/point.h"
 #include "../time/time.h"
+#include "../matrix/matrix.h"
 #include "../adt.h"
 
 //NOTE mungkin ini tipe pickup dropoff tipe item nya bisa diganti nanti sesuai tipe masing masing

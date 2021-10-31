@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../wordmachine/wordmachine.h"
+
 
 void startMenu(){
     printf("Selamat datang ke Mobilita.\n");

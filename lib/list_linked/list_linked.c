@@ -3,14 +3,14 @@
 #include "list_linked.h"
 
 /****************** PEMBUATAN LIST KOSONG ******************/
-void CreateList(List *l){
+void CreateLinkedList(List *l){
   FIRST(*l) = NULL;
 }
 /* I.S. sembarang             */
 /* F.S. Terbentuk list kosong */
 
 /****************** TEST LIST KOSONG ******************/
-boolean isEmpty(List l){
+boolean isLinkedListEmpty(List l){
   return FIRST(l) == NULL;
 }
 /* Mengirim true jika list kosong */
@@ -40,7 +40,7 @@ void setElmt(List *l, int idx, ElType val){
 /* I.S. l terdefinisi, idx indeks yang valid dalam l, yaitu 0..length(l) */
 /* F.S. Mengubah elemen l pada indeks ke-idx menjadi val */
 
-int indexOf(List l, ElType val){
+int indexOfLinkedList(List l, ElType val){
   int idx = 0;
   Address p = l;
   boolean found = false;
@@ -78,7 +78,7 @@ void insertFirst(List *l, ElType val){
 /* Jika alokasi gagal: I.S.= F.S. */
 
 void insertLast(List *l, ElType val){
-  if(isEmpty(*l)){
+  if(isLinkedListEmpty(*l)){
     insertFirst(l, val);
   }else{
     Address p = newNode(val);
@@ -172,7 +172,7 @@ void deleteAt(List *l, int idx, ElType *val){
 
 
 /****************** PROSES SEMUA ELEMEN LIST ******************/
-void displayList(List l){
+void displayListLinked(List l){
   printf("[");
   Address p = l;
   while(p != NULL){
@@ -205,7 +205,7 @@ int length(List l){
 /****************** PROSES TERHADAP LIST ******************/
 List concat(List l1, List l2){
   List l3;
-  CreateList(&l3);
+  CreateLinkedList(&l3);
   Address p = l1;
   while(p != NULL){
     insertLast(&l3, INFO(p));

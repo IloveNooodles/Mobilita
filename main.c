@@ -3,6 +3,7 @@
 #include "lib\utility\utility.h"
 #include "lib\tempdriver.h"
 
+
 int main(){
     Word EMPTY = {"", 0};
     Word wordAr[3];
@@ -31,12 +32,12 @@ int main(){
         }
     } while(input == 0);
 
-    //Input == NEW GAME
+    // Input == NEW GAME
     if(input == 1){
-        Game game;
-        // TODO: Masuk ke New Game
+        // Game game;
+        // // TODO: Masuk ke New Game
         startWord();
-        inputConfigFile(&game, currentWord);
+        // inputConfigFile(&game, currentWord);
         checker();
     }
 
