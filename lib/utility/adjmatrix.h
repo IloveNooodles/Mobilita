@@ -15,6 +15,4 @@ char indexToChar(int a){
 }
 
 
-
-
 #endif

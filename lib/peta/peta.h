@@ -1,8 +1,8 @@
 #ifndef PETA_H
 #define PETA_H
 
-#include "point.h"
-#include "boolean.h"
+#include "../point/point.h"
+#include "../utility/boolean.h"
 
 #define MAX_ROW 30
 #define MAX_COL 40
@@ -10,7 +10,7 @@
 
 typedef struct {
   char tipeBangunan;
-  bool state;
+  boolean state;
   POINT koor;
 } Lokasi;
 
