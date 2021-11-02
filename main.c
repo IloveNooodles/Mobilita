@@ -37,9 +37,15 @@ int main(){
     if(input == 1){
         Game game;
         // TODO: Masuk ke New Game
-        // startWord();
-        // inputConfigFile(&game, currentWord);
-        checker();
+        printf("Selamat datang di Mobilita!\nSilahkan masukkan nama config file: ");
+        startWord();
+        inputConfigFile(&game, currentWord);
+        game.endGame = false;
+        while(!game.endGame){
+            
+        }
+
+        // checker();
     }
 
     //Input == EXIT

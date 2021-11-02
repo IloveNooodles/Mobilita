@@ -24,6 +24,10 @@ void inputConfigFile(Game *g, Word cfg);
 void checker();
 // prints "masuk" (to check a functionality)
 
+Word concatWord(Word w1, Word w2);
+
+void loading();
+
 void quit();
 
 

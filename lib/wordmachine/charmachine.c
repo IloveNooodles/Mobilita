@@ -24,7 +24,11 @@ void start() {
 }
 
 void startFromFile(char *str){
-       tape = fopen(str, "w");
+       // fclose(tape);
+       tape = fopen(str, "r");
+       if(tape == NULL){
+              printf("File tidak ditemukan. Exiting....\n");
+       }
        adv();
 }
 
