@@ -7,11 +7,12 @@
 
 #include "../utility/boolean.h"
 #include "../utility/const.h"
+#include "../item/item.h"
 
 // #define IDX_UNDEF -1
 // #define CAPACITY 100
 
-typedef int ElType;
+typedef Item ElType;
 typedef struct {
   ElType buffer[CAPACITY]; /* tabel penyimpan elemen */
   int idxTop;              /* alamat TOP: elemen puncak */
