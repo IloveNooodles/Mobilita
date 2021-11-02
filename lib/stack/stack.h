@@ -17,6 +17,8 @@ typedef struct {
   int idxTop;              /* alamat TOP: elemen puncak */
 } Stack;
 
+extern int stack_capacity;
+
 /* ********* AKSES (Selektor) ********* */
 /* Jika s adalah Stack, maka akses elemen : */
 #define IDX_TOP(s) (s).idxTop
@@ -46,5 +48,12 @@ void pop(Stack *s, ElType *val);
 /* Menghapus val dari Stack s */
 /* I.S. s tidak mungkin kosong */
 /* F.S. val adalah nilai elemen TOP yang lama, IDX_TOP berkurang 1 */
+
+/* ************ Menambah kapasitas Stack ************ */
+boolean increaseCapacity(int amount);
+/* Menambah kapasitas maksimal Stack sebanyak amount */
+/* Mengembalikan true bila stack_capacity belum bernilai maksimal (penambahan berhasil) */
+/* Mengembalikan false di kasus sebaliknya */
+/* stack_capacity bernilai maksimal 100 */
 
 #endif

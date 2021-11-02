@@ -2,8 +2,9 @@
 /* Definisi ADT Stack dengan representasi array secara eksplisit dan alokasi statik */
 /* TOP adalah alamat elemen puncak */
 
-
 #include "stack.h"
+
+int stack_capacity = 3;
 
 /* *** Konstruktor/Kreator *** */
 void CreateStack(Stack *s){
@@ -20,7 +21,7 @@ boolean isStackEmpty(Stack s){
 }
 /* Mengirim true jika s kosong: lihat definisi di atas */
 boolean isStackFull(Stack s){
-  return IDX_TOP(s) == CAPACITY-1;
+  return IDX_TOP(s) == stack_capacity - 1;
 }
 /* Mengirim true jika tabel penampung nilai s stack penuh */
 
@@ -41,3 +42,23 @@ void pop(Stack *s, ElType *val){
 /* Menghapus val dari Stack s */
 /* I.S. s tidak mungkin kosong */
 /* F.S. val adalah nilai elemen TOP yang lama, IDX_TOP berkurang 1 */
+
+/* ************ Menambah kapasitas Stack ************ */
+boolean increaseCapacity(int amount) {
+    if (stack_capacity == CAPACITY) {
+        return false;
+    }
+    else {
+        if (stack_capacity + amount >= CAPACITY) {
+            stack_capacity = CAPACITY;
+        }
+        else {
+            stack_capacity += amount;
+        }
+
+        return true;
+    }
+}
+
+/* Menambah kapasitas maksimal Stack sebanyak amount */
+/* stack_capacity bernilai maksimal 100 */
