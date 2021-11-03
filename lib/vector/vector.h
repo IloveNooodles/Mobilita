@@ -1,6 +1,6 @@
 /* File: vector.h */
 /* Tanggal: 29 Agustus 2019 */
-#include "point.h"
+#include "../point/point.h"
 
 #ifndef VECTOR_H
 #define VECTOR_H

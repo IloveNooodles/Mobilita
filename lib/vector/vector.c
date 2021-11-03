@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <math.h>
-#include "../h/vector.h"
+#include "vector.h"
 
 VECTOR MakeVector(float x, float y){
   VECTOR a;
