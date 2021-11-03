@@ -26,7 +26,7 @@ boolean isStackFull(Stack s){
 /* Mengirim true jika tabel penampung nilai s stack penuh */
 
 /* ************ Menambahkan sebuah elemen ke Stack ************ */
-void push(Stack *s, ElType val){
+void push(Stack *s, StackElType val){
   IDX_TOP(*s) += 1;
   TOP(*s) = val;
 }
@@ -35,7 +35,7 @@ void push(Stack *s, ElType val){
 /* F.S. val menjadi TOP yang baru,IDX_TOP bertambah 1 */
 
 /* ************ Menghapus sebuah elemen Stack ************ */
-void pop(Stack *s, ElType *val){
+void pop(Stack *s, StackElType *val){
   *val = TOP(*s);
   IDX_TOP(*s) -= 1;
 }

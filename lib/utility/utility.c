@@ -124,6 +124,30 @@ void inputConfigFile(Game *g, Word cfg){
     // printf("%i %c %c %c\n", g->psn[2].t, g->psn[2].pickUp, g->psn[2].dropOff, g->psn[2].tipeItem);
 }
 
+int checkMenuInput(Word w){
+    Word MOVE = {"MOVE", 4};
+    Word PICK_UP = {"PICK_UP", 7};
+    Word DROP_OFF = {"DROP_OFF", 8};
+    Word MAP = {"MAP", 3};
+    Word TO_DO = {"TO_DO", 5};
+    Word IN_PROGRESS = {"IN_PROGRESS", 11};
+    Word BUY = {"BUY", 3};
+    Word INVENTORY = {"INVENTORY", 9};
+    Word HELP = {"HELP", 4};
+    // Might need later //
+    Word SAVE_GAME = {"SAVE_GAME", 9};
+
+    Word key[] = {MOVE, PICK_UP, DROP_OFF, MAP, TO_DO, IN_PROGRESS, BUY, INVENTORY, HELP, SAVE_GAME};
+    int i;
+    // ! Change to 10 if there is SAVE_GAME
+    for(i = 0; i < 9; i++){
+        if(isWordEqual(w, key[i])){
+            return i;
+        }
+    }
+    return -1;
+}
+
 void checker(){
     printf("Masuk!\n");
 }

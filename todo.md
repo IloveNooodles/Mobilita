@@ -4,7 +4,7 @@ Yang sekarang lagi dikerjakan:
 - buat driver setiap adt
 - buat .txt compile setiap adt
 - Sesuaiin jenis ADT.
-- Membuat ADT Item
+- Membuat ADT Item Note: ElType nabrak, jadi gua ganti ElType di Stack jadi StackElType -gagas
 
 Buat temen-temen:
 Constant yang ngulang (IDX_UNDEF, CAPACITY) udah gua taro di const.h. Pake itu aja. Kalo ada constant yang ngulang lagi taro situ lagi aja.
@@ -16,5 +16,5 @@ smangat ^\_^
 
 Changelog (setiap abis push tolong taro notable things buat yang lain):
 - (2/11/21) Made input from file (Gagas)
-- 
+- (4/11/21) Made main menu input
 

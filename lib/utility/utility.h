@@ -26,6 +26,8 @@ void checker();
 
 Word concatWord(Word w1, Word w2);
 
+int checkMenuInput(Word w);
+
 void loading();
 
 void quit();
