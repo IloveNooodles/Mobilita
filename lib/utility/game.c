@@ -9,7 +9,7 @@ void move(Game g){
 
     // Checking index
     for(i = 0; i < 27; i++){
-        if(EQ(g.bangunan[i].koor, currentLocation.koor)){
+        if(EQ(g.bangunan.buffer[i].koor, currentLocation.koor)){
             idx = i;
         }
     }
@@ -17,7 +17,7 @@ void move(Game g){
     // Searching possible moves
     for(i = 0; i < g.adj.colEff; i++){
         if(g.adj.contents[idx][i] == 1){
-            possibleMoves[count] = g.bangunan[i];
+            possibleMoves[count] = g.bangunan.buffer[i];
             count++;
         }
     }

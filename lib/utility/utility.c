@@ -67,6 +67,7 @@ void inputConfigFile(Game *g, Word cfg){
     Word path = concatWord(dir, cfg);
     // displayWord(path);
     startFromFile(path.contents);
+    CreateListDin(&g->bangunan, 30);
     advWord();
     g->size.X = atoi(currentWord.contents);
     advWord();
@@ -76,17 +77,19 @@ void inputConfigFile(Game *g, Word cfg){
     advWord();
     g->hq.koor.Y = atoi(currentWord.contents);
     g->hq.tipeBangunan = '8';
-    g->bangunan[0] = g->hq;
+    insertLastListDin(&g->bangunan, g->hq);
     advNewline();
     g->jumlah_lokasi = atoi(currentWord.contents);
     int i;
+    Lokasi temploc;
     for(i = 1; i < g->jumlah_lokasi+1; i++){
         advNewline();
-        g->bangunan[i].tipeBangunan = currentWord.contents[0];
+        temploc.tipeBangunan = currentWord.contents[0];
         advWord();
-        g->bangunan[i].koor.X = atoi(currentWord.contents);
+        temploc.koor.X = atoi(currentWord.contents);
         advWord();
-        g->bangunan[i].koor.Y = atoi(currentWord.contents);
+        temploc.koor.Y = atoi(currentWord.contents);
+        insertLastListDin(&g->bangunan, temploc);
     }
     g->adj.colEff = g->jumlah_lokasi+1;
     g->adj.rowEff = g->jumlah_lokasi+1;
@@ -116,8 +119,10 @@ void inputConfigFile(Game *g, Word cfg){
         g->psn[i].tipeItem = currentWord.contents[0];
     }
 
+    // ! LINE CODE INI JANGAN DIHAPUS, TANPA INI LISTDIN TIDAK STABIL!
+    int len = listDinLength(g->bangunan);
     // loading();
-
+    // printf("%i\n", g->bangunan.nEff);
     // checker();
     // displayMatrix(g->adj);
     // printf("\n%i %i\n", g->size.X, g->size.Y);

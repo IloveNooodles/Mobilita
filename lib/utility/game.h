@@ -8,6 +8,7 @@
 #include "../lokasi/lokasi.h"
 #include "../wordmachine/wordmachine.h"
 #include "../wordmachine/charmachine.h"
+#include "../listdin/listdin.h"
 
 int currentTime;
 Lokasi currentLocation;
@@ -28,7 +29,8 @@ typedef struct {
   POINT size;
   Lokasi hq;
   int jumlah_lokasi;
-  Lokasi bangunan[27];
+  ListDin bangunan;
+  // Lokasi bangunan[27];
   Matrix adj;
   int jumlah_pesanan;
   Pesanan psn[30];
