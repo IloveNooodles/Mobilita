@@ -6,21 +6,29 @@ void move(Game g){
     int i;
     int idx;
     int count = 0;
+
+    // Checking index
     for(i = 0; i < 27; i++){
         if(EQ(g.bangunan[i].koor, currentLocation.koor)){
             idx = i;
         }
     }
+
+    // Searching possible moves
     for(i = 0; i < g.adj.colEff; i++){
         if(g.adj.contents[idx][i] == 1){
             possibleMoves[count] = g.bangunan[i];
             count++;
         }
     }
+
+    // Printing possible moves
     printf("Posisi yang dapat dicapai: \n");
     for(i = 0; i < count; i++){
         printf("%d. %c ", i+1, possibleMoves[i].tipeBangunan);  TulisPOINT(possibleMoves[i].koor); printf("\n");
     }
+
+    // Execute moves
     printf("Posisi yang dipilih? (ketik 0 jika ingin kembali)\n");
     printf("ENTER COMMAND: ");
     startWord();
@@ -30,6 +38,7 @@ void move(Game g){
         return;
     }
     else{
+        // Update variables
         if(choice == 0){
             return;
         }

@@ -44,6 +44,7 @@ int main(){
         currentTime = 0;
         currentLocation = game.hq;
         
+        // Main game loop
         while(!game.endGame){
             printf("Waktu: %d\n", currentTime);
             printf("ENTER COMMAND: ");

@@ -48,9 +48,10 @@ typedef struct {
 
 
 void move(Game g);
+// Move function
 
 void updatePosition(Lokasi l);
-
+// Update currentPosition with the input location
 
 
 #endif 

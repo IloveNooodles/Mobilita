@@ -25,12 +25,15 @@ void checker();
 // prints "masuk" (to check a functionality)
 
 Word concatWord(Word w1, Word w2);
+// Concatenates two words
 
 int checkMenuInput(Word w);
+// Main menu input checker
 
 void loading();
+// Fancy loading for the lulz
 
 void quit();
-
+// Quit the program
 
 #endif
