@@ -35,13 +35,15 @@ int main(){
 
     // Input == NEW GAME
     if(input == 1){
-        Game game;
+        // Game game;
         // TODO: Masuk ke New Game
         printf("Selamat datang di Mobilita!\nSilahkan masukkan nama config file: ");
         startWord();
         inputConfigFile(&game, currentWord);
         game.endGame = false;
+        game.currentTime = 0;
         while(!game.endGame){
+            printf("Waktu: %d\n", game.currentTime);
             printf("ENTER COMMAND: ");
             startWord();
             input = checkMenuInput(currentWord);
@@ -71,7 +73,7 @@ int main(){
                     printf("inventory\n");
                     break;
                 case 8:
-                    printf("help\n");
+                    help();
                     break;
                 // case 9:
                 //     printf("save\n");

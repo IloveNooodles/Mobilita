@@ -166,6 +166,19 @@ Word concatWord(Word w1, Word w2){
 }
 
 
+void help(){
+    printf("==+ HELP MENU +==\n");
+    printf("1. MOVE -> Untuk berpindah ke lokasi lainnya\n");
+    printf("2. PICK_UP -> Untuk mengambil item yang ada di lokasi sekarang\n");
+    printf("3. DROP_OFF -> Untuk mengantarkan item ke lokasi jika item di tumpukan teratas tas sesuai dengan pesanan.\n");
+    printf("4. MAP -> Untuk memunculkan peta.\n");
+    printf("5. TO_DO -> Untuk menampilkan pesanan yang masuk ke dalam To Do List\n");
+    printf("6. IN_PROGRESS ->  Untuk menampilkan pesanan yang sedang diantar\n");
+    printf("7. BUY -> Untuk membeli gadget (Hanya dapat dilakukan di HQ)\n");
+    printf("8. INVENTORY -> Untuk menampilkan isi inventory.\n");
+    printf("9. HELP -> Menampilkan menu Help yang berisi daftar command.\n");
+}
+
 void loading(){
     int i = 0;
     for (i = 0; i <= 10000; i++){

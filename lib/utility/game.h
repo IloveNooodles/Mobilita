@@ -27,6 +27,7 @@ typedef struct {
   Matrix adj;
   int jumlah_pesanan;
   Pesanan psn[30];
+  int currentTime;
   boolean endGame;
 } Game;
 
