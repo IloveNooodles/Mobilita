@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "../h/prioqueue.h"
+#include "prioqueue.h"
 
 void CreatePrioQueue(PrioQueue *pq){
   IDX_HEAD(*pq) = IDX_UNDEF;

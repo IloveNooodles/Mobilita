@@ -6,6 +6,11 @@
 #include "../matrix/matrix.h"
 #include "../adt.h"
 #include "../lokasi/lokasi.h"
+#include "../wordmachine/wordmachine.h"
+#include "../wordmachine/charmachine.h"
+
+int currentTime;
+Lokasi currentLocation;
 
 // typedef struct {
 //   char tipeBangunan;
@@ -21,13 +26,12 @@ typedef struct {
 
 typedef struct {
   POINT size;
-  POINT hq;
+  Lokasi hq;
   int jumlah_lokasi;
-  Lokasi bangunan[26];
+  Lokasi bangunan[27];
   Matrix adj;
   int jumlah_pesanan;
   Pesanan psn[30];
-  int currentTime;
   boolean endGame;
 } Game;
 
@@ -42,6 +46,10 @@ typedef struct {
 #define DROPOFF(l) (l).dropOff
 #define tipeItem(l) (l).tipeItem
 
+
+void move(Game g);
+
+void updatePosition(Lokasi l);
 
 
 

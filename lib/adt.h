@@ -15,4 +15,6 @@
 #include "./listdin/listdin.h"
 #include "./list_linked/list_linked.h"
 #include "./list_linked/node.h"
+#include "./lokasi/lokasi.h"
+
 #endif

@@ -72,13 +72,15 @@ void inputConfigFile(Game *g, Word cfg){
     advWord();
     g->size.Y = atoi(currentWord.contents);
     advNewline();
-    g->hq.X = atoi(currentWord.contents);
+    g->hq.koor.X = atoi(currentWord.contents);
     advWord();
-    g->hq.Y = atoi(currentWord.contents);
+    g->hq.koor.Y = atoi(currentWord.contents);
+    g->hq.tipeBangunan = '8';
+    g->bangunan[0] = g->hq;
     advNewline();
     g->jumlah_lokasi = atoi(currentWord.contents);
     int i;
-    for(i = 0; i < g->jumlah_lokasi; i++){
+    for(i = 1; i < g->jumlah_lokasi+1; i++){
         advNewline();
         g->bangunan[i].tipeBangunan = currentWord.contents[0];
         advWord();
