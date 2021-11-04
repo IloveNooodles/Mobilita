@@ -17,7 +17,8 @@ smangat ^\_^
 
 Changelog (setiap abis push tolong taro notable things buat yang lain):
 - (2/11/21) Made input from file (Gagas)
-- (4/11/21) Made main menu input
+- (4/11/21) Made main menu input (Gagas)
+- (5/11/21) Made help, move. List bangunan diganti jadi listdin. (Gagas)
 
 
 Take caution:
