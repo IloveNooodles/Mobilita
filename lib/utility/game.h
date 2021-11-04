@@ -12,6 +12,7 @@
 
 int currentTime;
 Lokasi currentLocation;
+int currentMoney;
 
 // typedef struct {
 //   char tipeBangunan;
@@ -55,5 +56,10 @@ void move(Game g);
 void updatePosition(Lokasi l);
 // Update currentPosition with the input location
 
+void displayCurrentMoney();
+
+void displayCurrentLocation();
+
+void displayPeta(Game g);
 
 #endif 

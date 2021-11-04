@@ -9,6 +9,7 @@ typedef struct {
 } Lokasi;
 
 void TulisLokasi(Lokasi c);
+boolean isLocationEqual(Lokasi l1, Lokasi l2);
 
 #define getTipeBangunan(l) (l).tipeBangunan
 #define getKoordinat(l) (l).koor
