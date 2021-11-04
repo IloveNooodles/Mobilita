@@ -9,15 +9,15 @@ typedef char item_type[10];
 typedef struct {
     item_type type;
     int value;
+    int expiry;
 } Item;
-
-extern const char type_list[3][10];
 
 #define TYPE(i) (i).type
 #define VALUE(i) (i).value
+#define EXPIRY(i) (i).expiry
 
 /* Create new Item needed as Stack element*/
 /* Generates new item_type and assign its value accordingly */
-void createItem(Item *item);
+void createItem(Item *item, char type, int expiry);
 
 #endif //MOBILITA_ITEM_H
