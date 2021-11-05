@@ -17,7 +17,7 @@
 - Daftar pesanan
 - To Do List
 - In Progress list
-- Tas
+- ~~Tas (Jeremy)~~
 - Jenis item (Half Clear: Jeremy)
 - Ability (Half Clear: Gare)
 - ~~Peta (Gare)~~
