@@ -12,14 +12,14 @@
 
 - ~~Main Menu (Gagas)~~
 - ~~Mesin Kata (Gagas)~~
-- Lokasi dan Command (Gagas)
+- Lokasi dan Command (Half Clear: Gagas)
 - ~~Mekanisme Waktu (Gare)~~
 - Daftar pesanan
 - To Do List
 - In Progress list
 - Tas
-- ~~Jenis item~~ (Half Clear: Jeremy)
-- Ability
+- Jenis item (Half Clear: Jeremy)
+- Ability (Half Clear: Gare)
 - ~~Peta (Gare)~~
 - Inventory Gadget
 

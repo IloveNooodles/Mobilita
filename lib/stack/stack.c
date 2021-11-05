@@ -52,20 +52,22 @@ void pop(Stack *s, StackElType *val){
 /* F.S. val adalah nilai elemen TOP yang lama, IDX_TOP berkurang 1 */
 
 /* ************ Menambah kapasitas Stack ************ */
-boolean increaseCapacity(int amount) {
-    if (stack_capacity == CAPACITY) {
-        return false;
+void increaseCapacity(int amount) {
+    if (stack_capacity != CAPACITY) {
+      if (stack_capacity + amount >= CAPACITY) {
+        stack_capacity = CAPACITY;
+      }else{
+        stack_capacity += amount;
+      }
     }
-    else {
-        if (stack_capacity + amount >= CAPACITY) {
-            stack_capacity = CAPACITY;
-        }
-        else {
-            stack_capacity += amount;
-        }
+}
 
-        return true;
-    }
+void setCapacity(int amount){
+  if(STACK_CAPACITY + amount <= CAPACITY){
+    stack_capacity = STACK_CAPACITY + amount;
+  }else{
+    stack_capacity = CAPACITY;
+  }
 }
 
 void displayStack(Stack s){

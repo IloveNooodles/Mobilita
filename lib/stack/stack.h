@@ -9,9 +9,6 @@
 #include "../utility/const.h"
 #include "../item/item.h"
 
-// #define IDX_UNDEF -1
-// #define CAPACITY 100
-
 typedef Item StackElType;
 typedef struct {
   StackElType buffer[CAPACITY]; /* tabel penyimpan elemen */
@@ -53,12 +50,14 @@ void pop(Stack *s, StackElType *val);
 /* F.S. val adalah nilai elemen TOP yang lama, IDX_TOP berkurang 1 */
 
 /* ************ Menambah kapasitas Stack ************ */
-boolean increaseCapacity(int amount);
+//NOTE ini gw ganti dari boolean jadi void
+void increaseCapacity(int amount);
 /* Menambah kapasitas maksimal Stack sebanyak amount */
 /* Mengembalikan true bila stack_capacity belum bernilai maksimal (penambahan berhasil) */
 /* Mengembalikan false di kasus sebaliknya */
 /* stack_capacity bernilai maksimal 100 */
 
 void displayStack(Stack s);
+void setCapacity(int amount);
 
 #endif

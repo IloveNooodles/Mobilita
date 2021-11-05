@@ -28,5 +28,7 @@ void deactivateSpeedBoost(Ability b){
   }
 }
 
-void activateIncreaseCapacity(Ability b);
+void activateIncreaseCapacity(Ability b){
+  setCapacity(BONUSCAPACITY(b));
+}
 void activateReturnToSender(Ability b);
