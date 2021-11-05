@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "adt.h": "c",
+    "charmachine.h": "c",
+    "lokasi.h": "c",
+    "matrix.h": "c"
+  }
+}

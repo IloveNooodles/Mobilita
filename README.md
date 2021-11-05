@@ -6,7 +6,7 @@ Mobilita is CLI (Command Line Interface) Game that includes a lot of data struct
 
 The game goals is to deliver many item as possible to get a lot of money
 
-Member List:
+### Member List:
 
 1. Vionie Novencia Thanggestyo (13520006)
 2. Gagas Praharsa Bahar (13520016)
@@ -14,6 +14,8 @@ Member List:
 4. Taufan Fajarama Putrawansyah R (13520031)
 5. Jeremy S.O.N. Simbolon (13520042)
 6. Arik Rayi Arkananta (13520048)
+
+## Program Structure
 
 ```
 │   .gitignore

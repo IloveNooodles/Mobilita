@@ -10,6 +10,8 @@
 #include "../wordmachine/charmachine.h"
 #include "../listdin/listdin.h"
 #include "../ability/ability.h"
+#include "../stack/stack.h"
+#include "../PrioQueue/prioqueue.h"
 
 int currentTime;
 Lokasi currentLocation;
@@ -21,13 +23,6 @@ int currentMoney;
 // } Lokasi;
 
 typedef struct {
-  int t;
-  char pickUp;
-  char dropOff;
-  char tipeItem;
-} Pesanan;
-
-typedef struct {
   POINT size;
   Lokasi hq;
   int jumlah_lokasi;
@@ -35,6 +30,7 @@ typedef struct {
   // Lokasi bangunan[27];
   Matrix adj;
   Ability b;
+  Stack tas;
   int jumlah_pesanan;
   Pesanan psn[30];
   boolean endGame;
@@ -62,5 +58,7 @@ void displayCurrentMoney();
 void displayCurrentLocation();
 
 void displayPeta(Game g);
+
+PrioQueue transformToPrioQueue(Game g);
 
 #endif 

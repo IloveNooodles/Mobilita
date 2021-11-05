@@ -1,9 +1,10 @@
 #ifndef NODE_H
 #define NODE_H
 
+#include "../PrioQueue/prioqueue.h"
 #include <stdlib.h>
 
-typedef int ElType;
+typedef Pesanan ElType;
 typedef struct node* Address;
 typedef struct node {
     ElType info;

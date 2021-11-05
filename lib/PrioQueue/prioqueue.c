@@ -22,7 +22,7 @@ boolean isFull(PrioQueue pq){
 /* Mengirim true jika tabel penampung elemen pq sudah penuh */
 /* yaitu jika index head bernilai 0 dan index tail bernilai CAPACITY-1 */
 
-int length(PrioQueue pq){
+int lengthPrioQueue(PrioQueue pq){
   if(isEmpty(pq)) return 0;
   return IDX_TAIL(pq) - IDX_HEAD(pq) + 1;
 }
@@ -38,7 +38,7 @@ void geserKiri(PrioQueue *pq){
   IDX_HEAD(*pq) = 0;
 }
 
-void enqueue(PrioQueue *pq, ElType val){
+void enqueue(PrioQueue *pq, Pesanan val){
   if(isEmpty(*pq)){
     IDX_HEAD(*pq) = 0;
     IDX_TAIL(*pq) = 0;
@@ -49,7 +49,7 @@ void enqueue(PrioQueue *pq, ElType val){
     }
     boolean found = false;
     for(int i = IDX_HEAD(*pq); i <= IDX_TAIL(*pq); i++){
-      if(val.score > (*pq).buffer[i].score){
+      if(val.t < (*pq).buffer[i].t){
         found = true;
         for(int j = IDX_TAIL(*pq); j >= i; j--){
           (*pq).buffer[j+1] = (*pq).buffer[j];
@@ -70,9 +70,9 @@ void enqueue(PrioQueue *pq, ElType val){
         Jika q penuh semu, maka perlu dilakukan aksi penggeseran "maju" elemen-elemen pq
         menjadi rata kiri untuk membuat ruang kosong bagi TAIL baru  */
 
-void dequeue(PrioQueue * pq, ElType *val){
+void dequeue(PrioQueue * pq, Pesanan *val){
   *val = HEAD(*pq);
-  if(length(*pq) == 1){
+  if(lengthPrioQueue(*pq) == 1){
     IDX_TAIL(*pq) = IDX_UNDEF;
     IDX_HEAD(*pq) = IDX_UNDEF;
   }else{
@@ -84,3 +84,30 @@ void dequeue(PrioQueue * pq, ElType *val){
 /* F.S. val = nilai elemen HEAD pd
 I.S., HEAD dan IDX_HEAD "mundur"; 
         pq mungkin kosong */
+
+void displayPesanan(Pesanan p){
+  printf("%c -> %c", p.pickUp, p.dropOff);
+  if(p.tipeItem == 'N'){
+    printf(" (Normal Item) ");
+  }else if(p.tipeItem == 'H'){
+    printf(" (Heavy Item) ");
+  }else if(p.tipeItem == 'P'){
+    printf(" (Perishable Item, sisa waktu %d", p.t);
+  }else if(p.tipeItem == 'V'){
+    printf(" (VIP Item) ");
+  }
+  printf("\n");
+}
+
+void displayInProgress(Pesanan p){
+  if(p.tipeItem == 'N'){
+    printf("Normal Item (Tujuan: %c)", p.dropOff);
+  }else if(p.tipeItem == 'H'){
+    printf("Heavy Item (Tujuan: %c)", p.dropOff);
+  }else if(p.tipeItem == 'P'){
+    printf("Perishable Item, sisa waktu %d (Tujuan: %c)", p.t, p.dropOff);
+  }else if(p.tipeItem == 'V'){
+    printf("VIP Item (Tujuan: %c)", p.dropOff);
+  }
+  printf("\n");
+}

@@ -49,6 +49,7 @@ void move(Game g){
             if(FREEZE(g.b)){
               if(TIME(g.b) % 2 != 0){
                 TIME(g.b)--;
+                checkHeavyIteminBag(g.b, g.tas);
               }else{
                 currentTime += 1;
               }
@@ -170,4 +171,14 @@ void updatePosition(Lokasi l){
     currentLocation.koor.X = l.koor.X;
     currentLocation.koor.Y = l.koor.Y;
     currentLocation.tipeBangunan = l.tipeBangunan;
+}
+
+PrioQueue transformToPrioQueue(Game g){
+  //NOTE belom dicek coba cek dulu
+  PrioQueue pq;
+  CreatePrioQueue(&pq);
+  for(int i = 0; i < g.jumlah_pesanan; i++){
+    enqueue(&pq, g.psn[i]);
+  }
+  return pq;
 }

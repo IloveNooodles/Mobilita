@@ -5,7 +5,7 @@
 #ifndef PRIOQUEUE_H
 #define PRIOQUEUE_H
 
-#include "boolean.h"
+#include "../utility/boolean.h"
 #include <stdlib.h>
 
 /* Konstanta */
@@ -14,15 +14,15 @@
 
 /* Deklarasi ElType */
 typedef struct {
-	int id;         /* id mahasiswa */
-	int tArrival;   /* waktu kedatangan */
-	int score;      /* skor Daspro */
-	int dService;   /* durasi/lama persiapan makanan untuk mahasiswa */
-} ElType;
+  int t;
+  char pickUp;
+  char dropOff;
+  char tipeItem;
+} Pesanan;
 
 /* Definisi PrioQueue */
 typedef struct {
-	ElType buffer[CAPACITY];
+	Pesanan buffer[CAPACITY];
 	int idxHead;
 	int idxTail;
 } PrioQueue;
@@ -49,22 +49,24 @@ boolean isFull(PrioQueue pq);
 /* Mengirim true jika tabel penampung elemen pq sudah penuh */
 /* yaitu jika index head bernilai 0 dan index tail bernilai CAPACITY-1 */
 
-int length(PrioQueue pq);
+int lengthPrioQueue(PrioQueue pq);
 /* Mengirimkan banyaknya elemen queue. Mengirimkan 0 jika pq kosong. */
 
 /*** Primitif Add/Delete ***/
-void enqueue(PrioQueue *pq, ElType val);
+void enqueue(PrioQueue *pq, Pesanan val);
 /* Proses: Menambahkan val pada pq dengan aturan FIFO */
 /* I.S. pq mungkin kosong, tabel penampung elemen pq TIDAK penuh */
 /* F.S. val menjadi TAIL yang baru, IDX_TAIL "mundur".
         Jika q penuh semu, maka perlu dilakukan aksi penggeseran "maju" elemen-elemen pq
         menjadi rata kiri untuk membuat ruang kosong bagi TAIL baru  */
 
-void dequeue(PrioQueue * pq, ElType *val);
+void dequeue(PrioQueue * pq, Pesanan *val);
 /* Proses: Menghapus val pada q dengan aturan FIFO */
 /* I.S. pq tidak mungkin kosong */
 /* F.S. val = nilai elemen HEAD pd
 I.S., HEAD dan IDX_HEAD "mundur"; 
         pq mungkin kosong */
 
+void displayPesanan(Pesanan p);
+void displayInProgress(Pesanan p);
 #endif

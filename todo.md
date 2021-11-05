@@ -6,7 +6,8 @@
 - buat .txt compile setiap adt
 - Sesuaiin jenis ADT.
 - Membuat ADT Item Note: ElType nabrak, jadi gua ganti ElType di Stack jadi StackElType -gagas
-- lagi ngerjain ability (Gare)
+- ~~lagi ngerjain ability dikit lagi kelar tinggal ablity terakhir (Gare)~~
+- ~~Lagi ngerjain to do list dan inprogress (Gare)~~
 
 ## List yang harus dikerjakan:
 
@@ -15,8 +16,8 @@
 - Lokasi dan Command (Half Clear: Gagas)
 - ~~Mekanisme Waktu (Gare)~~
 - Daftar pesanan
-- To Do List
-- In Progress list
+- ~~To Do List~~
+- ~~In Progress list~~
 - ~~Tas (Jeremy)~~
 - Jenis item (Half Clear: Jeremy)
 - Ability (Half Clear: Gare)
@@ -35,7 +36,9 @@ smangat ^\_^
 
 - (2/11/21) Made input from file (Gagas)
 - (4/11/21) Made main menu input (Gagas)
+- (4/11/21) Made Peta (Gare)
 - (5/11/21) Made help, move. List bangunan diganti jadi listdin. (Gagas)
+- (5/11/21) Made Ablity, Made edit stack, edit game, edit item
 
 ## Take caution:
 

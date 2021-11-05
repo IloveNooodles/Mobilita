@@ -23,7 +23,12 @@ void createItem(Item *item, char type) {
         strcpy(TYPE(*item), "perishable");
         VALUE(*item) = 400;
         EXPIRY(*item) = expiry;
-    }else{
+    }else if(type == 'V'){
+      strcpy(TYPE(*item), "vip");
+      VALUE(*item) = 600;
+      EXPIRY(*item) = -1;
+    }
+    else{
       printf("Tidak ada item dengan tipe tersebut");
     }
 }

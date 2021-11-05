@@ -8,7 +8,7 @@
 #include "./utility/game.c"
 #include "./pcolor/pcolor.c"
 #include "./stack/stack.c"
-#include "./queue/queue.c"
+#include "./PrioQueue/prioqueue.h"
 #include "./point/point.c"
 #include "./matrix/matrix.c"
 #include "./listpos/listpos.c"

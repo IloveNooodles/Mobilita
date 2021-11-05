@@ -40,24 +40,25 @@ void setElmt(List *l, int idx, ElType val){
 /* I.S. l terdefinisi, idx indeks yang valid dalam l, yaitu 0..length(l) */
 /* F.S. Mengubah elemen l pada indeks ke-idx menjadi val */
 
-int indexOfLinkedList(List l, ElType val){
-  int idx = 0;
-  Address p = l;
-  boolean found = false;
-  while(p != NULL && !found){
-    if(INFO(p) == val){
-      found = true;
-    }else{
-      idx += 1;
-      p = NEXT(p);
-    }
-  }
-  if(found){
-    return idx;
-  }else{
-    return IDX_UNDEF;
-  }
-}
+//NOTE gw gatau ini yang indexof bakal kepake atau engga feeling2 gabakal kepake jadi gw komen dulu buat sementara
+// int indexOfLinkedList(List l, ElType val){
+//   int idx = 0;
+//   Address p = l;
+//   boolean found = false;
+//   while(p != NULL && !found){
+//     if(INFO(p) == val){
+//       found = true;
+//     }else{
+//       idx += 1;
+//       p = NEXT(p);
+//     }
+//   }
+//   if(found){
+//     return idx;
+//   }else{
+//     return IDX_UNDEF;
+//   }
+// }
 /* I.S. l, val terdefinisi */
 /* F.S. Mencari apakah ada elemen list l yang bernilai val */
 /* Jika ada, mengembalikan indeks elemen pertama l yang bernilai val */
@@ -223,3 +224,29 @@ List concat(List l1, List l2){
 /* Konkatenasi dua buah list : l1 dan l2    */
 /* menghasilkan l3 yang baru (dengan elemen list l1 dan l2 secara beurutan). */
 /* Tidak ada alokasi/dealokasi pada prosedur ini */
+
+void displayPesananTerurut(List l){
+  printf("Pesanan pada To Do List: \n");
+  Address now = l;
+  int i = 1;
+  while(now != NULL){
+    printf("%d. ", i);
+    i++;
+    displayPesanan(INFO(now));
+    now = NEXT(now);
+  }
+  printf("\n");
+}
+
+void displayInProgressList(List l){
+  Address now = l;
+  printf("Pesanan yang sedang diantarkan: \n");
+  int i = 1;
+  while(now != NULL){
+    printf("%d. ", i);
+    i++;
+    displayInProgress(INFO(now));
+    now = NEXT(now);
+  }
+  printf("\n");
+}
