@@ -15,9 +15,9 @@
 - ~~Mesin Kata (Gagas)~~
 - Lokasi dan Command (Half Clear: Gagas)
 - ~~Mekanisme Waktu (Gare)~~
-- Daftar pesanan
-- ~~To Do List~~
-- ~~In Progress list~~
+- Daftar pesanan (Gare)
+- ~~To Do List (Gare) ~~
+- ~~In Progress list (Gare)~~
 - ~~Tas (Jeremy)~~
 - Jenis item (Half Clear: Jeremy)
 - Ability (Half Clear: Gare)
@@ -38,7 +38,8 @@ smangat ^\_^
 - (4/11/21) Made main menu input (Gagas)
 - (4/11/21) Made Peta (Gare)
 - (5/11/21) Made help, move. List bangunan diganti jadi listdin. (Gagas)
-- (5/11/21) Made Ablity, Made edit stack, edit game, edit item
+- (5/11/21) Made Ablity, Made edit stack, edit game, edit item (Gare)
+- (5/11/21) Made Daftar Pesanan, Made TO Do, Made In Progress List (Gare)
 
 ## Take caution:
 
