@@ -64,6 +64,18 @@ void advWord()
         ignoreBlank();
     }
 }
+
+void advNewline()
+{
+    Word EMPTY = {"", 0};
+    currentWord = EMPTY;
+    if(currentChar == MARK){
+        endWord = false;
+        adv();
+        copyWord();
+    }
+}
+
 void copyWord()
 /* Mengakuisisi kata, menyimpan dalam currentWord
    I.S. : currentChar adalah karakter pertama dari kata

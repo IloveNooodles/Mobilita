@@ -163,7 +163,7 @@ void displayListDin(ListDin l)
 // }
 // /* ********** SEARCHING ********** */
 // /* ***  Perhatian : list boleh kosong!! *** */
-// IdxType indexOfListDin(ListDin l, ElType val)
+// IdxType indexOfListDin(ListDin l, ListDinElType val)
 // /* Search apakah ada elemen List l yang bernilai val */
 // /* Jika ada, menghasilkan indeks i terkecil, dengan elemen ke-i = val */
 // /* Jika tidak ada, mengirimkan IDX_UNDEF */
@@ -187,7 +187,7 @@ void displayListDin(ListDin l)
 
 
 // /* ********** NILAI EKSTREM ********** */
-// void listDinExtremes(ListDin l, ElType *max, ElType *min)
+// void listDinExtremes(ListDin l, ListDinElType *max, ListDinElType *min)
 // /* I.S. List l tidak kosong */
 // /* F.S. max berisi nilai maksimum l;
 //         min berisi nilai minimum l */
@@ -219,7 +219,7 @@ void displayListDin(ListDin l)
 //    }
 //    NEFF(*lOut) = NEFF(lIn);
 // }
-// ElType sumList(ListDin l)
+// ListDinElType sumList(ListDin l)
 // /* Menghasilkan hasil penjumlahan semua elemen l */
 // /* Jika l kosong menghasilkan 0 */
 // {
@@ -231,7 +231,7 @@ void displayListDin(ListDin l)
 //    return sum;
 // }
 
-// int countVal(ListDin l, ElType val)
+// int countVal(ListDin l, ListDinElType val)
 // /* Menghasilkan berapa banyak kemunculan val di l */
 // /* Jika l kosong menghasilkan 0 */
 // {
@@ -295,27 +295,27 @@ void displayListDin(ListDin l)
 
 
 // /* ********** MENAMBAH DAN MENGHAPUS ELEMEN DI AKHIR ********** */
-// /* *** Menambahkan elemen terakhir *** */
-// void insertLastListDin(ListDin *l, ElType val)
-// /* Proses: Menambahkan val sebagai elemen terakhir list */
-// /* I.S. List l boleh kosong, tetapi tidak penuh */
-// /* F.S. val adalah elemen terakhir l yang baru */
-// {
-//    LISTELMT(*l, NEFF(*l)) = val;
-//    NEFF(*l)++;
-// }
+/* *** Menambahkan elemen terakhir *** */
+void insertLastListDin(ListDin *l, ListDinElType val)
+/* Proses: Menambahkan val sebagai elemen terakhir list */
+/* I.S. List l boleh kosong, tetapi tidak penuh */
+/* F.S. val adalah elemen terakhir l yang baru */
+{
+   LISTELMT(*l, NEFF(*l)) = val;
+   NEFF(*l)++;
+}
 
-// /* ********** MENGHAPUS ELEMEN ********** */
-// void deleteLastListDin(ListDin *l, ElType *val)
-// /* Proses : Menghapus elemen terakhir list */
-// /* I.S. List tidak kosong */
-// /* F.S. val adalah nilai elemen terakhir l sebelum penghapusan, */
-// /*      Banyaknya elemen list berkurang satu */
-// /*      List l mungkin menjadi kosong */
-// {
-//    *val = LISTELMT(*l, NEFF(*l)-1);
-//    NEFF(*l)--;
-// }
+/* ********** MENGHAPUS ELEMEN ********** */
+void deleteLastListDin(ListDin *l, ListDinElType *val)
+/* Proses : Menghapus elemen terakhir list */
+/* I.S. List tidak kosong */
+/* F.S. val adalah nilai elemen terakhir l sebelum penghapusan, */
+/*      Banyaknya elemen list berkurang satu */
+/*      List l mungkin menjadi kosong */
+{
+   *val = LISTELMT(*l, NEFF(*l)-1);
+   NEFF(*l)--;
+}
 // /* ********* MENGUBAH UKURAN ARRAY ********* */
 // void growList(ListDin *l, int num)
 // /* Proses : Menambahkan capacity l sebanyak num */

@@ -46,4 +46,6 @@ void copyWord();
           currentChar adalah karakter sesudah karakter terakhir yang diakuisisi.
           Jika panjang kata melebihi CAPACITY, maka sisa kata terpotong */
 
+void advNewline();
+
 #endif

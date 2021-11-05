@@ -24,7 +24,16 @@ void inputConfigFile(Game *g, Word cfg);
 void checker();
 // prints "masuk" (to check a functionality)
 
-void quit();
+Word concatWord(Word w1, Word w2);
+// Concatenates two words
 
+int checkMenuInput(Word w);
+// Main menu input checker
+
+void loading();
+// Fancy loading for the lulz
+
+void quit();
+// Quit the program
 
 #endif

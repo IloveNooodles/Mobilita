@@ -93,4 +93,7 @@ void Mirror (POINT *P, boolean SbX);
 /* F.S. P dicerminkan tergantung nilai SbX atau SbY */
 /* Jika SbX true maka dicerminkan terhadap sumbu X */
 /* Jika SbX false maka dicerminkan terhadap sumbu Y */
+
+int selisih(POINT P1, POINT P2);
+
 #endif

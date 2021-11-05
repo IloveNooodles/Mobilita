@@ -7,15 +7,18 @@
 
 #include "../utility/boolean.h"
 #include "../utility/const.h"
+#include "../item/item.h"
 
 // #define IDX_UNDEF -1
 // #define CAPACITY 100
 
-typedef int ElType;
+typedef Item StackElType;
 typedef struct {
-  ElType buffer[CAPACITY]; /* tabel penyimpan elemen */
+  StackElType buffer[CAPACITY]; /* tabel penyimpan elemen */
   int idxTop;              /* alamat TOP: elemen puncak */
 } Stack;
+
+extern int stack_capacity;
 
 /* ********* AKSES (Selektor) ********* */
 /* Jika s adalah Stack, maka akses elemen : */
@@ -36,15 +39,22 @@ boolean isStackFull(Stack s);
 /* Mengirim true jika tabel penampung nilai s stack penuh */
 
 /* ************ Menambahkan sebuah elemen ke Stack ************ */
-void push(Stack *s, ElType val);
+void push(Stack *s, StackElType val);
 /* Menambahkan val sebagai elemen Stack s */
 /* I.S. s mungkin kosong, tabel penampung elemen stack TIDAK penuh */
 /* F.S. val menjadi TOP yang baru,IDX_TOP bertambah 1 */
 
 /* ************ Menghapus sebuah elemen Stack ************ */
-void pop(Stack *s, ElType *val);
+void pop(Stack *s, StackElType *val);
 /* Menghapus val dari Stack s */
 /* I.S. s tidak mungkin kosong */
 /* F.S. val adalah nilai elemen TOP yang lama, IDX_TOP berkurang 1 */
+
+/* ************ Menambah kapasitas Stack ************ */
+boolean increaseCapacity(int amount);
+/* Menambah kapasitas maksimal Stack sebanyak amount */
+/* Mengembalikan true bila stack_capacity belum bernilai maksimal (penambahan berhasil) */
+/* Mengembalikan false di kasus sebaliknya */
+/* stack_capacity bernilai maksimal 100 */
 
 #endif

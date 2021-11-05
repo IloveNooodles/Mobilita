@@ -5,9 +5,20 @@
 #include "../point/point.h"
 #include "../matrix/matrix.h"
 #include "../adt.h"
-#include "../peta/peta.h"
+#include "../lokasi/lokasi.h"
+#include "../wordmachine/wordmachine.h"
+#include "../wordmachine/charmachine.h"
+#include "../listdin/listdin.h"
 
-//NOTE mungkin ini tipe pickup dropoff tipe item nya bisa diganti nanti sesuai tipe masing masing dan kaykanya bisa buat adt baru juga
+int currentTime;
+Lokasi currentLocation;
+int currentMoney;
+
+// typedef struct {
+//   char tipeBangunan;
+//   POINT koor;
+// } Lokasi;
+
 typedef struct {
   int t;
   char pickUp;
@@ -17,12 +28,14 @@ typedef struct {
 
 typedef struct {
   POINT size;
-  POINT hq;
+  Lokasi hq;
   int jumlah_lokasi;
-  Lokasi bangunan[30];
-  AdjMatrix adj;
+  ListDin bangunan;
+  // Lokasi bangunan[27];
+  Matrix adj;
   int jumlah_pesanan;
-  Pesanan psn[35];
+  Pesanan psn[30];
+  boolean endGame;
 } Game;
 
 void startGame();
@@ -35,9 +48,17 @@ void loadGame();
 #define DROPOFF(l) (l).dropOff
 #define tipeItem(l) (l).tipeItem
 
-//SelektorGame
-#define WAKTUGAME(l) (l).time
-#define CurLoc(l) (l).CurrentLocation
 
+void move(Game g);
+// Move function
+
+void updatePosition(Lokasi l);
+// Update currentPosition with the input location
+
+void displayCurrentMoney();
+
+void displayCurrentLocation();
+
+void displayPeta(Game g);
 
 #endif 
