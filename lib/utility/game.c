@@ -44,7 +44,9 @@ void move(Game g){
         }
         else{
             // ! CurrentTime diupdate tanpa mengecek item yang sedang dicarry. Harus diubah nanti
-            currentTime += selisih(possibleMoves[choice-1].koor, currentLocation.koor); 
+            // currentTime += selisih(possibleMoves[choice-1].koor, currentLocation.koor); 
+            // NOTE ini currentTime nya nambah 1 setiap move ga nambah selisih dari pointnya aing salah ngerti kayaknya
+            currentTime += 1;
             updatePosition(possibleMoves[choice-1]);
             // printf("Mobita sekarang berada di titik "); TulisLokasi(currentLocation);
         }

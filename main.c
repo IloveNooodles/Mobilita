@@ -6,9 +6,7 @@
 
 int main(){
     Game game;
-    int time;
     POINT currentLokasi;
-    Peta p;
     Word EMPTY = {"", 0};
     Word wordAr[3];
     int input = 0;
