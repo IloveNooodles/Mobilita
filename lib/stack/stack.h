@@ -15,7 +15,8 @@
 typedef Item StackElType;
 typedef struct {
   StackElType buffer[CAPACITY]; /* tabel penyimpan elemen */
-  int idxTop;              /* alamat TOP: elemen puncak */
+  int idxTop; /* alamat TOP: elemen puncak */
+  int heavyItem; //Banyaknya Heavy Item              
 } Stack;
 
 extern int stack_capacity;
@@ -24,6 +25,7 @@ extern int stack_capacity;
 /* Jika s adalah Stack, maka akses elemen : */
 #define IDX_TOP(s) (s).idxTop
 #define     TOP(s) (s).buffer[(s).idxTop]
+#define HEAVY(s) (s).heavyItem
 
 /* *** Konstruktor/Kreator *** */
 void CreateStack(Stack *s);
@@ -56,5 +58,7 @@ boolean increaseCapacity(int amount);
 /* Mengembalikan true bila stack_capacity belum bernilai maksimal (penambahan berhasil) */
 /* Mengembalikan false di kasus sebaliknya */
 /* stack_capacity bernilai maksimal 100 */
+
+void displayStack(Stack s);
 
 #endif

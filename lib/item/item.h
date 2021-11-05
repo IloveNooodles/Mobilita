@@ -5,7 +5,7 @@
 #ifndef MOBILITA_ITEM_H
 #define MOBILITA_ITEM_H
 
-typedef char item_type[10];
+typedef char item_type[11];
 typedef struct {
     item_type type;
     int value;
@@ -18,6 +18,6 @@ typedef struct {
 
 /* Create new Item needed as Stack element*/
 /* Generates new item_type and assign its value accordingly */
-void createItem(Item *item, char type, int expiry);
-
+void createItem(Item *item, char type);
+void displayItem(Item item);
 #endif //MOBILITA_ITEM_H

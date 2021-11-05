@@ -1,10 +1,12 @@
 # **Before do the work please read this:**
 
 - Rapihin fungsi-fungsi yang namanya sama
+- Download extension comment anchor biar enak dan bisa bacanya comment2nya
 - buat driver setiap adt
 - buat .txt compile setiap adt
 - Sesuaiin jenis ADT.
 - Membuat ADT Item Note: ElType nabrak, jadi gua ganti ElType di Stack jadi StackElType -gagas
+- lagi ngerjain ability (Gare)
 
 ## List yang harus dikerjakan:
 

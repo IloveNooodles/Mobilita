@@ -9,6 +9,7 @@
 #include "../wordmachine/wordmachine.h"
 #include "../wordmachine/charmachine.h"
 #include "../listdin/listdin.h"
+#include "../ability/ability.h"
 
 int currentTime;
 Lokasi currentLocation;
@@ -33,6 +34,7 @@ typedef struct {
   ListDin bangunan;
   // Lokasi bangunan[27];
   Matrix adj;
+  Ability b;
   int jumlah_pesanan;
   Pesanan psn[30];
   boolean endGame;
