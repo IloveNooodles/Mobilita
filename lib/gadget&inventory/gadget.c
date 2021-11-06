@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "gadget.h"
-#include "point.h"
+#include "../point/point.h"
+#include "../stack/stack.h"
+#include "../item/item.h"
 
 void CreateInventory(List *L){
     NAME((*L).buffer[0]) = "Kain Pembungkus Waktu";
@@ -73,6 +75,60 @@ void buyGadget(List L, List *I, int money){
     }
 }
 
+
+void kainPembungkusWaktu(Stack *s)
+{
+    boolean found = false;
+    for(int i = IDX_TOP(*s); i >= 0;i--){
+        if (TYPE((*s).buffer[i]) == 'P'){
+            EXPIRY_NOW((*s).buffer[i]) = EXPIRY((*s).buffer[i]);
+            found = true;
+            break;
+        }
+    }
+    if (found == false){
+        printf("Tidak ditemukan perishable item pada tas!\n");
+    }
+    else{
+        printf("Kain pembungkus waktu berhasil digunakan!\n");
+    }
+}
+
+void senterPembesar (int stack_capacity){
+    if (stack_capacity > 50)
+        printf("Maaf Senter Pembesar tidak dapat digunakan. Kapasitas tas saat ini melebihi 50\n");
+    else{
+        stack_capacity *= 2;
+        printf("Senter Pembesar berhasil digunakan!\n");
+        printf("Kapasitas tas saat ini: %d \n", stack_capacity);
+    }
+}
+
+void pintuKemanaSaja(){
+//not fixed
+    POINT loc;
+    printf("Masukkan lokasi yang ingin dituju: ");
+    BacaPOINT(&loc);
+/**********************Location_now*******************/
+    POINT location_now = loc;
+    printf("Pintu Kemana Saja berhasil digunakan!\n");
+}
+
+void mesinWaktu(int time_now){
+//not fixed
+/*************************time_now*********************/
+/*pastiin queue daftar pesanan di pop kalo pesanannya udah keluar*/
+    if(time_now > 50)
+        time_now -= 50;
+    else
+        time_now = 0;
+    printf("Mesin Waktu berhasil digunakan!\n");
+}
+
+void senterPengecil(){
+
+}
+
 void Inventory(List *I)
 /* untuk melihat list gadget dan/atau menggunkan gadget*/
 {
@@ -92,12 +148,11 @@ void Inventory(List *I)
     scanf("%d", &user_input);
     if (AMOUNT((*I).buffer[user_input-1])>0){
         if (user_input == 1){
-            kainPembungkusWaktu();
+            Stack s; /* tas*/
+            kainPembungkusWaktu(&s);
         }
         else if (user_input == 2){
-/*********************TAS_CAP***********************/
-            int tas_cap = 5;
-            senterPembesar(tas_cap);
+            senterPembesar(stack_capacity);
         }
         else if(user_input==3){
             pintuKemanaSaja();
@@ -121,52 +176,4 @@ void Inventory(List *I)
     else{
         printf("Tidak ada gadget yang dapat digunakan!\n");
     }
-}
-
-void kainPembungkusWaktu()
-/* asumsi ada tambahan EXPIRY_NOW(i) pada adt  item*/
-/*typedef char item_type[11];
-typedef struct {
-    item_type type;
-    int value;
-    int expiry;
-    int expiry_now
-} Item;
-# define EXPIRY_NOW(i) (i).expiry_now
-*/ 
-{
-    /*nunggu tas*/
-}
-
-void senterPembesar (int tas_cap){
-/************************TAS_CAP**************************/
-    if (tas_cap > 50)
-        printf("Maaf Senter Pembesar tidak dapat digunakan. Kapasitas tas saat ini melebihi 50\n");
-    else{
-        tas_cap *= 2;
-        printf("Senter Pembesar berhasil digunakan!\n");
-        printf("Kapasitas tas saat ini: %d \n", tas_cap);
-    }
-}
-
-void pintuKemanaSaja(){
-    POINT loc;
-    printf("Masukkan lokasi yang ingin dituju: ");
-    BacaPOINT(&loc);
-/**********************Location_now*******************/
-    POINT location_now = loc;
-}
-
-void mesinWaktu(int time_now){
-/*************************time_now*********************/
-/*pastiin queue daftar pesanan di pop kalo pesanannya udah keluar*/
-    if(time_now > 50)
-        time_now -= 50;
-    else
-        time_now = 0;
-}
-
-void senterPengecil(){
-    /*nunggu tas*/
-
 }

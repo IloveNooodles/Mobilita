@@ -1,7 +1,7 @@
 #ifndef GADGET_H
 #define GADGET_H
 
-#include "boolean.h"
+#include "../utility/boolean.h"
 #include <stdlib.h>
 
 typedef struct {

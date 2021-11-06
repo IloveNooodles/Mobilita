@@ -3,6 +3,7 @@
     "adt.h": "c",
     "charmachine.h": "c",
     "lokasi.h": "c",
-    "matrix.h": "c"
+    "matrix.h": "c",
+    "point.h": "c"
   }
 }

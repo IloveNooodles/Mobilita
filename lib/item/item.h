@@ -5,16 +5,19 @@
 #ifndef MOBILITA_ITEM_H
 #define MOBILITA_ITEM_H
 
-typedef char item_type[11];
 typedef struct {
-    item_type type;
+    char type;
+    char* type_desc;
     int value;
     int expiry;
+    int expiry_now;
 } Item;
 
 #define TYPE(i) (i).type
+#define TYPE_DESC(i) (i).type_desc
 #define VALUE(i) (i).value
 #define EXPIRY(i) (i).expiry
+#define EXPIRY_NOW(i) (i).expiry_now
 
 /* Create new Item needed as Stack element*/
 /* Generates new item_type and assign its value accordingly */

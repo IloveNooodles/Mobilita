@@ -7,7 +7,9 @@ int main(){
   CreateStack(&s);
   createItem(&a, 'N');
   push(&s, a);
-  createItem(&a, 'H');
+  createItem(&a, 'P');
   push(&s, a);
+  CreateStack(&s);
+  createItem(&a, 'H');
   displayStack(s);
 }

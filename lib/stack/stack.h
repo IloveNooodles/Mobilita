@@ -13,7 +13,7 @@ typedef Item StackElType;
 typedef struct {
   StackElType buffer[CAPACITY]; /* tabel penyimpan elemen */
   int idxTop; /* alamat TOP: elemen puncak */
-  int heavyItem; //Banyaknya Heavy Item              
+  int heavyItem; //Banyaknya Heavy Item             
 } Stack;
 
 extern int stack_capacity;
