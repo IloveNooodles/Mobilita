@@ -64,14 +64,20 @@ void buyGadget(List L, List *I, int money){
 /*****************************INPUT**********************/
         printf("ENTER COMMAND: ");
         scanf("%d", &user_input);
-        if (PRICE(L.buffer[user_input-1]) < money){
-            printf("%s berhasil dibeli!\n", NAME(L.buffer[user_input-1]));
-            printf("Uang Anda sekarang: %d Yen\n", money-PRICE(L.buffer[user_input-1]));
-            AMOUNT((*I).buffer[user_input-1])++;
-        } 
-        else{
-            printf("Uang tidak cukup untuk membeli gadget!\n");
+        if(user_input>=0 && user_input<=5){
+            if (PRICE(L.buffer[user_input-1]) < money){
+                printf("%s berhasil dibeli!\n", NAME(L.buffer[user_input-1]));
+                printf("Uang Anda sekarang: %d Yen\n", money-PRICE(L.buffer[user_input-1]));
+                AMOUNT((*I).buffer[user_input-1])++;
+            } 
+            else{
+                printf("Uang tidak cukup untuk membeli gadget!\n");
+            }
         }
+        else{
+            printf("input tidak valid\n");
+        }
+        
     }
 }
 
@@ -137,8 +143,10 @@ void Inventory(List *I)
         printf("%d. ",i+1);
         if (AMOUNT((*I).buffer[i]) ==0)
             printf("-\n");
-        else
-            printf("%s\n", NAME((*I).buffer[i]));
+        else{
+            printf("%s ", NAME((*I).buffer[i]));
+            printf("(%d)\n", AMOUNT((*I).buffer[i]));
+        }
     }
     printf("Gadget mana yang ingin digunakan? (ketik 0 jika ingin kembali)\n");
     printf("\n");
@@ -146,34 +154,38 @@ void Inventory(List *I)
 /* pilih gadget yang ingin digunkanan */
     printf("ENTER COMMAND:");
     scanf("%d", &user_input);
-    if (AMOUNT((*I).buffer[user_input-1])>0){
-        if (user_input == 1){
-            Stack s; /* tas*/
-            kainPembungkusWaktu(&s);
-        }
-        else if (user_input == 2){
-            senterPembesar(stack_capacity);
-        }
-        else if(user_input==3){
-            pintuKemanaSaja();
-        }
-        else if(user_input == 4){
-/*******************Time_now***********************/
-            int time_now;
-            mesinWaktu(time_now);
-        }
-        else if(user_input == 5){
-            senterPengecil();
-        }
-        else if(user_input == 0){
-            /*BACK TO MENU*/
+    if(user_input != 0 && user_input<=5){
+        if (AMOUNT((*I).buffer[user_input-1])>0){
+            if (user_input == 1){
+                Stack s; /* tas*/
+                kainPembungkusWaktu(&s);
+            }
+            else if (user_input == 2){
+                senterPembesar(stack_capacity);
+            }
+            else if(user_input==3){
+                pintuKemanaSaja();
+            }
+            else if(user_input == 4){
+    /*******************Time_now***********************/
+                int time_now;
+                mesinWaktu(time_now);
+            }
+            else if(user_input == 5){
+                senterPengecil();
+            }
+            AMOUNT((*I).buffer[user_input-1])--;
         }
         else{
-            printf("input tidak valid\n");
+            printf("Tidak ada gadget yang dapat digunakan!\n");
         }
-        AMOUNT((*I).buffer[user_input-1])--;
+    }
+    else if(user_input ==0 ){
+        printf("Kembali ke menu\n");
+        /* back to menu*/
     }
     else{
-        printf("Tidak ada gadget yang dapat digunakan!\n");
+        printf("input tidak valid\n");
     }
+    
 }
