@@ -3,7 +3,6 @@
 #include "lib\utility\utility.h"
 #include "lib\tempdriver.h"
 
-
 int main(){
     Game game;
     POINT currentLokasi;

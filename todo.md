@@ -22,7 +22,8 @@
 - Jenis item (Half Clear: Jeremy)
 - Ability (Half Clear: Gare)
 - ~~Peta (Gare)~~
-- Inventory Gadget
+- ~~Inventory Gadget (Vionie)~~
+- ~~Gadget (Vionie)~~
 
 ## **Buat temen-temen:**
 
@@ -40,6 +41,7 @@ smangat ^\_^
 - (5/11/21) Made help, move. List bangunan diganti jadi listdin. (Gagas)
 - (5/11/21) Made Ablity, Made edit stack, edit game, edit item (Gare)
 - (5/11/21) Made Daftar Pesanan, Made TO Do, Made In Progress List (Gare)
+- (6/11/21) Made Gadget, inventory Gadget (Vionie)
 
 ## Take caution:
 
