@@ -5,7 +5,7 @@
 #include "../stack/stack.h"
 #include "../item/item.h"
 
-void CreateInventory(List *L){
+void CreateInventory(Inventory *L){
     NAME((*L).buffer[0]) = "Kain Pembungkus Waktu";
     DESC((*L).buffer[0]) = "Setiap kain pembungkus waktu dapat dipakai sekali untuk perishable item teratas pada tas agar kembali ke durasi semula.";
     PRICE((*L).buffer[0]) = 800;
@@ -32,15 +32,15 @@ void CreateInventory(List *L){
     AMOUNT((*L).buffer[4]) = 0;
 }
 
-boolean isEmpty(List L){
+boolean isInventoryEmpty(Inventory L){
     return inventoryCapacity(L)==0;
 }
 
-boolean isFull(List L){
+boolean isInventoryFull(Inventory L){
     return inventoryCapacity(L)==5;
 }
 
-int inventoryCapacity (List L){
+int inventoryCapacity (Inventory L){
     int sum = 0;
     for(int i=0; i<5;i++){
         sum += AMOUNT(L.buffer[i]);
@@ -48,8 +48,8 @@ int inventoryCapacity (List L){
     return sum;
 }
 
-void buyGadget(List L, List *I, int money){
-    if (isFull(*I)){
+void buyGadget(Inventory L, Inventory *I, int money){
+    if (isInventoryFull(*I)){
         printf("Tidak dapat membeli gadget. Inventory penuh!");
     }
     else{
@@ -111,7 +111,7 @@ void senterPembesar (int stack_capacity){
 }
 
 void pintuKemanaSaja(){
-//not fixed
+// TODO: not fixed
     POINT loc;
     printf("Masukkan lokasi yang ingin dituju: ");
     BacaPOINT(&loc);
@@ -121,7 +121,7 @@ void pintuKemanaSaja(){
 }
 
 void mesinWaktu(int time_now){
-//not fixed
+//TODO : not fixed
 /*************************time_now*********************/
 /*pastiin queue daftar pesanan di pop kalo pesanannya udah keluar*/
     if(time_now > 50)
@@ -135,7 +135,7 @@ void senterPengecil(){
 
 }
 
-void Inventory(List *I)
+void displayInventory(Inventory *I)
 /* untuk melihat list gadget dan/atau menggunkan gadget*/
 {
     int user_input, jumlah;

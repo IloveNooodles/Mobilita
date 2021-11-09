@@ -16,7 +16,7 @@ boolean isLinkedListEmpty(List l){
 /* Mengirim true jika list kosong */
 
 /****************** GETTER SETTER ******************/
-ElType getElmt(List l, int idx){
+PesananElType getElmt(List l, int idx){
   Address p = l;
   int i = 0;
   while(i < idx){
@@ -28,7 +28,7 @@ ElType getElmt(List l, int idx){
 /* I.S. l terdefinisi, idx indeks yang valid dalam l, yaitu 0..length(l) */
 /* F.S. Mengembalikan nilai elemen l pada indeks idx */
 
-void setElmt(List *l, int idx, ElType val){
+void setElmt(List *l, int idx, PesananElType val){
   Address p = *l;
   int i = 0;
   while(i < idx){
@@ -66,7 +66,7 @@ void setElmt(List *l, int idx, ElType val){
 
 /****************** PRIMITIF BERDASARKAN NILAI ******************/
 /*** PENAMBAHAN ELEMEN ***/
-void insertFirst(List *l, ElType val){
+void insertFirst(List *l, PesananElType val){
   Address p = newNode(val);
   if (p != NULL){
     NEXT(p) = *l;
@@ -78,7 +78,7 @@ void insertFirst(List *l, ElType val){
 /* menambahkan elemen pertama dengan nilai val jika alokasi berhasil. */
 /* Jika alokasi gagal: I.S.= F.S. */
 
-void insertLast(List *l, ElType val){
+void insertLast(List *l, PesananElType val){
   if(isLinkedListEmpty(*l)){
     insertFirst(l, val);
   }else{
@@ -98,7 +98,7 @@ void insertLast(List *l, ElType val){
 /* menambahkan elemen list di akhir: elemen terakhir yang baru */
 /* bernilai val jika alokasi berhasil. Jika alokasi gagal: I.S.= F.S. */
 
-void insertAt(List *l, ElType val, int idx){
+void insertAt(List *l, PesananElType val, int idx){
   if(idx == 0){
     insertFirst(l, val);
   }else{
@@ -122,7 +122,7 @@ void insertAt(List *l, ElType val, int idx){
 /* yang bernilai val jika alokasi berhasil. Jika alokasi gagal: I.S.= F.S. */
 
 /*** PENGHAPUSAN ELEMEN ***/
-void deleteFirst(List *l, ElType *val){
+void deleteFirst(List *l, PesananElType *val){
   Address p = *l;
   *val = INFO(*l);
   *l = NEXT(p);
@@ -131,7 +131,7 @@ void deleteFirst(List *l, ElType *val){
 /* I.S. List l tidak kosong  */
 /* F.S. Elemen pertama list dihapus: nilai info disimpan pada x */
 /*      dan alamat elemen pertama di-dealokasi */
-void deleteLast(List *l, ElType *val){
+void deleteLast(List *l, PesananElType *val){
   Address loc = NULL;
   Address p = *l;
   while(NEXT(p) != NULL){
@@ -150,7 +150,7 @@ void deleteLast(List *l, ElType *val){
 /* F.S. Elemen terakhir list dihapus: nilai info disimpan pada x */
 /*      dan alamat elemen terakhir di-dealokasi */
 
-void deleteAt(List *l, int idx, ElType *val){
+void deleteAt(List *l, int idx, PesananElType *val){
   if(idx == 0){
     deleteFirst(l, val);
   }else{

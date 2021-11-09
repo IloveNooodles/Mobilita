@@ -36,9 +36,9 @@ boolean isIdxEff(Matrix m, Index i, Index j){
   return(i >= 0 && i < ROWS(m) && j >= 0 && j < COLS(m));
 }
 /* Mengirimkan true jika i, j adalah Index efektif bagi m */
-ElType getElmtDiagonal(Matrix m, Index i){
-  return MATRIXELMT(m, i, i);
-}
+// ElType getElmtDiagonal(Matrix m, Index i){
+//   return MATRIXELMT(m, i, i);
+// }
 /* Mengirimkan elemen m(i,i) */
 
 /* ********** Assignment  Matrix ********** */
@@ -136,24 +136,24 @@ Matrix multiplyMatrix(Matrix m1, Matrix m2){
 }
 /* Prekondisi : Ukuran kolom efektif m1 = ukuran baris efektif m2 */
 /* Mengirim hasil perkalian matriks: salinan m1 * m2 */
-Matrix multiplyConst(Matrix m, ElType x){
-  Matrix m2;
-  CreateMatrix(ROWS(m), COLS(m), &m2);
-  for(int i = 0; i < ROWS(m); i++){
-    for(int j = 0 ; j < COLS(m); j++){
-      MATRIXELMT(m2, i, j) = MATRIXELMT(m, i, j) * x;
-    }
-  }
-  return m2;
-}
+// Matrix multiplyConst(Matrix m, ElType x){
+//   Matrix m2;
+//   CreateMatrix(ROWS(m), COLS(m), &m2);
+//   for(int i = 0; i < ROWS(m); i++){
+//     for(int j = 0 ; j < COLS(m); j++){
+//       MATRIXELMT(m2, i, j) = MATRIXELMT(m, i, j) * x;
+//     }
+//   }
+//   return m2;
+// }
 /* Mengirim hasil perkalian setiap elemen m dengan x */
-void pMultiplyConst(Matrix *m, ElType k){
-  for(int i = 0; i < ROWS(*m); i++){
-    for(int j = 0 ; j < COLS(*m); j++){
-      MATRIXELMT(*m, i, j) *= k;
-    }
-  }
-}
+// void pMultiplyConst(Matrix *m, ElType k){
+//   for(int i = 0; i < ROWS(*m); i++){
+//     for(int j = 0 ; j < COLS(*m); j++){
+//       MATRIXELMT(*m, i, j) *= k;
+//     }
+//   }
+// }
 /* I.S. m terdefinisi, k terdefinisi */
 /* F.S. Mengalikan setiap elemen m dengan k */
 
@@ -242,13 +242,13 @@ boolean isSparse(Matrix m){
 }
 /* Mengirimkan true jika m adalah matriks sparse: matriks “jarang” dengan definisi: 
    hanya maksimal 5% dari memori matriks yang efektif bukan bernilai 0 */
-Matrix inverse1(Matrix m){
-  return multiplyConst(m, -1);
-}
+// Matrix inverse1(Matrix m){
+  // return multiplyConst(m, -1);
+// }
 /* Menghasilkan salinan m dengan setiap elemen "di-invers", yaitu dinegasikan (dikalikan -1) */
-void pInverse1(Matrix *m){
-  pMultiplyConst(m, -1);
-}
+// void pInverse1(Matrix *m){
+  // pMultiplyConst(m, -1);
+// }
 /* I.S. m terdefinisi */
 /* F.S. m di-invers, yaitu setiap elemennya dinegasikan (dikalikan -1) */
 

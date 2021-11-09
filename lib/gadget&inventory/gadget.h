@@ -13,24 +13,24 @@ typedef struct {
 
 typedef struct{
     Gadget buffer[5];
-}List;
+}Inventory;
 
 #define NAME(L) (L).name
 #define DESC(L) (L).desc
 #define PRICE(L) (L).price
 #define AMOUNT(L) (L).amount
 
-void CreateInventory (List *L);
+void CreateInventory (Inventory *L);
 /* I.S. sembarang */
 /*F.S. terbentuk daftar gadget */
 
-boolean isEmpty(List L);
+boolean isInventoryEmpty(Inventory L);
 /* Mengirim true jika L kosong inventoryCapacity(L) = 0;*/
 
-boolean isFull(List L);
+boolean isInventoryFull(Inventory L);
 /* Mengirim true jika L penuh inventoryCapacity(L) = 5;*/
 
-int inventoryCapacity (List L);
+int inventoryCapacity (Inventory L);
 /*Mengirimkan kapasitas inventory saat ini*/
 
 #endif

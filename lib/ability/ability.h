@@ -1,3 +1,6 @@
+#ifndef ABILITY_H
+#define ABILITY_H
+
 #include "../stack/stack.h"
 #include "../utility/boolean.h"
 #include "../lokasi/lokasi.h"
@@ -24,3 +27,4 @@ void deactivateSpeedBoost(Ability b);
 void activateIncreaseCapacity(Ability b);
 void activateReturnToSender(Ability b);
 
+#endif

@@ -10,23 +10,23 @@
 #include "../item/item.c"
 
 int main(){
-    List Inven, gadgetList;
+    Inventory Inven, gadgetList;
     CreateInventory(&gadgetList);
     CreateInventory(&Inven);
-    Inventory(&Inven);
-    if (isEmpty(Inven))
+    displayInventory(&Inven);
+    if (isInventoryEmpty(Inven))
         printf("Empty\n");
-    if(isFull(Inven))
+    if(isInventoryFull(Inven))
         printf("Full\n");
 
     printf("\n **********BUY GADGET********** \n");
     int money = 2000;
     buyGadget(gadgetList,&Inven, money);
 
-    Inventory(&Inven);
-    if (isEmpty(Inven))
+    displayInventory(&Inven);
+    if (isInventoryEmpty(Inven))
         printf("Empty\n");
-    if(isFull(Inven))
+    if(isInventoryFull(Inven))
         printf("Full\n");
 
     

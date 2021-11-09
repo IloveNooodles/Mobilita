@@ -55,6 +55,8 @@ void advWord()
           Jika currentChar = MARK, endWord = true.		  
    Proses : Akuisisi kata menggunakan procedure copyWord */
 {
+    Word EMPTY = {"", 0};
+    currentWord = EMPTY;
     ignoreBlank();
     if(currentChar == MARK){
         endWord = true;

@@ -72,18 +72,22 @@ int main(){
                     break;
                 case 4:
                     // TO DO
+                    // TODO: Prioqueue
                     printf("todo\n");
                     break;
                 case 5:
                     // IN PROG
+                    // TODO: Tas
                     printf("inprogress\n");
                     break;
                 case 6:
                     // BUY
+                    // TODO: Gadget
                     printf("buy\n");
                     break;
                 case 7:
                     // INV
+                    // TODO: Gadget
                     printf("inventory\n");
                     break;
                 case 8:
@@ -93,6 +97,10 @@ int main(){
                 // case 9:
                 //     printf("save\n");
                 //     break;
+                case 10:
+                    // DEBUG
+                    printf("DEBUG MODE ON\n");
+                    displayListDin(game.bangunan);
                 default:
                     printf("Invalid input.\n");
             }

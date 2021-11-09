@@ -81,6 +81,7 @@ int checkPossibleMoves(Game g, int *possibleMoves){
 }
 
 void displayPeta(Game g){
+    // TODO
     int row = g.size.X;
     int col = g.size.Y;
 

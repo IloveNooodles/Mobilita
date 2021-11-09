@@ -143,11 +143,12 @@ int checkMenuInput(Word w){
     Word HELP = {"HELP", 4};
     // Might need later //
     Word SAVE_GAME = {"SAVE_GAME", 9};
+    Word DEBUG = {"DEBUG", 5};
 
-    Word key[] = {MOVE, PICK_UP, DROP_OFF, MAP, TO_DO, IN_PROGRESS, BUY, INVENTORY, HELP, SAVE_GAME};
+    Word key[] = {MOVE, PICK_UP, DROP_OFF, MAP, TO_DO, IN_PROGRESS, BUY, INVENTORY, HELP, SAVE_GAME, DEBUG};
     int i;
     // ! Change to 10 if there is SAVE_GAME
-    for(i = 0; i < 9; i++){
+    for(i = 0; i < 11; i++){
         if(isWordEqual(w, key[i])){
             return i;
         }

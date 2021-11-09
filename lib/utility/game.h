@@ -12,6 +12,7 @@
 #include "../ability/ability.h"
 #include "../stack/stack.h"
 #include "../PrioQueue/prioqueue.h"
+#include "../gadget&inventory/gadget.h"
 
 int currentTime;
 Lokasi currentLocation;

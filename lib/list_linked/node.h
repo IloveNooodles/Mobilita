@@ -4,17 +4,17 @@
 #include "../PrioQueue/prioqueue.h"
 #include <stdlib.h>
 
-typedef Pesanan ElType;
+typedef Pesanan PesananElType;
 typedef struct node* Address;
 typedef struct node {
-    ElType info;
+    PesananElType info;
     Address next;
 } Node;
 
 #define INFO(p) (p)->info
 #define NEXT(p) (p)->next
 
-Address newNode(ElType val);
+Address newNode(PesananElType val);
 
 
 #endif

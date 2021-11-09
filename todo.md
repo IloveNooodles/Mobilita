@@ -8,6 +8,13 @@
 - Membuat ADT Item Note: ElType nabrak, jadi gua ganti ElType di Stack jadi StackElType -gagas
 - ~~lagi ngerjain ability dikit lagi kelar tinggal ablity terakhir (Gare)~~
 - ~~Lagi ngerjain to do list dan inprogress (Gare)~~
+- Input expiry perishable item
+- Ability (Dropoff activate), Pickup
+- Buy Inventory
+- Pickup: cek lokasi pickup (map), Apus dari todo, masukin inprogress, perhatikan perishable. Prioqueue: bikin fungsi deleteat
+- Dropoff: Cek lokasi dropoff (map), Apus dari inprogress, tambahin duit, activate ability (kalo ada)
+- Ability nambah capacitynya diganti ya re
+- Gadget pintu kemana saja
 
 ## List yang harus dikerjakan:
 

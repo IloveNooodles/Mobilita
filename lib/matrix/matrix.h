@@ -44,7 +44,7 @@ Index getLastIdxCol(Matrix m);
 /* Mengirimkan Index kolom terbesar m */
 boolean isIdxEff(Matrix m, Index i, Index j);
 /* Mengirimkan true jika i, j adalah Index efektif bagi m */
-ElType getElmtDiagonal(Matrix m, Index i);
+// ElType getElmtDiagonal(Matrix m, Index i);
 /* Mengirimkan elemen m(i,i) */
 
 /* ********** Assignment  Matrix ********** */
@@ -83,9 +83,9 @@ Matrix subtractMatrix(Matrix m1, Matrix m2);
 Matrix multiplyMatrix(Matrix m1, Matrix m2);
 /* Prekondisi : Ukuran kolom efektif m1 = ukuran baris efektif m2 */
 /* Mengirim hasil perkalian matriks: salinan m1 * m2 */
-Matrix multiplyConst(Matrix m, ElType x);
-/* Mengirim hasil perkalian setiap elemen m dengan x */
-void pMultiplyConst(Matrix *m, ElType k);
+// Matrix multiplyConst(Matrix m, ElType x);
+// /* Mengirim hasil perkalian setiap elemen m dengan x */
+// void pMultiplyConst(Matrix *m, ElType k);
 /* I.S. m terdefinisi, k terdefinisi */
 /* F.S. Mengalikan setiap elemen m dengan k */
 
@@ -115,9 +115,9 @@ boolean isIdentity(Matrix m);
 boolean isSparse(Matrix m);
 /* Mengirimkan true jika m adalah matriks sparse: matriks “jarang” dengan definisi: 
    hanya maksimal 5% dari memori matriks yang efektif bukan bernilai 0 */
-Matrix inverse1(Matrix m);
-/* Menghasilkan salinan m dengan setiap elemen "di-invers", yaitu dinegasikan (dikalikan -1) */
-void pInverse1(Matrix *m);
+// Matrix inverse1(Matrix m);
+// /* Menghasilkan salinan m dengan setiap elemen "di-invers", yaitu dinegasikan (dikalikan -1) */
+// void pInverse1(Matrix *m);
 /* I.S. m terdefinisi */
 /* F.S. m di-invers, yaitu setiap elemennya dinegasikan (dikalikan -1) */
 float determinant(Matrix m);
