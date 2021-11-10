@@ -13,7 +13,6 @@
 - Buy Inventory
 - Pickup: cek lokasi pickup (map), Apus dari todo, masukin inprogress, perhatikan perishable. Prioqueue: bikin fungsi deleteat
 - Dropoff: Cek lokasi dropoff (map), Apus dari inprogress, tambahin duit, activate ability (kalo ada)
-- Ability nambah capacitynya diganti ya re
 - Gadget pintu kemana saja
 
 ## List yang harus dikerjakan:

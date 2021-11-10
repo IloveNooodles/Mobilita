@@ -4,7 +4,6 @@ void createAblity(Ability b){
   TIME(b) = 0;
   FREEZE(b) = true;
   HEAVYITEM(b) = false;
-  BONUSCAPACITY(b) = 0;
 }
 
 void checkHeavyIteminBag(Ability b, Stack s){
@@ -28,8 +27,8 @@ void deactivateSpeedBoost(Ability b){
   }
 }
 
-void activateIncreaseCapacity(Ability b){
-  setCapacity(BONUSCAPACITY(b));
+void activateIncreaseCapacity(){
+  increaseCapacity(1);
 }
 
 void activateReturnToSender(Ability b);
