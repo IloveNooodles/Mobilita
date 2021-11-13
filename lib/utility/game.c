@@ -185,6 +185,10 @@ void updatePosition(Lokasi l){
     currentLocation.tipeBangunan = l.tipeBangunan;
 }
 
+void dropOff(Game g){
+    // if (!isStackEmpty)
+}
+
 PrioQueue transformToPrioQueue(Game g){
   PrioQueue pq;
   CreatePrioQueue(&pq);

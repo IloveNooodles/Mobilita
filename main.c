@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "lib\utility\utility.h"
+#include "lib/utility/utility.h"
 
 int main(){
     Game game;

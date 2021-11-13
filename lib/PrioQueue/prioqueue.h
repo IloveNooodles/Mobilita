@@ -34,7 +34,10 @@ typedef struct {
 #define IDX_TAIL(pq) (pq).idxTail
 #define     HEAD(pq) (pq).buffer[(pq).idxHead]
 #define     TAIL(pq) (pq).buffer[(pq).idxTail]
-
+#define WAKTUPESANAN(l) (l).t
+#define PICKUP(l) (l).pickUp
+#define DROPOFF(l) (l).dropOff
+#define tipeItem(l) (l).tipeItem
 /* *** Kreator *** */
 void CreatePrioQueue(PrioQueue *pq);
 /* I.S. sembarang */

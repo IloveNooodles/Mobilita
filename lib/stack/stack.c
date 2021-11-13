@@ -31,7 +31,7 @@ boolean isStackFull(Stack s){
 void push(Stack *s, StackElType val){
   IDX_TOP(*s) += 1;
   TOP(*s) = val;
-  if(TYPE(val) == 'H'){
+  if(TYPE(tipeItem(val)) == 'H'){
     HEAVY(*s) += 1;
   }
 }
@@ -43,7 +43,7 @@ void push(Stack *s, StackElType val){
 void pop(Stack *s, StackElType *val){
   *val = TOP(*s);
   IDX_TOP(*s) -= 1;
-  if(TYPE(*val) == 'H'){
+  if(TYPE(tipeItem(*val)) == 'H'){
     HEAVY(*s) -= 1;
   }
 }
@@ -73,7 +73,7 @@ void setCapacity(int amount){
 void displayStack(Stack s){
   for(int i = 0; i <= IDX_TOP(s); i++){
     printf("%d. ", i+1);
-    displayItem(s.buffer[i]);
+    displayItem(tipeItem(s.buffer[i]));
   }
 }
 
