@@ -2,8 +2,8 @@
 #define UTILITY_H
 
 #include "game.h"
-#include "../adt.h"
-// #include "../wordmachine/wordmachine.h"
+#include "../wordmachine/wordmachine.h"
+#include "../wordmachine/charmachine.h"
 
 // Functions
 void startMenu();
@@ -29,6 +29,8 @@ Word concatWord(Word w1, Word w2);
 
 int checkMenuInput(Word w);
 // Main menu input checker
+
+void help();
 
 void loading();
 // Fancy loading for the lulz

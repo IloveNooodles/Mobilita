@@ -6,6 +6,9 @@
     "lokasi.h": "c",
     "matrix.h": "c",
     "point.h": "c",
-    "gadget.c": "cpp"
+    "gadget.c": "cpp",
+    "tempdriver.h": "c",
+    "utility.h": "c",
+    "wordmachine.h": "c"
   }
 }

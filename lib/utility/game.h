@@ -2,26 +2,11 @@
 #define GAME_H
 
 #include <stdio.h>
-#include "../point/point.h"
-#include "../matrix/matrix.h"
 #include "../adt.h"
-#include "../lokasi/lokasi.h"
-#include "../wordmachine/wordmachine.h"
-#include "../wordmachine/charmachine.h"
-#include "../listdin/listdin.h"
-#include "../ability/ability.h"
-#include "../stack/stack.h"
-#include "../PrioQueue/prioqueue.h"
-#include "../gadget&inventory/gadget.h"
 
 int currentTime;
 Lokasi currentLocation;
 int currentMoney;
-
-// typedef struct {
-//   char tipeBangunan;
-//   POINT koor;
-// } Lokasi;
 
 typedef struct {
   POINT size;

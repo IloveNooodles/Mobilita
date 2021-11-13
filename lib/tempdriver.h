@@ -1,7 +1,7 @@
 #ifndef TEMPDRIVER_H
 #define TEMPDRIVER_H
 
-#include "adt.h"
+// #include "adt.h"
 #include "./wordmachine/charmachine.c"
 #include "./wordmachine/wordmachine.c"
 #include "./utility/utility.c"
