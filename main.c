@@ -78,9 +78,7 @@ int main(){
                     displayPesananTerurut(TODO);
                     break;
                 case 5:
-                    // IN PROG
-                    // TODO: Tas
-                    printf("inprogress\n");
+                    displayInProgressList(inProgress);
                     break;
                 case 6:
                     // BUY

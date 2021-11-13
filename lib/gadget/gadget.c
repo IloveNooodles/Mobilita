@@ -86,8 +86,9 @@ void kainPembungkusWaktu(Stack *s)
 {
     boolean found = false;
     for(int i = IDX_TOP(*s); i >= 0;i--){
-        if (TYPE((*s).buffer[i]) == 'P'){
-            EXPIRY_NOW((*s).buffer[i]) = EXPIRY((*s).buffer[i]);
+        if (TYPE((*s).buffer[i].tipeItem) == 'P'){
+            //FIXME bagian ini jadinya buat tas diganti jadi tipe pesanan coba di fix lagi
+            // EXPIRY_NOW((*s).buffer[i]) = EXPIRY((*s).buffer[i]);
             found = true;
             break;
         }

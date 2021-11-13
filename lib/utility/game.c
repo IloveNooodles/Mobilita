@@ -63,7 +63,19 @@ void move(Game g){
 }
 
 void pickup(Game g){
-  traversePesanan(TODO, currentLocation, &tempPesanan);
+  //FIXME masih ada error kalo misalkan ngambil di G gatau kenapa
+  Pesanan inputPesanan;
+  if(checkPesanan(TODO, currentLocation) == -1){
+    printf("Tidak ada item pada bangunan ini.\n");
+  }else{
+    if(!isStackFull(g.tas)){
+      deletePesanan(TODO, &inputPesanan, checkPesanan(TODO, currentLocation));
+      push(&g.tas, inputPesanan);
+      insertLast(&inProgress, inputPesanan);
+    }else{
+      printf("Tas sudah penuh tidak bisa mengambil barang lagi.\n");
+    }
+  }
 }
 
 int checkPossibleMoves(Game g, int *possibleMoves){
@@ -111,12 +123,14 @@ void displayPeta(Game g, int time){
     int possMoveCnt = checkPossibleMoves(g, possMoves);
     boolean green = false;
     boolean red = false;
+    boolean blue = false;
     
     int loc;
     for(int i = 0; i < row; i++){
         for(int j = 0; j < col; j++){
             green = false;
             red = false;
+            blue = false;
             loc = MATRIXELMT(m, i, j);
             if(j == 0){
                 printf("*");
@@ -127,16 +141,24 @@ void displayPeta(Game g, int time){
                         green = true;
                     }
                 }
-                for(int k = 0; k < g.jumlah_pesanan; k++){
-                  if(g.bangunan.buffer[loc].tipeBangunan == g.psn[k].pickUp && g.psn[k].t <= time){
-                    red = true;
-                  }
+                if(hasItem(TODO, g.bangunan.buffer[loc])){
+                  red = true;
                 }
+
+                if(g.bangunan.buffer[loc].tipeBangunan == TOP(g.tas).dropOff){
+                  printf("1");
+                  blue = true;
+                }
+                printf("%c", TOP(g.tas).dropOff);
+                
                 if(isLocationEqual(currentLocation, g.bangunan.buffer[loc])){
                     print_yellow(g.bangunan.buffer[loc].tipeBangunan);
                 }
+                else if(blue){
+                  print_blue(g.bangunan.buffer[loc].tipeBangunan);
+                }
                 else if(red){
-                    print_red(g.bangunan.buffer[loc].tipeBangunan);
+                  print_red(g.bangunan.buffer[loc].tipeBangunan);
                 }
 
                 else if(green){
