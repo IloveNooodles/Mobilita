@@ -67,8 +67,7 @@ int main(){
                     pickup(game);
                     break;
                 case 2:
-                    // DROPOFF
-                    printf("dropoff\n");
+                    dropOff(game);
                     break;
                 case 3:
                     // MAP
@@ -94,10 +93,13 @@ int main(){
                     // HELP
                     help();
                     break;
-                // case 9:
+                case 9:
+                    activateReturnToSender(game.b,game.tas,inProgress,TODO);
+                    break;
+                // case 10:
                 //     printf("save\n");
                 //     break;
-                case 10:
+                case 11:
                     // DEBUG
                     printf("DEBUG MODE ON\n");
                     displayListDin(game.bangunan);

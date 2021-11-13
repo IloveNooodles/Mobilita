@@ -14,6 +14,7 @@
 - Pickup: cek lokasi pickup (map), Apus dari todo, masukin inprogress, perhatikan perishable. Prioqueue: bikin fungsi deleteat
 - Dropoff: Cek lokasi dropoff (map), Apus dari inprogress, tambahin duit, activate ability (kalo ada)
 - Gadget pintu kemana saja
+- Fungsi deactivateSpeedBoost belum dipakai
 
 ## List yang harus dikerjakan:
 

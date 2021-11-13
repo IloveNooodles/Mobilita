@@ -50,6 +50,8 @@ void displayPeta(Game g, int time);
 
 void pickup(Game g);
 
+void dropOff(Game g);
+
 PrioQueue transformToPrioQueue(Game g);
 
 #endif 

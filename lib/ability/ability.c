@@ -31,4 +31,14 @@ void activateIncreaseCapacity(){
   increaseCapacity(1);
 }
 
-void activateReturnToSender(Ability b);
+void activateReturnToSender(Ability b, Stack s, List l1, List l2){
+  // NOTE belom dicek karena ngantuk
+  if (RETURNTOSENDER(b) && Type(tipeItem(TOP(s))) != 'V'){
+    Pesanan returned;
+    Pesanan addReturned;
+    pop(&s, &returned);
+    deleteLast(&l1, &addReturned);
+    insertFirst(&l2, addReturned);
+    RETURNTOSENDER(b) = false;
+  }
+}

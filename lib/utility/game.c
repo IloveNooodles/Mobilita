@@ -208,7 +208,34 @@ void updatePosition(Lokasi l){
 }
 
 void dropOff(Game g){
-    // if (!isStackEmpty)
+    // NOTE belom dicek karena ngantuk
+    if (!isStackEmpty(g.tas)){
+        if (getTipeBangunan(currentLocation) == DROPOFF(TOP(g.tas))){
+            Address deleted;
+            deleteLast(&inProgress, deleted);
+            Pesanan dropped;
+            pop(&g.tas,&dropped);
+            currentMoney += VALUE(tipeItem(dropped));
+            switch (TYPE(tipeItem(dropped))){
+                case 'V':
+                    RETURNTOSENDER(g.b) = true;
+                    break;
+                case 'H':
+                    checkHeavyIteminBag(g.b, g.tas);
+                    activateSpeedBoost(g.b);
+                    break;
+                case 'P':
+                    activateIncreaseCapacity();
+                    break;
+                default:
+                    break;
+            }
+            printf("Pesanan %s berhasil diantarkan.\n", TYPE_DESC(tipeItem(dropped)));
+            printf("Uang yang didapatkan: %d Yen\n", VALUE(tipeItem(dropped)));
+        }
+    }else{
+        printf("Tidak ada pesanan yang dapat diantarkan!\n");
+    }
 }
 
 PrioQueue transformToPrioQueue(Game g){
