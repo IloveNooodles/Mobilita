@@ -36,15 +36,23 @@ int main(){
         // Game game;
         printf("Selamat datang di Mobilita!\nSilahkan masukkan nama config file: ");
         // startWord();
-        // Initialize game
+        // TODO Initialize game bagian ini harusnya masukin ke bagian startgame 
         inputConfigFile(&game, Config);
         game.endGame = false;
         currentTime = 0;
         currentLocation = game.hq;
         currentMoney = 0;
-        
+        CreateLinkedList(&TODO);
+        CreateLinkedList(&inProgress);
+        CreateStack(&game.tas);
         // Main game loop
         while(!game.endGame){
+            if(!isEmpty(psnTerurut)){
+              while(HEAD(psnTerurut).t <= currentTime){
+                insertLast(&TODO, HEAD(psnTerurut));
+                dequeue(&psnTerurut, &tempPesanan);
+              }
+            }
             displayCurrentLocation();
             printf("Waktu: %d\n", currentTime);
             displayCurrentMoney();
@@ -53,15 +61,10 @@ int main(){
             input = checkMenuInput(currentWord);
             switch(input){
                 case 0:
-                    // MOVE
                     move(game);
                     break;
                 case 1:
-                    displayListDin(game.bangunan);
-                    for(int i = 0; i < game.jumlah_pesanan; i++){
-                      displayPesanan(game.psn[i]);
-                    }
-                    printf("pickup\n");
+                    pickup(game);
                     break;
                 case 2:
                     // DROPOFF
@@ -72,9 +75,7 @@ int main(){
                     displayPeta(game, currentTime);
                     break;
                 case 4:
-                    // TO DO
-                    // TODO: Prioqueue
-                    printf("todo\n");
+                    displayPesananTerurut(TODO);
                     break;
                 case 5:
                     // IN PROG

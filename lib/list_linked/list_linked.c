@@ -225,28 +225,58 @@ List concat(List l1, List l2){
 /* menghasilkan l3 yang baru (dengan elemen list l1 dan l2 secara beurutan). */
 /* Tidak ada alokasi/dealokasi pada prosedur ini */
 
-void displayPesananTerurut(List l){
-  printf("Pesanan pada To Do List: \n");
+void traversePesanan(List l, Lokasi loc, Pesanan *PesananOut){
   Address now = l;
-  int i = 1;
-  while(now != NULL){
-    printf("%d. ", i);
-    i++;
-    displayPesanan(INFO(now));
+  Pesanan tmpPesanan;
+  int counter = 0;
+  boolean found = false;
+  while(now != NULL && !found){
+    if(INFO(now).pickUp == loc.tipeBangunan){
+      found = true;
+      printf("GARE");
+    }
+    counter++;
     now = NEXT(now);
   }
-  printf("\n");
+  if(found){
+    deleteAt(&l, counter-1, &tmpPesanan);
+    displayPesanan(tmpPesanan);
+    *PesananOut = tmpPesanan;
+  }else{
+    printf("Tidak ada item pada bangunan ini");
+  }
+}
+
+void displayPesananTerurut(List l){
+  if(isLinkedListEmpty(l)){
+    printf("Tidak ada to do list pada saat ini\n");
+  }else{
+    printf("Pesanan pada To Do List: \n");
+    Address now = l;
+    int i = 1;
+    while(now != NULL){
+      printf("%d. ", i);
+      i++;
+      displayPesanan(INFO(now));
+      now = NEXT(now);
+    }
+    printf("\n");
+  }
 }
 
 void displayInProgressList(List l){
-  Address now = l;
-  printf("Pesanan yang sedang diantarkan: \n");
-  int i = 1;
-  while(now != NULL){
-    printf("%d. ", i);
-    i++;
-    displayInProgress(INFO(now));
-    now = NEXT(now);
+  if(isLinkedListEmpty(l)){
+    printf("Tidak ada pesanan yang sedang diantarkan");
+  }else{
+    Address now = l;
+    printf("Pesanan yang sedang diantarkan: \n");
+    int i = 1;
+    while(now != NULL){
+      printf("%d. ", i);
+      i++;
+      displayInProgress(INFO(now));
+      now = NEXT(now);
+    }
+    printf("\n");
   }
-  printf("\n");
 }

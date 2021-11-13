@@ -6,6 +6,7 @@
 #ifndef LIST_H
 #define LIST_H
 
+#include "../lokasi/lokasi.h"
 #include "../utility/boolean.h"
 #include "../utility/const.h"
 #include "node.h"
@@ -101,6 +102,7 @@ List concat(List l1, List l2) ;
 /* menghasilkan l3 yang baru (dengan elemen list l1 dan l2 secara beurutan). */
 /* Tidak ada alokasi/dealokasi pada prosedur ini */
 
+void traversePesanan(List l, Lokasi loc, Pesanan *PesananOut);
 void displayPesananTerurut(List l);
 void displayInProgressList(List l);
 #endif

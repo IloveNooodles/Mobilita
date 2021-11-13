@@ -124,6 +124,7 @@ void inputConfigFile(Game *g, Word cfg){
         }else{
           createItem(&g->psn[i].tipeItem, currentWord.contents[0], -1);
         }
+        psnTerurut = transformToPrioQueue(*g);
     }
 
     // ! LINE CODE INI JANGAN DIHAPUS, TANPA INI LISTDIN TIDAK STABIL!

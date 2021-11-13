@@ -63,7 +63,7 @@ void move(Game g){
 }
 
 void pickup(Game g){
-  
+  traversePesanan(TODO, currentLocation, &tempPesanan);
 }
 
 int checkPossibleMoves(Game g, int *possibleMoves){
@@ -138,7 +138,7 @@ void displayPeta(Game g, int time){
                 else if(red){
                     print_red(g.bangunan.buffer[loc].tipeBangunan);
                 }
-                
+
                 else if(green){
                     print_green(g.bangunan.buffer[loc].tipeBangunan);
                 }
@@ -186,7 +186,6 @@ void updatePosition(Lokasi l){
 }
 
 PrioQueue transformToPrioQueue(Game g){
-  //NOTE belom dicek coba cek dulu
   PrioQueue pq;
   CreatePrioQueue(&pq);
   for(int i = 0; i < g.jumlah_pesanan; i++){

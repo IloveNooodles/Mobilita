@@ -7,13 +7,16 @@
 int currentTime;
 Lokasi currentLocation;
 int currentMoney;
+List TODO;
+List inProgress;
+PrioQueue psnTerurut;
+Pesanan tempPesanan;
 
 typedef struct {
   POINT size;
   Lokasi hq;
   int jumlah_lokasi;
   ListDin bangunan;
-  // Lokasi bangunan[27];
   Matrix adj;
   Ability b;
   Stack tas;
