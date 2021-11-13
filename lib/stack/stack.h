@@ -7,9 +7,9 @@
 
 #include "../utility/boolean.h"
 #include "../utility/const.h"
-#include "../item/item.h"
+#include "../PrioQueue/prioqueue.h"
 
-typedef Item StackElType;
+typedef Pesanan StackElType;
 typedef struct {
   StackElType buffer[CAPACITY]; /* tabel penyimpan elemen */
   int idxTop; /* alamat TOP: elemen puncak */
