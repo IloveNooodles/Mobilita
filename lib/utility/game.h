@@ -43,7 +43,9 @@ void displayCurrentMoney();
 
 void displayCurrentLocation();
 
-void displayPeta(Game g);
+void displayPeta(Game g, int time);
+
+void pickup(Game g);
 
 PrioQueue transformToPrioQueue(Game g);
 

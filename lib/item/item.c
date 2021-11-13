@@ -6,24 +6,22 @@
 #include "stdio.h"
 #include "item.h"
 
-void createItem(Item *item, char type) {
+void createItem(Item *item, char type, int expiry) {
     if (type == 'N') {
         TYPE(*item) = 'N';
         TYPE_DESC(*item) = "Normal";
         VALUE(*item) = 200;
-        EXPIRY(*item) = -1;
-        EXPIRY_NOW(*item) = EXPIRY(*item);
+        EXPIRY(*item) = expiry;
+        EXPIRY_NOW(*item) = expiry;
     }
     else if (type == 'H') {
         TYPE(*item) = 'H';
         TYPE_DESC(*item) = "Heavy";
         VALUE(*item) = 400;
-        EXPIRY(*item) = -1;
-        EXPIRY_NOW(*item) = EXPIRY(*item);
+        EXPIRY(*item) = expiry;
+        EXPIRY_NOW(*item) = expiry;
     }
     else if (type == 'P') {
-        int expiry;
-        scanf("%d", &expiry);
         TYPE(*item) = 'P';
         TYPE_DESC(*item) = "Perishable";
         VALUE(*item) = 400;
@@ -33,11 +31,8 @@ void createItem(Item *item, char type) {
       TYPE(*item) = 'V';
       TYPE_DESC(*item) = "VIP";
       VALUE(*item) = 600;
-      EXPIRY(*item) = -1;
-      EXPIRY_NOW(*item) = EXPIRY(*item);
-    }
-    else{
-      printf("Tidak ada item dengan tipe tersebut");
+      EXPIRY(*item) = expiry;
+      EXPIRY_NOW(*item) = expiry;
     }
 }
 

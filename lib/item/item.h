@@ -21,6 +21,6 @@ typedef struct {
 
 /* Create new Item needed as Stack element*/
 /* Generates new item_type and assign its value accordingly */
-void createItem(Item *item, char type);
+void createItem(Item *item, char type, int expiry);
 void displayItem(Item item);
 #endif //MOBILITA_ITEM_H

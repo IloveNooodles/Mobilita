@@ -62,6 +62,10 @@ void move(Game g){
     }
 }
 
+void pickup(Game g){
+  
+}
+
 int checkPossibleMoves(Game g, int *possibleMoves){
     int i;
     int idx;
@@ -80,8 +84,7 @@ int checkPossibleMoves(Game g, int *possibleMoves){
     return count;
 }
 
-void displayPeta(Game g){
-    // TODO
+void displayPeta(Game g, int time){
     int row = g.size.X;
     int col = g.size.Y;
 
@@ -107,11 +110,13 @@ void displayPeta(Game g){
     int possMoves[30];
     int possMoveCnt = checkPossibleMoves(g, possMoves);
     boolean green = false;
+    boolean red = false;
     
     int loc;
     for(int i = 0; i < row; i++){
         for(int j = 0; j < col; j++){
             green = false;
+            red = false;
             loc = MATRIXELMT(m, i, j);
             if(j == 0){
                 printf("*");
@@ -122,9 +127,18 @@ void displayPeta(Game g){
                         green = true;
                     }
                 }
+                for(int k = 0; k < g.jumlah_pesanan; k++){
+                  if(g.bangunan.buffer[loc].tipeBangunan == g.psn[k].pickUp && g.psn[k].t <= time){
+                    red = true;
+                  }
+                }
                 if(isLocationEqual(currentLocation, g.bangunan.buffer[loc])){
                     print_yellow(g.bangunan.buffer[loc].tipeBangunan);
                 }
+                else if(red){
+                    print_red(g.bangunan.buffer[loc].tipeBangunan);
+                }
+                
                 else if(green){
                     print_green(g.bangunan.buffer[loc].tipeBangunan);
                 }
@@ -132,9 +146,6 @@ void displayPeta(Game g){
                 // TODO: Check back ketika sudah ada dropoff dan pickup
                 // else if(dropoffterataspadatas){
                 //     print_blue(g.bangunan.buffer[loc].tipeBangunan);
-                // }
-                // else if(lokasipickup){
-                //     print_red(g.bangunan.buffer[loc].tipeBangunan);
                 // }
                 else{
                     printf("%c", g.bangunan.buffer[loc].tipeBangunan);

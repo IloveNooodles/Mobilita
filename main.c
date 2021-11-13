@@ -3,41 +3,41 @@
 
 int main(){
     Game game;
-    POINT currentLokasi;
     Word EMPTY = {"", 0};
     Word wordAr[3];
+    Word Config = {"config.txt", 10};
     int input = 0;
     int i;
     startMenu();
 
     // Input dan Validasi Input
-    do{
-        startWord();
-        for(i=0;i<3;i++){
-            wordAr[i] = EMPTY;
-        }
-        endWord = false;
-        int no = 0;
-        while(!endWord){
-            if(no<3){
-                wordAr[no] = currentWord;
-                no++;
-            }
-            advWord();
-        }
-        input = checkStartInput(wordAr);
-        if(input == 0){
-            printf("Input tidak valid. Ulangi input.\n");
-        }
-    } while(input == 0);
+    // do{
+    //     startWord();
+    //     for(i=0;i<3;i++){
+    //         wordAr[i] = EMPTY;
+    //     }
+    //     endWord = false;
+    //     int no = 0;
+    //     while(!endWord){
+    //         if(no<3){
+    //             wordAr[no] = currentWord;
+    //             no++;
+    //         }
+    //         advWord();
+    //     }
+    //     input = checkStartInput(wordAr);
+    //     if(input == 0){
+    //         printf("Input tidak valid. Ulangi input.\n");
+    //     }
+    // } while(input == 0);
 
     // Input == NEW GAME
-    if(input == 1){
+    // if(input == 1){
         // Game game;
         printf("Selamat datang di Mobilita!\nSilahkan masukkan nama config file: ");
-        startWord();
+        // startWord();
         // Initialize game
-        inputConfigFile(&game, currentWord);
+        inputConfigFile(&game, Config);
         game.endGame = false;
         currentTime = 0;
         currentLocation = game.hq;
@@ -57,7 +57,10 @@ int main(){
                     move(game);
                     break;
                 case 1:
-                    // PICKUP
+                    displayListDin(game.bangunan);
+                    for(int i = 0; i < game.jumlah_pesanan; i++){
+                      displayPesanan(game.psn[i]);
+                    }
                     printf("pickup\n");
                     break;
                 case 2:
@@ -66,7 +69,7 @@ int main(){
                     break;
                 case 3:
                     // MAP
-                    displayPeta(game);
+                    displayPeta(game, currentTime);
                     break;
                 case 4:
                     // TO DO
@@ -102,15 +105,15 @@ int main(){
                 default:
                     printf("Invalid input.\n");
             }
-        }
+        // }
 
         // checker();
     }
 
-    //Input == EXIT
-    else if(input == 2){
-        // ! Exit
-        quit();
-    }
+//     //Input == EXIT
+//     else if(input == 2){
+//         // ! Exit
+//         quit();
+//     }
 
 }

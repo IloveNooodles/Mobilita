@@ -6,6 +6,7 @@
 #define PRIOQUEUE_H
 
 #include "../utility/boolean.h"
+#include "../item/item.h"
 #include <stdlib.h>
 
 /* Konstanta */
@@ -17,7 +18,7 @@ typedef struct {
   int t;
   char pickUp;
   char dropOff;
-  char tipeItem;
+  Item tipeItem;
 } Pesanan;
 
 /* Definisi PrioQueue */

@@ -1,0 +1,1 @@
+gcc .\game_driver.c ..\wordmachine\charmachine.c ..\wordmachine\wordmachine.c utility.c game.c ..\pcolor\pcolor.c ..\stack\stack.c ..\PrioQueue\prioqueue.c ..\point\point.c ..\matrix\matrix.c ..\listdin\listdin.c ..\list_linked\list_linked.c ..\list_linked\node.c ..\lokasi\lokasi.c ..\ability\ability.c ..\gadget\gadget.c ..\item\item.c -o game &&.\game.exe

@@ -116,7 +116,14 @@ void inputConfigFile(Game *g, Word cfg){
         advWord();
         g->psn[i].dropOff = currentWord.contents[0];
         advWord();
-        g->psn[i].tipeItem = currentWord.contents[0];
+        if(currentWord.contents[0] == 'P'){
+          char temp = currentWord.contents[0];
+          advWord();
+          int temp2 = atoi(currentWord.contents);
+          createItem(&g->psn[i].tipeItem, temp, temp2);
+        }else{
+          createItem(&g->psn[i].tipeItem, currentWord.contents[0], -1);
+        }
     }
 
     // ! LINE CODE INI JANGAN DIHAPUS, TANPA INI LISTDIN TIDAK STABIL!

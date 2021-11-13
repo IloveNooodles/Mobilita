@@ -87,26 +87,26 @@ I.S., HEAD dan IDX_HEAD "mundur";
 
 void displayPesanan(Pesanan p){
   printf("%c -> %c", p.pickUp, p.dropOff);
-  if(p.tipeItem == 'N'){
+  if(p.tipeItem.type == 'N'){
     printf(" (Normal Item) ");
-  }else if(p.tipeItem == 'H'){
+  }else if(p.tipeItem.type == 'H'){
     printf(" (Heavy Item) ");
-  }else if(p.tipeItem == 'P'){
-    printf(" (Perishable Item, sisa waktu %d", p.t);
-  }else if(p.tipeItem == 'V'){
+  }else if(p.tipeItem.type == 'P'){
+    printf(" (Perishable Item, sisa waktu %d)", p.t);
+  }else if(p.tipeItem.type == 'V'){
     printf(" (VIP Item) ");
   }
   printf("\n");
 }
 
 void displayInProgress(Pesanan p){
-  if(p.tipeItem == 'N'){
+  if(p.tipeItem.type == 'N'){
     printf("Normal Item (Tujuan: %c)", p.dropOff);
-  }else if(p.tipeItem == 'H'){
+  }else if(p.tipeItem.type == 'H'){
     printf("Heavy Item (Tujuan: %c)", p.dropOff);
-  }else if(p.tipeItem == 'P'){
+  }else if(p.tipeItem.type == 'P'){
     printf("Perishable Item, sisa waktu %d (Tujuan: %c)", p.t, p.dropOff);
-  }else if(p.tipeItem == 'V'){
+  }else if(p.tipeItem.type == 'V'){
     printf("VIP Item (Tujuan: %c)", p.dropOff);
   }
   printf("\n");
