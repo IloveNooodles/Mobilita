@@ -10,11 +10,11 @@ The game goals is to deliver many item as possible to get a lot of money
 | Nama | NIM |
 | ------------- |:-------------:|
 | Vionie Novencia Thanggestyo | 13520006 |
-| Gagas Praharsa Bahar | (13520016)|
-| Muhammad Garebaldhie Er Rahman | (13520029) |
-| Taufan Fajarama Putrawansyah R | (13520031) |
-| Jeremy S.O.N. Simbolon | (13520042) |
-| Arik Rayi Arkananta | (13520048) |
+| Gagas Praharsa Bahar |13520016|
+| Muhammad Garebaldhie Er Rahman | 13520029|
+| Taufan Fajarama Putrawansyah R | 13520031 |
+| Jeremy S.O.N. Simbolon | 13520042 |
+| Arik Rayi Arkananta | 13520048 |
 
 ## Program Structure
 
