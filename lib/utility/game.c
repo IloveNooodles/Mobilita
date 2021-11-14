@@ -67,11 +67,13 @@ void pickup(Game *g){
   if(checkPesanan(TODO, currentLocation) == -1){
     printf("Tidak ada item pada bangunan ini.\n");
   }else{
-    if(!isStackFull(g->tas)){
+    if(TOP(g->tas).tipeItem.type == 'V'){
+      printf("Antarkan dulu VIP Itemnya!\n");
+    }else if(!isStackFull(g->tas)){
       deletePesanan(&TODO, &inputPesanan, checkPesanan(TODO, currentLocation));
       push(&g->tas, inputPesanan);
-      displayPesanan(inputPesanan);
       insertLast(&inProgress, inputPesanan);
+      printf("Pesanan berhasil diambil.\n");
     }else{
       printf("Tas sudah penuh tidak bisa mengambil barang lagi.\n");
     }
@@ -205,21 +207,21 @@ void updatePosition(Lokasi l){
     currentLocation.tipeBangunan = l.tipeBangunan;
 }
 
-void dropOff(Game g){
+void dropOff(Game *g){
     // NOTE belom dicek karena ngantuk
-    if (!isStackEmpty(g.tas)){
-        if (getTipeBangunan(currentLocation) == DROPOFF(TOP(g.tas))){
+    if (!isStackEmpty(g->tas)){
+        if (getTipeBangunan(currentLocation) == DROPOFF(TOP(g->tas))){
             Pesanan dropped;
             deleteLast(&inProgress, &dropped);
-            pop(&g.tas,&dropped);
+            pop(&g->tas,&dropped);
             currentMoney += VALUE(tipeItem(dropped));
             switch (TYPE(tipeItem(dropped))){
                 case 'V':
-                    RETURNTOSENDER(g.b) = true;
+                    RETURNTOSENDER(g->b) = true;
                     break;
                 case 'H':
-                    checkHeavyIteminBag(g.b, g.tas);
-                    activateSpeedBoost(g.b);
+                    checkHeavyIteminBag(g->b, g->tas);
+                    activateSpeedBoost(g->b);
                     break;
                 case 'P':
                     activateIncreaseCapacity();

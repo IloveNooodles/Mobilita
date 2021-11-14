@@ -51,6 +51,9 @@ int main(){
               while(HEAD(psnTerurut).t <= currentTime){
                 insertLast(&TODO, HEAD(psnTerurut));
                 dequeue(&psnTerurut, &tempPesanan);
+                if(isEmpty(psnTerurut)){
+                  break;
+                }
               }
             }
             displayCurrentLocation();
@@ -67,10 +70,9 @@ int main(){
                     pickup(&game);
                     break;
                 case 2:
-                    dropOff(game);
+                    dropOff(&game);
                     break;
                 case 3:
-                    // MAP
                     displayPeta(game, currentTime);
                     break;
                 case 4:

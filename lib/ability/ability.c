@@ -1,4 +1,5 @@
 #include "ability.h"
+#include <stdio.h>
 
 void createAblity(Ability b){
   TIME(b) = 0;

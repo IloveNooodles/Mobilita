@@ -241,7 +241,7 @@ int checkPesanan(List l, Lokasi loc){
   int counter = 0;
   boolean found = false;
   while(now != NULL && !found){
-    if(INFO(now).pickUp == loc.tipeBangunan){
+    if(INFO(now).pickUp == getTipeBangunan(loc)){
       found = true;
     }
     counter++;
