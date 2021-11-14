@@ -10,11 +10,11 @@
 - ~~Lagi ngerjain to do list dan inprogress (Gare)~~
 - Input expiry perishable item
 - Ability (Dropoff activate), Pickup
-- Buy Inventory
-- Pickup: cek lokasi pickup (map), Apus dari todo, masukin inprogress, perhatikan perishable. Prioqueue: bikin fungsi deleteat
-- Dropoff: Cek lokasi dropoff (map), Apus dari inprogress, tambahin duit, activate ability (kalo ada)
+- Buy Inventory (Gare)
+- ~~Pickup: cek lokasi pickup (map), Apus dari todo, masukin inprogress, perhatikan perishable. Prioqueue: bikin fungsi deleteat~~ Tinggal perishable (Gare)
+- ~~Dropoff: Cek lokasi dropoff (map), Apus dari inprogress, tambahin duit, activate ability (kalo ada)~~ Tinggal ability (Gare & arik)
 - Gadget pintu kemana saja
-- Fungsi deactivateSpeedBoost belum dipakai
+- Fungsi deactivateSpeedBoost belum dipakai (arik)
 
 ## List yang harus dikerjakan:
 
@@ -22,7 +22,7 @@
 - ~~Mesin Kata (Gagas)~~
 - Lokasi dan Command (Half Clear: Gagas)
 - ~~Mekanisme Waktu (Gare)~~
-- Daftar pesanan (Gare)
+- ~~Daftar pesanan (Gare)~~
 - ~~To Do List (Gare) ~~
 - ~~In Progress list (Gare)~~
 - ~~Tas (Jeremy)~~
@@ -49,6 +49,7 @@ smangat ^\_^
 - (5/11/21) Made Ablity, Made edit stack, edit game, edit item (Gare)
 - (5/11/21) Made Daftar Pesanan, Made TO Do, Made In Progress List (Gare)
 - (6/11/21) Made Gadget, inventory Gadget (Vionie)
+- (14/11/21) Made Pickup & Dropoff (Gare & Arik)
 
 ## Take caution:
 
