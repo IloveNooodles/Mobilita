@@ -33,7 +33,7 @@ void activateIncreaseCapacity(){
 
 void activateReturnToSender(Ability b, Stack s, List l1, List l2){
   // NOTE belom dicek karena ngantuk
-  if (RETURNTOSENDER(b) && Type(tipeItem(TOP(s))) != 'V'){
+  if (RETURNTOSENDER(b) && TYPE(tipeItem(TOP(s))) != 'V'){
     Pesanan returned;
     Pesanan addReturned;
     pop(&s, &returned);

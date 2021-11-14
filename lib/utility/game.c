@@ -211,9 +211,8 @@ void dropOff(Game g){
     // NOTE belom dicek karena ngantuk
     if (!isStackEmpty(g.tas)){
         if (getTipeBangunan(currentLocation) == DROPOFF(TOP(g.tas))){
-            Address deleted;
-            deleteLast(&inProgress, deleted);
             Pesanan dropped;
+            deleteLast(&inProgress, &dropped);
             pop(&g.tas,&dropped);
             currentMoney += VALUE(tipeItem(dropped));
             switch (TYPE(tipeItem(dropped))){
