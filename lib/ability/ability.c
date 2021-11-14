@@ -40,5 +40,8 @@ void activateReturnToSender(Ability b, Stack s, List l1, List l2){
     deleteLast(&l1, &addReturned);
     insertFirst(&l2, addReturned);
     RETURNTOSENDER(b) = false;
+    printf("%s berhasil dikembalikan ke Pick Up Point %c", TYPE_DESC(tipeItem(returned)), DROPOFF(returned));
+  }else{
+    printf("Mobita tidak bisa memakai Ability Return To Sender!");
   }
 }
