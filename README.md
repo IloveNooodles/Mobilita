@@ -7,13 +7,14 @@ Mobilita is CLI (Command Line Interface) Game that includes a lot of data struct
 The game goals is to deliver many item as possible to get a lot of money
 
 ### Member List:
-
-1. Vionie Novencia Thanggestyo (13520006)
-2. Gagas Praharsa Bahar (13520016)
-3. Muhammad Garebaldhie Er Rahman (13520029)
-4. Taufan Fajarama Putrawansyah R (13520031)
-5. Jeremy S.O.N. Simbolon (13520042)
-6. Arik Rayi Arkananta (13520048)
+| Nama | NIM |
+| ------------- |:-------------:|
+| Vionie Novencia Thanggestyo | 13520006 |
+| Gagas Praharsa Bahar | (13520016)|
+| Muhammad Garebaldhie Er Rahman | (13520029) |
+| Taufan Fajarama Putrawansyah R | (13520031) |
+| Jeremy S.O.N. Simbolon | (13520042) |
+| Arik Rayi Arkananta | (13520048) |
 
 ## Program Structure
 
