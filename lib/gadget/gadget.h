@@ -2,6 +2,9 @@
 #define GADGET_H
 
 #include "../utility/boolean.h"
+#include "../point/point.h"
+#include "../stack/stack.h"
+#include "../item/item.h"
 #include <stdlib.h>
 
 typedef struct {
@@ -32,5 +35,14 @@ boolean isInventoryFull(Inventory L);
 
 int inventoryCapacity (Inventory L);
 /*Mengirimkan kapasitas inventory saat ini*/
+
+void buyGadget(Inventory L, Inventory *I, int money);
+void kainPembungkusWaktu(Stack *s);
+void senterPembesar (int stack_capacity);
+void pintuKemanaSaja();
+void mesinWaktu(int time_now);
+void senterPengecil();
+void senterPengecil();
+void displayInventory(Inventory *I);
 
 #endif

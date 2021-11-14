@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "gadget.h"
-#include "../point/point.h"
-#include "../stack/stack.h"
-#include "../item/item.h"
 
 void CreateInventory(Inventory *L){
     NAME((*L).buffer[0]) = "Kain Pembungkus Waktu";
@@ -82,8 +79,7 @@ void buyGadget(Inventory L, Inventory *I, int money){
 }
 
 
-void kainPembungkusWaktu(Stack *s)
-{
+void kainPembungkusWaktu(Stack *s){
     boolean found = false;
     for(int i = IDX_TOP(*s); i >= 0;i--){
         if (TYPE((*s).buffer[i].tipeItem) == 'P'){

@@ -16,5 +16,6 @@
 #include "./list_linked/node.h"
 #include "./lokasi/lokasi.h"
 #include "./item/item.h"
+#include "gadget/gadget.h"
 
 #endif

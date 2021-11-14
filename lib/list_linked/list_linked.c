@@ -224,6 +224,7 @@ List concat(List l1, List l2){
 /* menghasilkan l3 yang baru (dengan elemen list l1 dan l2 secara beurutan). */
 /* Tidak ada alokasi/dealokasi pada prosedur ini */
 
+//NOTE ngecheck apa ada item ini buat ngeprint merah
 boolean hasItem(List l, Lokasi loc){
   Address now = l;
   boolean found = false;
@@ -236,6 +237,23 @@ boolean hasItem(List l, Lokasi loc){
   return found;
 }
 
+//NOTE buat ngecheck ada persihable apa engga
+int checkInProgress(List l, Pesanan PesananIn){
+  Address now = l;
+  int counter = 0;
+  boolean found = false;
+  while(now != NULL && !found){
+    if(isPesananEqual(INFO(now), PesananIn)){
+      found = true;
+    }
+    counter++;
+    now = NEXT(now);
+  }
+  if(found)return counter - 1;
+  else return IDX_UNDEF;
+}
+
+//NOTE Buat ngecheck di todo
 int checkPesanan(List l, Lokasi loc){
   Address now = l;
   int counter = 0;
@@ -254,6 +272,7 @@ int checkPesanan(List l, Lokasi loc){
   }
 }
 
+//NOTE buat ngedelete item dari TODO
 void deletePesanan(List *l, Pesanan *PesananOut, int idx){
     Pesanan tmpPesanan;
     deleteAt(l, idx, &tmpPesanan);
@@ -290,5 +309,13 @@ void displayInProgressList(List l){
       now = NEXT(now);
     }
     printf("\n");
+  }
+}
+
+void minusExpiryList(List *l){
+  Address now = *l;
+  while(now != NULL){
+    minusExpiry(&INFO(now).tipeItem);
+    now = NEXT(now);
   }
 }

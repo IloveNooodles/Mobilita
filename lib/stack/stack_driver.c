@@ -3,13 +3,22 @@
 
 int main(){
   Stack s;
-  Item a;
+  Pesanan p;
+  Item i;
   CreateStack(&s);
-  createItem(&a, 'N');
-  push(&s, a);
-  createItem(&a, 'P');
-  push(&s, a);
-  CreateStack(&s);
-  createItem(&a, 'H');
-  displayStack(s);
+  p.t = 1;
+  p.pickUp = 'a';
+  p.dropOff = 'b';
+  createItem(&i, 'N', -1);
+  p.tipeItem = i; 
+  push(&s, p);
+  p.t = 2;
+  p.pickUp = 'a';
+  p.dropOff = 'b';
+  createItem(&i, 'V', -1);
+  p.tipeItem = i;
+  push(&s, p);
+  for(int i = 0; i <= IDX_TOP(s); i++){
+    displayPesanan(s.buffer[i]);
+  }
 }

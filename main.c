@@ -33,27 +33,26 @@ int main(){
 
     // Input == NEW GAME
     // if(input == 1){
+        startGame(&game);
         // Game game;
-        printf("Selamat datang di Mobilita!\nSilahkan masukkan nama config file: ");
+        // printf("Selamat datang di Mobilita!\nSilahkan masukkan nama config file: ");
         // startWord();
         // TODO Initialize game bagian ini harusnya masukin ke bagian startgame 
-        inputConfigFile(&game, Config);
-        game.endGame = false;
-        currentTime = 0;
-        currentLocation = game.hq;
-        currentMoney = 0;
-        CreateLinkedList(&TODO);
-        CreateLinkedList(&inProgress);
-        CreateStack(&game.tas);
+        // inputConfigFile(&game, Config);
+        // game.endGame = false;
+        // currentTime = 0;
+        // currentLocation = game.hq;
+        // currentMoney = 0;
+        // CreateLinkedList(&TODO);
+        // CreateLinkedList(&inProgress);
+        // CreateStack(&game.tas);
         // Main game loop
         while(!game.endGame){
+            printf("=============================================\n");
             if(!isEmpty(psnTerurut)){
-              while(HEAD(psnTerurut).t <= currentTime){
+              while(HEAD(psnTerurut).t <= currentTime && !isEmpty(psnTerurut)){
                 insertLast(&TODO, HEAD(psnTerurut));
                 dequeue(&psnTerurut, &tempPesanan);
-                if(isEmpty(psnTerurut)){
-                  break;
-                }
               }
             }
             displayCurrentLocation();
@@ -65,6 +64,10 @@ int main(){
             switch(input){
                 case 0:
                     move(game);
+                    progress(&game);
+                    for(int i = 0; i <= IDX_TOP(game.tas); i++){
+                      displayPesanan(game.tas.buffer[i]);
+                    }
                     break;
                 case 1:
                     pickup(&game);
@@ -82,14 +85,10 @@ int main(){
                     displayInProgressList(inProgress);
                     break;
                 case 6:
-                    // BUY
-                    // TODO: Gadget
-                    printf("buy\n");
+                    buy(&game);
                     break;
                 case 7:
-                    // INV
-                    // TODO: Gadget
-                    printf("inventory\n");
+                    displayInventory(&game.I);
                     break;
                 case 8:
                     // HELP
@@ -109,7 +108,7 @@ int main(){
                     printf("Invalid input.\n");
             }
         // }
-
+        printf("=============================================\n");
         // checker();
     }
 

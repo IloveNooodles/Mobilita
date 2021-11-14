@@ -11,6 +11,7 @@ List TODO;
 List inProgress;
 PrioQueue psnTerurut;
 Pesanan tempPesanan;
+Inventory Toko;
 
 typedef struct {
   POINT size;
@@ -20,12 +21,14 @@ typedef struct {
   Matrix adj;
   Ability b;
   Stack tas;
+  Gadget g;
+  Inventory I;
   int jumlah_pesanan;
   Pesanan psn[30];
   boolean endGame;
 } Game;
 
-void startGame();
+void startGame(Game *game);
 void saveGame();
 void loadGame();
 
@@ -35,6 +38,8 @@ void loadGame();
 #define DROPOFF(l) (l).dropOff
 #define tipeItem(l) (l).tipeItem
 
+
+void buy(Game *g);
 
 void move(Game g);
 // Move function
@@ -51,6 +56,8 @@ void displayPeta(Game g, int time);
 void pickup(Game *g);
 
 void dropOff(Game *g);
+
+void progress(Game *g);
 
 PrioQueue transformToPrioQueue(Game g);
 

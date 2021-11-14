@@ -71,6 +71,12 @@ void dequeue(PrioQueue * pq, Pesanan *val);
 I.S., HEAD dan IDX_HEAD "mundur"; 
         pq mungkin kosong */
 
+//NOTE ngechek pesanan ini sama apa engga
+boolean isPesananEqual(Pesanan p1, Pesanan p2);
+
+//NOTE ini buat ngedisplay 1 pesanan di to do
 void displayPesanan(Pesanan p);
+
+//NOTE ini buat display pesanan tipe nya di inprogress
 void displayInProgress(Pesanan p);
 #endif

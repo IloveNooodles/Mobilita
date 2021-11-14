@@ -85,6 +85,10 @@ void dequeue(PrioQueue * pq, Pesanan *val){
 I.S., HEAD dan IDX_HEAD "mundur"; 
         pq mungkin kosong */
 
+boolean isPesananEqual(Pesanan p1, Pesanan p2){
+  return (WAKTUPESANAN(p1) == WAKTUPESANAN(p2) && PICKUP(p1) == PICKUP(p2) && DROPOFF(p1) == DROPOFF(p2) && tipeItem(p1).type == tipeItem(p2).type);
+}
+
 void displayPesanan(Pesanan p){
   printf("%c -> %c", p.pickUp, p.dropOff);
   if(p.tipeItem.type == 'N'){
@@ -92,7 +96,7 @@ void displayPesanan(Pesanan p){
   }else if(p.tipeItem.type == 'H'){
     printf(" (Heavy Item) ");
   }else if(p.tipeItem.type == 'P'){
-    printf(" (Perishable Item, sisa waktu %d)", p.t);
+    printf(" (Perishable Item, sisa waktu %d)", p.tipeItem.expiry_now);
   }else if(p.tipeItem.type == 'V'){
     printf(" (VIP Item) ");
   }
@@ -105,7 +109,7 @@ void displayInProgress(Pesanan p){
   }else if(p.tipeItem.type == 'H'){
     printf("Heavy Item (Tujuan: %c)", p.dropOff);
   }else if(p.tipeItem.type == 'P'){
-    printf("Perishable Item, sisa waktu %d (Tujuan: %c)", p.t, p.dropOff);
+    printf("Perishable Item, sisa waktu %d (Tujuan: %c)", p.tipeItem.expiry_now, p.dropOff);
   }else if(p.tipeItem.type == 'V'){
     printf("VIP Item (Tujuan: %c)", p.dropOff);
   }

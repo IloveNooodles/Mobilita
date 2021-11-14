@@ -102,7 +102,9 @@ List concat(List l1, List l2) ;
 /* menghasilkan l3 yang baru (dengan elemen list l1 dan l2 secara beurutan). */
 /* Tidak ada alokasi/dealokasi pada prosedur ini */
 boolean hasItem(List l, Lokasi loc);
+void minusExpiryList(List *l);
 int checkPesanan(List l, Lokasi loc);
+int checkInProgress(List l, Pesanan PesananIn);
 void deletePesanan(List *l, Pesanan *PesananOut, int idx);
 void displayPesananTerurut(List l);
 void displayInProgressList(List l);

@@ -2,7 +2,6 @@
 /* Definisi ADT Item yang merepresentasikan elemen Stack */
 /* Contributor : 13520042 */
 
-#include <string.h>
 #include "stdio.h"
 #include "item.h"
 
@@ -36,7 +35,14 @@ void createItem(Item *item, char type, int expiry) {
     }
 }
 
+void minusExpiry(Item *i){
+  if(i->type == 'P'){
+    i->expiry_now--;
+  }
+}
+
 void displayItem(Item item){
+
   printf("Item: %s ", TYPE_DESC(item));
   printf("Harga: %d ", VALUE(item));
   printf("Expire: %d\n", EXPIRY_NOW(item));

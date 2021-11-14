@@ -1,5 +1,62 @@
 #include <stdio.h>
-#include "game.h"
+#include "../utility/utility.h"
+
+Word Config = {"config.txt", 10};
+
+void startGame(Game *game){
+  printf("Selamat datang di Mobilita!\nSilahkan masukkan nama config file: ");
+  printf("\n");
+  // startWord();
+  inputConfigFile(game, Config);
+  game->endGame = false;
+  currentTime = 0;
+  currentLocation = game->hq;
+  currentMoney = 0;
+  CreateLinkedList(&TODO);
+  CreateLinkedList(&inProgress);
+  CreateStack(&game->tas);
+  CreateInventory(&Toko);
+}
+
+void buy(Game *g){
+  if(EQ(currentLocation.koor, g->hq.koor)){
+    buyGadget(Toko, &g->I, currentMoney);
+  }else{
+    printf("Tidak bisa membeli item karena tidak di HQ.\n");
+  }
+}
+
+void progress(Game *g){
+  if(!isStackEmpty(g->tas)){
+    Stack tasTemp;
+    Pesanan temp;
+    Pesanan temp2;
+    int len = IDX_TOP(g->tas);
+    CreateStack(&tasTemp);
+    for(int i = 0; i <= len; i++){
+      pop(&g->tas, &temp);
+      if(TYPE(tipeItem(temp)) == 'P'){
+        minusExpiry(&temp.tipeItem);
+        minusExpiryList(&inProgress);
+        if(temp.tipeItem.expiry_now == 0){
+          if(checkInProgress(inProgress, temp) != -1){
+            deletePesanan(&inProgress, &temp2, checkInProgress(inProgress, temp));
+          }
+        }else{
+          push(&tasTemp, temp);
+        }
+      }else{
+        push(&tasTemp, temp);
+      }
+    }
+    len = IDX_TOP(tasTemp);
+    //NOTE Ngebalikin lagi soalnya tadi pasti kebalik hasilnya
+    for(int i = 0; i <= len; i++){
+      pop(&tasTemp, &temp);
+      push(&g->tas, temp);
+    }
+  }
+}
 
 void move(Game g){
     Lokasi possibleMoves[26] = {0};
@@ -73,7 +130,7 @@ void pickup(Game *g){
       deletePesanan(&TODO, &inputPesanan, checkPesanan(TODO, currentLocation));
       push(&g->tas, inputPesanan);
       insertLast(&inProgress, inputPesanan);
-      printf("Pesanan berhasil diambil.\n");
+      printf("Pesanan %s berhasil diambil.\n", TYPE_DESC(tipeItem(inputPesanan)));
     }else{
       printf("Tas sudah penuh tidak bisa mengambil barang lagi.\n");
     }
@@ -146,7 +203,6 @@ void displayPeta(Game g, int time){
                 if(hasItem(TODO, g.bangunan.buffer[loc])){
                   red = true;
                 }
-
                 if(g.bangunan.buffer[loc].tipeBangunan == TOP(g.tas).dropOff){
                   blue = true;
                 }
