@@ -64,8 +64,7 @@ int main(){
                     move(game);
                     break;
                 case 1:
-                    pickup(game);
-                    printf("%c", TOP(game.tas).dropOff);
+                    pickup(&game);
                     break;
                 case 2:
                     dropOff(game);

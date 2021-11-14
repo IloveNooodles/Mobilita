@@ -48,7 +48,7 @@ void displayCurrentLocation();
 
 void displayPeta(Game g, int time);
 
-void pickup(Game g);
+void pickup(Game *g);
 
 void dropOff(Game g);
 

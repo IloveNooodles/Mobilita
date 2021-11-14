@@ -124,7 +124,7 @@ void insertAt(List *l, PesananElType val, int idx){
 /*** PENGHAPUSAN ELEMEN ***/
 void deleteFirst(List *l, PesananElType *val){
   Address p = *l;
-  *val = INFO(*l);
+  *val = INFO(p);
   *l = NEXT(p);
   free(p);
 }
@@ -164,7 +164,6 @@ void deleteAt(List *l, int idx, PesananElType *val){
     p = NEXT(loc);
     *val = INFO(p);
     NEXT(loc) = NEXT(p);
-    free(p);
   }
 }
 /* I.S. list tidak kosong, idx indeks yang valid dalam l, yaitu 0..length(l) */
@@ -255,9 +254,9 @@ int checkPesanan(List l, Lokasi loc){
   }
 }
 
-void deletePesanan(List l, Pesanan *PesananOut, int idx){
+void deletePesanan(List *l, Pesanan *PesananOut, int idx){
     Pesanan tmpPesanan;
-    deleteAt(&l, idx, &tmpPesanan);
+    deleteAt(l, idx, &tmpPesanan);
     *PesananOut = tmpPesanan;
 }
 void displayPesananTerurut(List l){

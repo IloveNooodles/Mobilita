@@ -103,7 +103,7 @@ List concat(List l1, List l2) ;
 /* Tidak ada alokasi/dealokasi pada prosedur ini */
 boolean hasItem(List l, Lokasi loc);
 int checkPesanan(List l, Lokasi loc);
-void deletePesanan(List l, Pesanan *PesananOut, int idx);
+void deletePesanan(List *l, Pesanan *PesananOut, int idx);
 void displayPesananTerurut(List l);
 void displayInProgressList(List l);
 #endif

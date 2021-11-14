@@ -62,15 +62,15 @@ void move(Game g){
     }
 }
 
-void pickup(Game g){
-  //FIXME masih ada error kalo misalkan ngambil di G gatau kenapa
+void pickup(Game *g){
   Pesanan inputPesanan;
   if(checkPesanan(TODO, currentLocation) == -1){
     printf("Tidak ada item pada bangunan ini.\n");
   }else{
-    if(!isStackFull(g.tas)){
-      deletePesanan(TODO, &inputPesanan, checkPesanan(TODO, currentLocation));
-      push(&g.tas, inputPesanan);
+    if(!isStackFull(g->tas)){
+      deletePesanan(&TODO, &inputPesanan, checkPesanan(TODO, currentLocation));
+      push(&g->tas, inputPesanan);
+      displayPesanan(inputPesanan);
       insertLast(&inProgress, inputPesanan);
     }else{
       printf("Tas sudah penuh tidak bisa mengambil barang lagi.\n");
@@ -146,10 +146,8 @@ void displayPeta(Game g, int time){
                 }
 
                 if(g.bangunan.buffer[loc].tipeBangunan == TOP(g.tas).dropOff){
-                  printf("1");
                   blue = true;
                 }
-                printf("%c", TOP(g.tas).dropOff);
                 
                 if(isLocationEqual(currentLocation, g.bangunan.buffer[loc])){
                     print_yellow(g.bangunan.buffer[loc].tipeBangunan);
