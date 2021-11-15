@@ -5,6 +5,7 @@ void createAbility(Ability *b){
   TIME(*b) = 0;
   FREEZE(*b) = true;
   HEAVYITEM(*b) = false;
+  SENTERPENGECIL(*b) = false;
 }
 
 void checkHeavyIteminBag(Ability *b, Stack s){

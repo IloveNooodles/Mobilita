@@ -11,7 +11,8 @@ typedef struct {
   int time; //ngitung dari 10 sampe 1 atau dari 1 smpe 10 nanti baru set freezenya off
   boolean freezeTime; //check lagi berenti waktu apa engga
   boolean heavyItem; //check ada heavy apa engga 
-  boolean returnToSender; //kalau true bisa activateReturnToSender
+  boolean returnToSender;
+  boolean isSenterPengecilActivated; //kalau true bisa activateReturnToSender
 } Ability;
 
 
@@ -20,6 +21,7 @@ typedef struct {
 #define TIME(l) (l).time
 #define HEAVYITEM(l) (l).heavyItem
 #define RETURNTOSENDER(l) (l).returnToSender
+#define SENTERPENGECIL(l) (l).isSenterPengecilActivated
 
 void createAbility(Ability *b);
 void checkHeavyIteminBag(Ability *b, Stack s);

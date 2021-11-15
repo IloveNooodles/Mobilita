@@ -63,11 +63,8 @@ int main(){
             input = checkMenuInput(currentWord);
             switch(input){
                 case 0:
-                    move(game);
-                    progress(&game);
-                    for(int i = 0; i <= IDX_TOP(game.tas); i++){
-                      displayPesanan(game.tas.buffer[i]);
-                    }
+                    checkHeavyIteminBag(&game.b, game.tas);
+                    move(&game);
                     break;
                 case 1:
                     pickup(&game);
@@ -88,7 +85,7 @@ int main(){
                     buy(&game);
                     break;
                 case 7:
-                    displayInventory(&game.I);
+                    displayInventory(&game.gl, &game);
                     break;
                 case 8:
                     // HELP

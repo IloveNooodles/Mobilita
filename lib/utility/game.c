@@ -9,18 +9,19 @@ void startGame(Game *game){
   // startWord();
   inputConfigFile(game, Config);
   game->endGame = false;
-  currentTime = 0;
+  currentTime = 51;
   currentLocation = game->hq;
-  currentMoney = 0;
-  CreateLinkedList(&TODO);
-  CreateLinkedList(&inProgress);
-  CreateStack(&game->tas);
-  CreateInventory(&Toko);
+  currentMoney = 60000;
+  CreateLinkedList(&TODO); // buat to do list
+  CreateLinkedList(&inProgress); // buat  inprogress
+  CreateStack(&game->tas); // buat tas baru
+  createInventory(&game->gl); // ini buat new inven
+  gadgetInfo(&Toko); //NOTE ini inisialisasi toko
 }
 
 void buy(Game *g){
   if(EQ(currentLocation.koor, g->hq.koor)){
-    buyGadget(Toko, &g->I, currentMoney);
+    buyGadget(Toko, &g->gl, &currentMoney);
   }else{
     printf("Tidak bisa membeli item karena tidak di HQ.\n");
   }
@@ -58,23 +59,22 @@ void progress(Game *g){
   }
 }
 
-void move(Game g){
+void move(Game *g){
     Lokasi possibleMoves[26] = {0};
     int i;
     int idx;
     int count = 0;
-
     // Checking index
     for(i = 0; i < 27; i++){
-        if(EQ(g.bangunan.buffer[i].koor, currentLocation.koor)){
+        if(EQ(g->bangunan.buffer[i].koor, currentLocation.koor)){
             idx = i;
         }
     }
 
     // Searching possible moves
-    for(i = 0; i < g.adj.colEff; i++){
-        if(g.adj.contents[idx][i] == 1){
-            possibleMoves[count] = g.bangunan.buffer[i];
+    for(i = 0; i < g->adj.colEff; i++){
+        if(g->adj.contents[idx][i] == 1){
+            possibleMoves[count] = g->bangunan.buffer[i];
             count++;
         }
     }
@@ -103,16 +103,18 @@ void move(Game g){
             // ! CurrentTime diupdate tanpa mengecek item yang sedang dicarry. Harus diubah nanti
             // currentTime += selisih(possibleMoves[choice-1].koor, currentLocation.koor); 
             // NOTE ini currentTime nya nambah 1 setiap move ga nambah selisih dari pointnya aing salah ngerti kayaknya
-            if(FREEZE(g.b)){
-              if(TIME(g.b) % 2 != 0){
-                TIME(g.b)--;
-                checkHeavyIteminBag(g.b, g.tas);
+            if(FREEZE(g->b)){
+              if(TIME(g->b) % 2 != 0){
+                TIME(g->b)--;
               }else{
-                currentTime += 1;
+                currentTime++;
               }
+            }else if(HEAVY(g->tas) >= 1){
+              currentTime = currentTime + HEAVY(g->tas) + 1;
             }else{
-              currentTime += 1;
+              currentTime++;
             }
+            progress(g);
             updatePosition(possibleMoves[choice-1]);
             // printf("Mobita sekarang berada di titik "); TulisLokasi(currentLocation);
         }
@@ -269,6 +271,10 @@ void dropOff(Game *g){
         if (getTipeBangunan(currentLocation) == DROPOFF(TOP(g->tas))){
             Pesanan dropped;
             deleteLast(&inProgress, &dropped);
+            if(SENTERPENGECIL(g->b)){
+              HEAVY(g->tas)++;
+              SENTERPENGECIL(g->b) = false;
+            }
             pop(&g->tas,&dropped);
             currentMoney += VALUE(tipeItem(dropped));
             switch (TYPE(tipeItem(dropped))){
@@ -276,7 +282,7 @@ void dropOff(Game *g){
                     RETURNTOSENDER(g->b) = true;
                     break;
                 case 'H':
-                    checkHeavyIteminBag(g->b, g->tas);
+                    checkHeavyIteminBag(&g->b, g->tas);
                     activateSpeedBoost(g->b);
                     break;
                 case 'P':
@@ -300,4 +306,66 @@ PrioQueue transformToPrioQueue(Game g){
     enqueue(&pq, g.psn[i]);
   }
   return pq;
+}
+
+void senterPengecil(Game *g){
+  if(HEAVYITEM(g->b)){
+    SENTERPENGECIL(g->b) = true;
+    HEAVY(g->tas)--;
+    printf("Senter pengecil berhasil digunakan\n");
+  }else{
+    printf("JIAKH SIA SIA BOS HAHA\n");
+  }
+}
+
+void displayInventory(GadgetList *I, Game *g){
+    int user_input;
+    for(int i=0; i<INVENTORY_CAP; i++){
+        printf("%d. ", i+1);
+        if(ID_GADGET((*I).buffer[i]) == ID_UNDEF){
+            printf("-\n");
+        }else{
+            int ids = ID_GADGET((*I).buffer[i]);
+            printf("%s\n", NAME((*I).buffer[i]));
+        }
+    }
+    printf("Gadget mana yang ingin digunakan? (ketik 0 jika ingin kembali)\n");
+    printf("\n");
+
+    printf("ENTER COMMAND: ");
+    startWord();
+    user_input = atoi(currentWord.contents);
+    if (user_input > 0 && user_input <= 5){
+        int gadget_id = ID_GADGET((*I).buffer[user_input-1]);
+        if (gadget_id != ID_UNDEF){
+            if (gadget_id == 0){
+                kainPembungkusWaktu(&g->tas, &inProgress);
+                ID_GADGET((*I).buffer[user_input-1]) = ID_UNDEF;
+            }
+            else if(gadget_id == 1){
+              senterPembesar(&stack_capacity);
+              ID_GADGET((*I).buffer[user_input-1]) = ID_UNDEF;
+            }
+            else if(gadget_id == 2){
+              // pintuKemanaSaja(g, Lokasi *loc);
+              ID_GADGET((*I).buffer[user_input-1]) = ID_UNDEF;
+            }
+            else if(gadget_id == 3){
+                mesinWaktu(&currentTime, &g->tas, &inProgress);
+                ID_GADGET((*I).buffer[user_input-1]) = ID_UNDEF;
+            }
+            else if(gadget_id == 4){
+                senterPengecil(g);
+                ID_GADGET((*I).buffer[user_input-1]) = ID_UNDEF;
+            }
+        }else{
+            printf("Tidak ada gadget yang dapat digunakan!\n");
+        }
+    }else if(user_input == 0 ){
+        printf("Kembali ke menu\n");
+        /* back to menu*/
+    }
+    else{
+        printf("input tidak valid\n");
+    }
 }

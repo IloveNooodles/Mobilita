@@ -2,9 +2,11 @@
 #define GADGET_H
 
 #include "../utility/boolean.h"
+#include "../list_linked/list_linked.h"
 #include "../point/point.h"
 #include "../stack/stack.h"
 #include "../item/item.h"
+#include "../lokasi/lokasi.h"
 #include "../prioqueue/prioqueue.h"
 #include "../wordmachine/wordmachine.h"
 #include "../wordmachine/charmachine.h"
@@ -38,11 +40,9 @@ void gadgetInfo (GadgetList *L);
 void addGadget(GadgetList *I, GadgetList L, int IDs);
 
 void buyGadget(GadgetList L, GadgetList *I, int *money);
-void kainPembungkusWaktu(Stack *s);
-void senterPembesar (int stack_capacity);
-void pintuKemanaSaja();
-void mesinWaktu(int *time_now);
-void senterPengecil();
-void displayInventory(GadgetList *I);
+void kainPembungkusWaktu(Stack *s, List *l);
+void senterPembesar (int *stack_capacity);
+void pintuKemanaSaja(Lokasi *loc);
+void mesinWaktu(int *time_now, Stack *s, List *l);
 
 #endif

@@ -108,4 +108,6 @@ int checkInProgress(List l, Pesanan PesananIn);
 void deletePesanan(List *l, Pesanan *PesananOut, int idx);
 void displayPesananTerurut(List l);
 void displayInProgressList(List l);
+void allPerishableList(List *l, int selisih);
+void onePerishableList(List *l);
 #endif

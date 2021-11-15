@@ -60,4 +60,5 @@ void increaseCapacity(int amount);
 void displayStack(Stack s);
 void setCapacity(int amount);
 
+
 #endif

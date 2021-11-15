@@ -237,6 +237,33 @@ boolean hasItem(List l, Lokasi loc){
   return found;
 }
 
+void onePerishableList(List *l){
+  boolean found = false;
+  Address now = *l;
+  while(now != NULL && !found){
+    if(INFO(now).tipeItem.type == 'P'){
+      INFO(now).tipeItem.expiry_now = INFO(now).tipeItem.expiry;
+      found = true;
+    }else{
+      now = NEXT(now);
+    }
+  }
+}
+
+void allPerishableList(List *l, int selisih){
+  Address now = *l;
+  while(now != NULL){
+    if(INFO(now).tipeItem.type == 'P'){
+      if(INFO(now).tipeItem.expiry_now + selisih >= INFO(now).tipeItem.expiry){
+        INFO(now).tipeItem.expiry_now = INFO(now).tipeItem.expiry;
+      }else{
+        INFO(now).tipeItem.expiry_now += selisih;
+      }
+    }
+    now = NEXT(now);
+  }
+}
+
 //NOTE buat ngecheck ada persihable apa engga
 int checkInProgress(List l, Pesanan PesananIn){
   Address now = l;

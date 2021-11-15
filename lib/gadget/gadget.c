@@ -59,12 +59,11 @@ void addGadget(GadgetList *I, GadgetList L, int IDs){
             break;
         }
     }
-        
 }
 
 void buyGadget(GadgetList L, GadgetList *I, int *money){
     if (isInventoryFull(*I)){
-        printf("Tidak dapat membeli gadget. Inventory penuh!");
+        printf("Tidak dapat membeli gadget. Inventory penuh!\n");
     }
     else{
         int user_input;
@@ -79,7 +78,7 @@ void buyGadget(GadgetList L, GadgetList *I, int *money){
         printf("ENTER COMMAND: ");
         startWord();
         user_input = atoi(currentWord.contents);
-        if(user_input>=0 && user_input<=5){
+        if(user_input> 0 && user_input<=5){
             if (PRICE(L.buffer[user_input-1]) < *money){
                 printf("%s berhasil dibeli!\n", NAME(L.buffer[user_input-1]));
                 *money = *money- PRICE(L.buffer[user_input-1]);
@@ -89,6 +88,8 @@ void buyGadget(GadgetList L, GadgetList *I, int *money){
             else{
                 printf("Uang Anda tidak cukup untuk membeli gadget!\n");
             }
+        }else if(user_input == 0){
+          return;
         }
         else{
             printf("input tidak valid\n");
@@ -97,14 +98,11 @@ void buyGadget(GadgetList L, GadgetList *I, int *money){
     }
 }
 
-
-
-void kainPembungkusWaktu(Stack *s){
-    /*boolean found = false;
-    for(int i = IDX_TOP(*s); i >= 0;i--){
-        if ((*s).buffer[i].tipeItem == 'P'){
-            //FIXME bagian ini jadinya buat tas diganti jadi tipe pesanan coba di fix lagi
-            EXPIRY_NOW(s.buffer[i]) = EXPIRY(s.buffer[i]);
+void kainPembungkusWaktu(Stack *s, List *l){
+    boolean found = false;
+    for(int i = IDX_TOP(*s); i >= 0; i--){
+        if ((*s).buffer[i].tipeItem.type == 'P'){
+            EXPIRY_NOW((*s).buffer[i].tipeItem) = EXPIRY((*s).buffer[i].tipeItem);
             found = true;
             break;
         }
@@ -113,89 +111,49 @@ void kainPembungkusWaktu(Stack *s){
         printf("Tidak ditemukan perishable item pada tas!\n");
     }
     else{
+        onePerishableList(l);
         printf("Kain pembungkus waktu berhasil digunakan!\n");
-    }*/
+    }
 }
 
-void senterPembesar (int stack_capacity){
-    if (stack_capacity > 50)
+void senterPembesar (int *stack_capacity){
+    if (*stack_capacity > 50)
         printf("Maaf Senter Pembesar tidak dapat digunakan. Kapasitas tas saat ini melebihi 50\n");
     else{
-        stack_capacity *= 2;
+        *stack_capacity *= 2;
         printf("Senter Pembesar berhasil digunakan!\n");
-        printf("Kapasitas tas saat ini: %d \n", stack_capacity);
+        printf("Kapasitas tas saat ini: %d \n", *stack_capacity);
     }
 }
 
-void pintuKemanaSaja(){
-// TODO: not fixed
-    POINT loc;
-    printf("Masukkan lokasi yang ingin dituju: ");
-    BacaPOINT(&loc);
-/**********************Location_now*******************/
-    POINT location_now = loc;
-    printf("Pintu Kemana Saja berhasil digunakan!\n");
-}
+// void pintuKemanaSaja(Game g, Lokasi *loc){
+//     printf("Masukkan lokasi yang ingin dituju: ");
+//     // BacaPOINT(&loc);
+//     // POINT location_now = loc;
+//     printf("Pintu Kemana Saja berhasil digunakan!\n");
+// }
 
-void mesinWaktu(int *time_now){
-/*pastiin queue daftar pesanan di pop kalo pesanannya udah keluar*/
-    if(*time_now > 50)
-        *time_now -= 50;
-    else
-        *time_now = 0;
-    printf("Mesin Waktu berhasil digunakan!\n");
-}
-
-void senterPengecil(){
-    printf("belum diimplementasikan");
-}
-
-void displayInventory(GadgetList *I){
-    int user_input;
-    for(int i=0; i<INVENTORY_CAP; i++){
-        printf("%d. ", i+1);
-        if(ID_GADGET((*I).buffer[i]) == ID_UNDEF){
-            printf("-\n");
-        }else{
-            int ids = ID_GADGET((*I).buffer[i]);
-            printf("%s\n", NAME((*I).buffer[i]));
-        }
-    }
-    printf("Gadget mana yang ingin digunakan? (ketik 0 jika ingin kembali)\n");
-    printf("\n");
-
-    printf("ENTER COMMAND: ");
-    startWord();
-    user_input = atoi(currentWord.contents);
-    if (user_input >0 && user_input <= 5){
-        int gadget_id = ID_GADGET((*I).buffer[user_input-1]);
-        if (gadget_id != ID_UNDEF){
-            if (gadget_id == 0){
-                Stack s;
-                kainPembungkusWaktu(&s);
-            }
-            else if(gadget_id == 1){
-                senterPembesar(stack_capacity);
-            }
-            else if(gadget_id == 2){
-                pintuKemanaSaja();
-            }
-            else if(gadget_id == 3){
-    /*******************Time_now***********************/
-                int time_now;
-                mesinWaktu(&time_now);
-            }
-            else if(gadget_id == 4){
-                senterPengecil();
-            }
-        }else{
-            printf("Tidak ada gadget yang dapat digunakan!\n");
-        }
-    }else if(user_input ==0 ){
-        printf("Kembali ke menu\n");
-        /* back to menu*/
+void mesinWaktu(int *time_now, Stack *s, List *l){
+    int selisih;
+    if(*time_now > 50){
+      *time_now -= 50;
+      selisih = 50;
     }
     else{
-        printf("input tidak valid\n");
+      selisih = *time_now;
+      *time_now = 0;
     }
+    //Loop buat tas
+    for(int i = IDX_TOP(*s); i >= 0; i--){
+        if ((*s).buffer[i].tipeItem.type == 'P'){
+            if(EXPIRY_NOW((*s).buffer[i].tipeItem) + selisih >= EXPIRY((*s).buffer[i].tipeItem)){
+              EXPIRY_NOW((*s).buffer[i].tipeItem) = EXPIRY((*s).buffer[i].tipeItem);
+            }else{
+              EXPIRY_NOW((*s).buffer[i].tipeItem) += selisih;
+            }
+        }
+    }
+    allPerishableList(l, selisih);
+    //Loop buat list
+    printf("Mesin Waktu berhasil digunakan!\n");
 }
