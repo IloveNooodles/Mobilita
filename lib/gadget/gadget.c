@@ -75,9 +75,10 @@ void buyGadget(GadgetList L, GadgetList *I, int *money){
         }
         printf("Gadget mana yang ingin Anda beli? (Ketik 0 jika ingin kembali)\n");
         printf("\n");
-    /*****************************INPUT**********************/
+
         printf("ENTER COMMAND: ");
-        scanf("%d", &user_input);
+        startWord();
+        user_input = atoi(currentWord.contents);
         if(user_input>=0 && user_input<=5){
             if (PRICE(L.buffer[user_input-1]) < *money){
                 printf("%s berhasil dibeli!\n", NAME(L.buffer[user_input-1]));
@@ -164,7 +165,8 @@ void displayInventory(GadgetList *I){
     printf("\n");
 
     printf("ENTER COMMAND: ");
-    star
+    startWord();
+    user_input = atoi(currentWord.contents);
     if (user_input >0 && user_input <= 5){
         int gadget_id = ID_GADGET((*I).buffer[user_input-1]);
         if (gadget_id != ID_UNDEF){
