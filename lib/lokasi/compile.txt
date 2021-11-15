@@ -1,1 +1,0 @@
-gcc .\lokasi.c ..\point\point.c -o peta

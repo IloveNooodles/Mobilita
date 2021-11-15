@@ -1,0 +1,2 @@
+gcc .\ability.c .\ability_driver.c ..\lokasi\lokasi.c ..\item\item.c ..\list_linked\list_linked.c ..\list_linked\node.c ..\point\point.c ..\PrioQueue\prioqueue.c ..\stack\stack.c -o ability
+.\ability.exe

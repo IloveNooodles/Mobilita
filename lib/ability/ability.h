@@ -21,8 +21,8 @@ typedef struct {
 #define HEAVYITEM(l) (l).heavyItem
 #define RETURNTOSENDER(l) (l).returnToSender
 
-void createAbility(Ability b);
-void checkHeavyIteminBag(Ability b, Stack s);
+void createAbility(Ability *b);
+void checkHeavyIteminBag(Ability *b, Stack s);
 void activateSpeedBoost(Ability b);
 void deactivateSpeedBoost(Ability b);
 void activateIncreaseCapacity();

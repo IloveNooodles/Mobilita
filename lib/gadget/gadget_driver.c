@@ -28,6 +28,4 @@ int main(){
         printf("Empty\n");
     if(isInventoryFull(Inven))
         printf("Full\n");
-
-    
 }
