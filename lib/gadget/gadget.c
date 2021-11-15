@@ -164,7 +164,7 @@ void displayInventory(GadgetList *I){
     printf("\n");
 
     printf("ENTER COMMAND: ");
-    scanf("%d", &user_input);
+    star
     if (user_input >0 && user_input <= 5){
         int gadget_id = ID_GADGET((*I).buffer[user_input-1]);
         if (gadget_id != ID_UNDEF){

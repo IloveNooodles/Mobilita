@@ -6,6 +6,8 @@
 #include "../stack/stack.h"
 #include "../item/item.h"
 #include "../prioqueue/prioqueue.h"
+#include "../wordmachine/wordmachine.h"
+#include "../wordmachine/charmachine.h"
 #include <stdlib.h>
 
 #define INVENTORY_CAP 5

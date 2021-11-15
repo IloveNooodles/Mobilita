@@ -1,17 +1,17 @@
 #include "ability.h"
 #include <stdio.h>
 
-void createAblity(Ability b){
-  TIME(b) = 0;
-  FREEZE(b) = true;
-  HEAVYITEM(b) = false;
+void createAbility(Ability *b){
+  TIME(*b) = 0;
+  FREEZE(*b) = true;
+  HEAVYITEM(*b) = false;
 }
 
-void checkHeavyIteminBag(Ability b, Stack s){
+void checkHeavyIteminBag(Ability *b, Stack s){
   if(HEAVY(s) == 0){
-    HEAVYITEM(b) = true;
+    HEAVYITEM(*b) = false;
   }else{
-    HEAVYITEM(b) = false;
+    HEAVYITEM(*b) = true;
   }
 }
 
