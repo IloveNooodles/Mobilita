@@ -5,44 +5,42 @@
 #include "../point/point.h"
 #include "../stack/stack.h"
 #include "../item/item.h"
+#include "../prioqueue/prioqueue.h"
 #include <stdlib.h>
 
+#define INVENTORY_CAP 5
+#define ID_UNDEF -999
+
 typedef struct {
+    int id;
     char* name;
-    char* desc;
     int price;
-    int amount;
 }Gadget;
 
 typedef struct{
-    Gadget buffer[5];
-}Inventory;
+    Gadget buffer[INVENTORY_CAP];
+}GadgetList;
 
+
+#define ID_GADGET(L) (L).id
 #define NAME(L) (L).name
-#define DESC(L) (L).desc
 #define PRICE(L) (L).price
-#define AMOUNT(L) (L).amount
 
-void CreateInventory (Inventory *L);
+void createInventory(GadgetList *I);
+int inventoryCapacity (GadgetList I);
+boolean isInventoryEmpty (GadgetList I);
+boolean isInventoryFull(GadgetList I);
+void gadgetInfo (GadgetList *L);
 /* I.S. sembarang */
 /*F.S. terbentuk daftar gadget */
+void addGadget(GadgetList *I, GadgetList L, int IDs);
 
-boolean isInventoryEmpty(Inventory L);
-/* Mengirim true jika L kosong inventoryCapacity(L) = 0;*/
-
-boolean isInventoryFull(Inventory L);
-/* Mengirim true jika L penuh inventoryCapacity(L) = 5;*/
-
-int inventoryCapacity (Inventory L);
-/*Mengirimkan kapasitas inventory saat ini*/
-
-void buyGadget(Inventory L, Inventory *I, int money);
+void buyGadget(GadgetList L, GadgetList *I, int *money);
 void kainPembungkusWaktu(Stack *s);
 void senterPembesar (int stack_capacity);
 void pintuKemanaSaja();
-void mesinWaktu(int time_now);
+void mesinWaktu(int *time_now);
 void senterPengecil();
-void senterPengecil();
-void displayInventory(Inventory *I);
+void displayInventory(GadgetList *I);
 
 #endif

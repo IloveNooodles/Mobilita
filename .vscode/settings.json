@@ -23,5 +23,6 @@
     "bitset": "c",
     "memory_resource": "c",
     "tuple": "c"
-  }
+  },
+  "C_Cpp.errorSquiggles": "Enabled"
 }
