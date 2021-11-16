@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <math.h>
 #include "point.h"
 
 POINT MakePOINT(int x, int y){

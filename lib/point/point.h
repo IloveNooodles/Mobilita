@@ -5,6 +5,8 @@
 #ifndef POINT_H
 #define POINT_H
 
+#include <stdio.h>
+#include <math.h>
 #include "../utility/boolean.h"
 
 typedef struct { 

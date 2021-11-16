@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "prioqueue.h"
 
 void CreatePrioQueue(PrioQueue *pq){

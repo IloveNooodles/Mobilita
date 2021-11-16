@@ -3,6 +3,7 @@
 #ifndef Matrix_H
 #define Matrix_H
 
+#include <stdio.h>
 #include "../utility/boolean.h"
 
 /* Ukuran minimum dan maksimum baris dan kolom */
