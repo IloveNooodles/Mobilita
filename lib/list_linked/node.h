@@ -1,7 +1,7 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include "../PrioQueue/prioqueue.h"
+#include "../PrioQueue/prioqueue.c"
 #include <stdlib.h>
 
 typedef Pesanan PesananElType;

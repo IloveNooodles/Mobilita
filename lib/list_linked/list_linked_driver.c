@@ -1,4 +1,4 @@
-#include "list_linked.h"
+#include "list_linked.c"
 
 //NOTE buat perishable item belom bisa kayaknya
 int main(){
@@ -8,22 +8,22 @@ int main(){
   p.t = 1;
   p.pickUp = 'G';
   p.dropOff = 'N';
-  p.tipeItem = 'N';
+  p.tipeItem.type = 'N';
   enqueue(&pq, p);
   p.t = 12;
   p.pickUp = 'G';
   p.dropOff = 'N';
-  p.tipeItem = 'H';
+  p.tipeItem.type = 'H';
   enqueue(&pq, p);
   p.t = 5;
   p.pickUp = 'A';
   p.dropOff = 'Q';
-  p.tipeItem = 'H';
+  p.tipeItem.type = 'H';
   enqueue(&pq, p);
   p.t = 10;
   p.pickUp = 'B';
   p.dropOff = 'P';
-  p.tipeItem = 'V';
+  p.tipeItem.type = 'V';
   enqueue(&pq, p);
   List l;
   CreateLinkedList(&l);

@@ -1,4 +1,4 @@
-#include "item.h"
+#include "item.c"
 #include <stdio.h>
 
 int main(){
