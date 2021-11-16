@@ -4,16 +4,12 @@
 #include "game.h"
 #include "../wordmachine/wordmachine.h"
 #include "../wordmachine/charmachine.h"
+#include "../wordmachine/writemachine.h"
 
 // Functions
 void startMenu();
 // Memulai startmenu
 
-boolean isWordEqual(Word a, Word b);
-// Check apakah dua word sama
-
-void displayWord(Word w);
-// Menampilkan word
 
 int checkStartInput(Word a[]);
 // input checker for startmenu
@@ -24,7 +20,13 @@ void inputConfigFile(Game *g, Word cfg);
 void checker();
 // prints "masuk" (to check a functionality)
 
-Word concatWord(Word w1, Word w2);
+
+// ! Moved to wordmachine
+// boolean isWordEqual(Word a, Word b);
+// Check apakah dua word sama
+// void displayWord(Word w);
+// Menampilkan word
+// Word concatWord(Word w1, Word w2);
 // Concatenates two words
 
 int checkMenuInput(Word w);

@@ -48,4 +48,10 @@ void copyWord();
 
 void advNewline();
 
+Word concatWord(Word w1, Word w2);
+
+boolean isWordEqual(Word a, Word b);
+
+void displayWord(Word w);
+
 #endif

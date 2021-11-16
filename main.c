@@ -11,28 +11,28 @@ int main(){
     startMenu();
 
     // Input dan Validasi Input
-    // do{
-    //     startWord();
-    //     for(i=0;i<3;i++){
-    //         wordAr[i] = EMPTY;
-    //     }
-    //     endWord = false;
-    //     int no = 0;
-    //     while(!endWord){
-    //         if(no<3){
-    //             wordAr[no] = currentWord;
-    //             no++;
-    //         }
-    //         advWord();
-    //     }
-    //     input = checkStartInput(wordAr);
-    //     if(input == 0){
-    //         printf("Input tidak valid. Ulangi input.\n");
-    //     }
-    // } while(input == 0);
+    do{
+        startWord();
+        for(i=0;i<3;i++){
+            wordAr[i] = EMPTY;
+        }
+        endWord = false;
+        int no = 0;
+        while(!endWord){
+            if(no<3){
+                wordAr[no] = currentWord;
+                no++;
+            }
+            advWord();
+        }
+        input = checkStartInput(wordAr);
+        if(input == 0){
+            printf("Input tidak valid. Ulangi input.\n");
+        }
+    } while(input == 0);
 
     // Input == NEW GAME
-    // if(input == 1){
+    if(input == 1){
         startGame(&game);
         // Game game;
         // printf("Selamat datang di Mobilita!\nSilahkan masukkan nama config file: ");
@@ -48,7 +48,7 @@ int main(){
         // CreateStack(&game.tas);
         // Main game loop
         while(!game.endGame){
-            printf("=============================================\n");
+            printf("======================MENU=====================\n");
             if(!isEmpty(psnTerurut)){
               while(HEAD(psnTerurut).t <= currentTime && !isEmpty(psnTerurut)){
                 insertLast(&TODO, HEAD(psnTerurut));
@@ -92,25 +92,22 @@ int main(){
                 case 9:
                     activateReturnToSender(&game.b,&game.tas, &TODO, &inProgress);
                     break;
-                // case 10:
-                //     printf("save\n");
-                //     break;
+                case 10:
+                    saveGame(game, currentConfigFile);
+                    break;
                 case 11:
                     // DEBUG
                     printf("DEBUG MODE ON\n");
-                    displayListDin(game.bangunan);
                 default:
                     printf("Invalid input.\n");
             }
-        // }
-        printf("=============================================\n");
-        // checker();
+        }
     }
 
-//     //Input == EXIT
-//     else if(input == 2){
-//         // ! Exit
-//         quit();
-//     }
+    //Input == EXIT
+    else if(input == 2){
+        // ! Exit
+        quit();
+    }
 
 }

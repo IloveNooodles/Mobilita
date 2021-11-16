@@ -1,3 +1,3 @@
 #!/bin/bash
 
-gcc main.c lib/wordmachine/charmachine.c lib/wordmachine/wordmachine.c lib/utility/utility.c lib/utility/game.c lib/pcolor/pcolor.c lib/stack/stack.c lib/PrioQueue/prioqueue.c lib/point/point.c lib/matrix/matrix.c lib/listdin/listdin.c lib/list_linked/list_linked.c lib/list_linked/node.c lib/lokasi/lokasi.c lib/ability/ability.c lib/gadget/gadget.c lib/item/item.c -o mainlinux -lm && ./mainlinux
+gcc main.c lib/wordmachine/charmachine.c lib/wordmachine/wordmachine.c lib/utility/utility.c lib/utility/game.c lib/pcolor/pcolor.c lib/stack/stack.c lib/PrioQueue/prioqueue.c lib/point/point.c lib/matrix/matrix.c lib/listdin/listdin.c lib/list_linked/list_linked.c lib/list_linked/node.c lib/lokasi/lokasi.c lib/ability/ability.c lib/gadget/gadget.c lib/item/item.c lib/wordmachine/writemachine.c -o mainlinux -lm && ./mainlinux

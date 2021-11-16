@@ -3,6 +3,7 @@
 
 #include "charmachine.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 char currentChar;
 boolean eot;
@@ -28,6 +29,7 @@ void startFromFile(char *str){
        tape = fopen(str, "r");
        if(tape == NULL){
               printf("File tidak ditemukan. Exiting....\n");
+              exit(0);
        }
        adv();
 }
@@ -41,6 +43,9 @@ void adv() {
 
 	/* Algoritma */
 	retval = fscanf(tape,"%c",&currentChar);
+       // if (retval == EOF){
+       //        fclose(tape);
+       // }
 	eot = (currentChar == MARK);
 	// if (eot) {
        // fclose(tape);

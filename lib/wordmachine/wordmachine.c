@@ -99,3 +99,41 @@ void copyWord()
         currentWord.length = i;
     }
 }
+
+Word concatWord(Word w1, Word w2){
+    Word ans;
+    ans.length = w1.length + w2.length;
+    int i;
+    for(i = 0; i < w1.length; i++){
+        ans.contents[i] = w1.contents[i];
+    }
+    for(i = 0; i < w2.length;i++){
+        ans.contents[i+w1.length] = w2.contents[i];
+    }
+    return ans;
+}
+
+boolean isWordEqual(Word a, Word b){
+    if(a.length != b.length){
+        return false;
+    }
+    else{
+        int i = 0;
+        boolean flag = true;
+        while(i < a.length && flag){
+            if(a.contents[i] != b.contents[i]){
+                flag = false;
+            }
+            i++;
+        }
+        return flag;
+    }
+}
+
+void displayWord(Word w){
+    int i;
+    for(i = 0; i<w.length;i++){
+        printf("%c", w.contents[i]);
+    }
+    printf("\n");
+}

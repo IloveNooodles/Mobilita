@@ -3,7 +3,7 @@
 
 void createAbility(Ability *b){
   TIME(*b) = 0;
-  FREEZE(*b) = true;
+  FREEZE(*b) = false;
   HEAVYITEM(*b) = false;
   SENTERPENGECIL(*b) = false;
   RETURNTOSENDER(*b) = false;

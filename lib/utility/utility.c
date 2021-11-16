@@ -3,35 +3,36 @@
 #include "utility.h"
 
 void startMenu(){
-    printf("Selamat datang ke Mobilita.\n");
+    printf("   _____        ___.   .__.__  .__  __          \n  /     \\   ____\\_ |__ |__|  | |__|/  |______   \n /  \\ /  \\ /  _ \\| __ \\|  |  | |  \\   __\\__  \\  \n/    Y    (  <_> ) \\_\\ \\  |  |_|  ||  |  / __ \\_\n\\____|__  /\\____/|___  /__|____/__||__| (____  /\n        \\/           \\/                      \\/ \n");
+    printf("====================THE GAME===================\n");
     printf("1. NEW GAME\n");
     printf("2. EXIT\n");
 }
 
-boolean isWordEqual(Word a, Word b){
-    if(a.length != b.length){
-        return false;
-    }
-    else{
-        int i = 0;
-        boolean flag = true;
-        while(i < a.length && flag){
-            if(a.contents[i] != b.contents[i]){
-                flag = false;
-            }
-            i++;
-        }
-        return flag;
-    }
-}
+// boolean isWordEqual(Word a, Word b){
+//     if(a.length != b.length){
+//         return false;
+//     }
+//     else{
+//         int i = 0;
+//         boolean flag = true;
+//         while(i < a.length && flag){
+//             if(a.contents[i] != b.contents[i]){
+//                 flag = false;
+//             }
+//             i++;
+//         }
+//         return flag;
+//     }
+// }
 
-void displayWord(Word w){
-    int i;
-    for(i = 0; i<w.length;i++){
-        printf("%c", w.contents[i]);
-    }
-    printf("\n");
-}
+// void displayWord(Word w){
+//     int i;
+//     for(i = 0; i<w.length;i++){
+//         printf("%c", w.contents[i]);
+//     }
+//     printf("\n");
+// }
 
 int checkStartInput(Word a[]){
     Word EXIT = {"EXIT", 4};
@@ -126,9 +127,9 @@ void inputConfigFile(Game *g, Word cfg){
         }
         psnTerurut = transformToPrioQueue(*g);
     }
-
     // ! LINE CODE INI JANGAN DIHAPUS, TANPA INI LISTDIN TIDAK STABIL!
     int len = listDinLength(g->bangunan);
+
     // loading();
     // printf("%i\n", g->bangunan.nEff);
     // checker();
@@ -169,18 +170,18 @@ void checker(){
     printf("Masuk!\n");
 }
 
-Word concatWord(Word w1, Word w2){
-    Word ans;
-    ans.length = w1.length + w2.length;
-    int i;
-    for(i = 0; i < w1.length; i++){
-        ans.contents[i] = w1.contents[i];
-    }
-    for(i = 0; i < w2.length;i++){
-        ans.contents[i+w1.length] = w2.contents[i];
-    }
-    return ans;
-}
+// Word concatWord(Word w1, Word w2){
+//     Word ans;
+//     ans.length = w1.length + w2.length;
+//     int i;
+//     for(i = 0; i < w1.length; i++){
+//         ans.contents[i] = w1.contents[i];
+//     }
+//     for(i = 0; i < w2.length;i++){
+//         ans.contents[i+w1.length] = w2.contents[i];
+//     }
+//     return ans;
+// }
 
 
 void help(){

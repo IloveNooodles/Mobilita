@@ -6,12 +6,14 @@ Word Config = {"config.txt", 10};
 void startGame(Game *game){
   printf("Selamat datang di Mobilita!\nSilahkan masukkan nama config file: ");
   printf("\n");
-  // startWord();
-  inputConfigFile(game, Config);
+  startWord();
+  Word cfg = currentWord;
+  currentConfigFile = cfg;
+  inputConfigFile(game, cfg);
   game->endGame = false;
-  currentTime = 51;
+  currentTime = 0;
   currentLocation = game->hq;
-  currentMoney = 60000;
+  currentMoney = 0;
   CreateLinkedList(&TODO); // buat to do list
   CreateLinkedList(&inProgress); // buat  inprogress
   CreateStack(&game->tas); // buat tas baru
@@ -19,6 +21,25 @@ void startGame(Game *game){
   gadgetInfo(&Toko); // ini inisialisasi toko
   createAbility(&game->b);
 }
+
+// void startGame(Game *game){
+//   printf("Selamat datang di Mobilita!\nSilahkan masukkan nama config file: ");
+//   printf("\n");
+//   // startWord();
+//   // Config = currentWord;
+//   currentConfigFile = Config;
+//   inputConfigFile(game, Config);
+//   game->endGame = false;
+//   currentTime = 51;
+//   currentLocation = game->hq;
+//   currentMoney = 60000;
+//   CreateLinkedList(&TODO); // buat to do list
+//   CreateLinkedList(&inProgress); // buat  inprogress
+//   CreateStack(&game->tas); // buat tas baru
+//   createInventory(&game->gl); // ini buat new inven
+//   gadgetInfo(&Toko); // ini inisialisasi toko
+//   createAbility(&game->b);
+// }
 
 void buy(Game *g){
   if(EQ(currentLocation.koor, g->hq.koor)){

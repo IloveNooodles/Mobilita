@@ -179,7 +179,7 @@ void deleteAt(List *l, int idx, PesananElType *val){
 /* Jika list kosong : menulis [] */
 /* Tidak ada tambahan karakter apa pun di awal, akhir, atau di tengah */
 
-int length(List l){
+int listLinkedLength(List l){
   int len = 0;
   Address p = l;
   while(p != NULL){

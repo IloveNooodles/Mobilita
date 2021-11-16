@@ -12,6 +12,7 @@ List inProgress;
 PrioQueue psnTerurut;
 Pesanan tempPesanan;
 GadgetList Toko;
+Word currentConfigFile;
 
 typedef struct {
   POINT size;
