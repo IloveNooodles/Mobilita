@@ -1,4 +1,4 @@
-#include "prioqueue.h"
+#include "prioqueue.c"
 
 int main(){
   PrioQueue pq;

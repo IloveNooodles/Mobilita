@@ -67,4 +67,6 @@ void senterPengecil(Game *g);
 
 void pintuKemanaSaja(Game *g);
 
+void save(Game *g);
+
 #endif

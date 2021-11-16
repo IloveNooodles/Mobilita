@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "../utility/utility.h"
 
 Word Config = {"config.txt", 10};
@@ -418,4 +419,18 @@ void displayInventory(GadgetList *I, Game *g){
     else{
         printf("input tidak valid\n");
     }
+}
+
+void save(Game *g) {
+  FILE *savefile;
+  printf("Masukkan nama save file permainan: ");
+  startWord();
+  Word filename = atoi(currentWord);
+  savefile = fopen(filename, "w");
+  fprintf(savefile, "%d %d\n", g->size.X, g->size.Y);
+  fprintf(savefile, "%d %d\n", g->hq.koor.X, g->hq.koor.Y);
+  fprintf(savefile, "%d\n", g->jumlah_lokasi);
+  for (int i = 0; i < g->bangunan.nEff; i++) {
+    fprintf(savefile, "%c %d %d\n", g->bangunan.buffer[i].tipeBangunan, g->bangunan.buffer[i].koor.X, g->bangunan.buffer[i].koor.Y);
+  }
 }

@@ -1,4 +1,5 @@
-#include "ability.h"
+#include "ability.c"
+#include <stdio.h>
 
 int main(){
   Lokasi currentLocation;
@@ -36,7 +37,7 @@ int main(){
           checkHeavyIteminBag(&b, tas);
           if(!HEAVYITEM(b)){
             printf("AKTIF BOS");
-            activateSpeedBoost(b);
+            activateSpeedBoost(&b);
           }else{
             printf("gak aktif gan. ada heavy di tas");
           }

@@ -2,7 +2,7 @@
 #define LOKASI_H
 
 #include <stdio.h>
-#include "../point/point.h"
+#include "../point/point.c"
 
 typedef struct {
   char tipeBangunan;
