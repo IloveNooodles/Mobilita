@@ -172,18 +172,6 @@ void deleteAt(List *l, int idx, PesananElType *val){
 
 
 /****************** PROSES SEMUA ELEMEN LIST ******************/
-void displayListLinked(List l){
-  printf("[");
-  Address p = l;
-  while(p != NULL){
-    printf("%d", INFO(p));
-    p = NEXT(p);
-    if(p != NULL){
-      printf(",");
-    }
-  }
-  printf("]");
-}
 // void printInfo(List l);
 /* I.S. List mungkin kosong */
 /* F.S. Jika list tidak kosong, iai list dicetak ke kanan: [e1,e2,...,en] */
