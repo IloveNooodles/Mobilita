@@ -15,6 +15,8 @@
 - ~~Dropoff: Cek lokasi dropoff (map), Apus dari inprogress, tambahin duit, activate ability (kalo ada)~~ Tinggal ability (Gare & arik)
 - Gadget pintu kemana saja
 - Fungsi deactivateSpeedBoost belum dipakai (arik)
+- Save/Load udah kebayang, tapi belom work.
+- Ability default freezenya gua false in lagi, tadi masih true
 
 ## List yang harus dikerjakan:
 
