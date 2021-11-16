@@ -259,6 +259,8 @@ void displayCurrentMoney(){
     printf("Uang yang dimiliki: %d Yen\n", currentMoney);
 }
 
+
+
 void updatePosition(Lokasi l){
     currentLocation.koor.X = l.koor.X;
     currentLocation.koor.Y = l.koor.Y;
@@ -308,6 +310,29 @@ PrioQueue transformToPrioQueue(Game g){
   return pq;
 }
 
+void pintuKemanaSaja(Game *g){
+    int i;
+    int idx;
+    int count = listDinLength(g->bangunan);
+    // Checking index
+    printf("Posisi yang dapat dicapai: \n");
+    for(i = 0; i < count; i++){
+        printf("%d. %c ", i+1, g->bangunan.buffer[i].tipeBangunan);  TulisPOINT(g->bangunan.buffer[i].koor); printf("\n");
+    }
+    printf("Masukkan lokasi yang ingin dituju: ");
+    startWord();
+    int choice = atoi(currentWord.contents);
+    if(choice > count || choice < 1){
+        printf("Input tidak valid. Gadget terpakai.\n");
+        return;
+    }
+    else{
+        progress(g);
+        updatePosition(g->bangunan.buffer[choice-1]);
+    }
+    printf("Pintu Kemana Saja berhasil digunakan!\n");
+}
+
 void senterPengecil(Game *g){
   if(HEAVYITEM(g->b)){
     SENTERPENGECIL(g->b) = true;
@@ -347,7 +372,7 @@ void displayInventory(GadgetList *I, Game *g){
               ID_GADGET((*I).buffer[user_input-1]) = ID_UNDEF;
             }
             else if(gadget_id == 2){
-              // pintuKemanaSaja(g, Lokasi *loc);
+              pintuKemanaSaja(g);
               ID_GADGET((*I).buffer[user_input-1]) = ID_UNDEF;
             }
             else if(gadget_id == 3){

@@ -126,12 +126,6 @@ void senterPembesar (int *stack_capacity){
     }
 }
 
-// void pintuKemanaSaja(Game g, Lokasi *loc){
-//     printf("Masukkan lokasi yang ingin dituju: ");
-//     // BacaPOINT(&loc);
-//     // POINT location_now = loc;
-//     printf("Pintu Kemana Saja berhasil digunakan!\n");
-// }
 
 void mesinWaktu(int *time_now, Stack *s, List *l){
     int selisih;

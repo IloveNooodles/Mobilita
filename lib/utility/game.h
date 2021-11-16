@@ -65,4 +65,6 @@ void displayInventory(GadgetList *I, Game *g);
 
 void senterPengecil(Game *g);
 
-#endif 
+void pintuKemanaSaja(Game *g);
+
+#endif

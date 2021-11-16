@@ -10,6 +10,7 @@
 #include "../prioqueue/prioqueue.h"
 #include "../wordmachine/wordmachine.h"
 #include "../wordmachine/charmachine.h"
+#include "../listdin/listdin.h"
 #include <stdlib.h>
 
 #define INVENTORY_CAP 5
@@ -42,7 +43,6 @@ void addGadget(GadgetList *I, GadgetList L, int IDs);
 void buyGadget(GadgetList L, GadgetList *I, int *money);
 void kainPembungkusWaktu(Stack *s, List *l);
 void senterPembesar (int *stack_capacity);
-void pintuKemanaSaja(Lokasi *loc);
 void mesinWaktu(int *time_now, Stack *s, List *l);
 
 #endif
