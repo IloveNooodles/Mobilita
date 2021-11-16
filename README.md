@@ -1,32 +1,40 @@
 # Mobilita
 
-Tugas Besar Alstrukdat IF20
+Tugas Besar Alstrukdat IF2110  
 
-Mobilita is CLI (Command Line Interface) Game that includes a lot of data structure like Stack, Linked List, Queue, Dynamic Array, and many more
+With the COVID-19 pandemic, Mobita's parents' business has decreased income. After the PPKM was eased, Mobita wanted to help his parents
+earn a living as a courier. Your job is to help Mobita
+developed an app that would help him track orders, navigate maps, pick up
+and unload goods. 
 
-The game goals is to deliver many item as possible to get a lot of money
+Mobilita is CLI (Command Line Interface) Game that we made using c language. This game includes a lot of data structure and also Abstract Data Types that we made ourself. Some of them are Stack, Queue, Linked list, and many more. The purpose of the game is to deliver all of the item in TODO list and get the fastest time and also lot of money.
 
 ## Setup
-- Install GNU Compiler (GCC) and set the PATH
+If you're in windows based, install GNU Compiler (GCC) and set the PATH (Because UNIX already have the gcc installed by the first place).  
 
 ## Usage
 1. Clone this repository
 2. If you want to edit the configuration file, it is inside `config/config.txt`
-3. Execute `run.bat`
+3. Execute `run.bat` if you're in windows
+4. If you're in UNIX based OS, Execute `run.sh`
 
 ## Features Done
-- MOVE
-- PICK_UP
-- DROP_OFF
-- MAP
-- TO_DO
-- IN_PROGRESS
-- BUY
-- INVENTORY
-- HELP
-- RETURN
+- Main menu
+- Time mechanism
+- Ordered List
+- To do list
+- In progress list
+- Bag
+- Item
+- Ability
+- Gadget
+- Inventory
+- Peta
+- Command includes (MOVE, PICK_UP, DROP_OFF, MAP, TO_DO, IN_PROGRESS, BUY, INVENTORY, HELP, RETURN)
+- Game Flow
 
-### Member List:
+## Member List:
+
 | Nama | NIM |
 | ------------- |:-------------:|
 | Vionie Novencia Thanggestyo | 13520006 |
@@ -40,11 +48,14 @@ The game goals is to deliver many item as possible to get a lot of money
 
 ```
 │   .gitignore
-│   a.exe
 │   main.c
-│   main.exe
 │   README.md
+│   run.bat
+│   run.sh
 │   todo.md
+│
+├───.vscode
+│       settings.json
 │
 ├───config
 │       config.txt
@@ -63,17 +74,25 @@ The game goals is to deliver many item as possible to get a lot of money
     ├───ability
     │       ability.c
     │       ability.h
+    │       ability_driver.c
+    │       run.bat
+    │
+    ├───gadget
+    │       gadget.c
+    │       gadget.h
+    │       gadget_driver.c
     │
     ├───item
     │       item.c
     │       item.h
+    │       item_driver.c
+    │       run.bat
     │
     ├───listdin
-    │       compile.txt
     │       listdin.c
-    │       listdin.exe
     │       listdin.h
     │       listdin_driver.c
+    │       run.bat
     │
     ├───listpos
     │       listpos.c
@@ -82,64 +101,64 @@ The game goals is to deliver many item as possible to get a lot of money
     ├───list_linked
     │       list_linked.c
     │       list_linked.h
+    │       list_linked_driver.c
     │       node.c
     │       node.h
+    │       run.bat
     │
     ├───lokasi
-    │       compile.txt
     │       lokasi.c
     │       lokasi.h
+    │       lokasi_driver.c
+    │       run.bat
     │
     ├───matrix
     │       matrix.c
     │       matrix.h
+    │       matrix_driver.c
+    │       run.bat
     │
     ├───pcolor
     │       pcolor.c
     │       pcolor.h
     │       pcolor_driver.c
-    │
-    ├───peta
-    │       compile.txt
-    │       peta.c
-    │       peta.exe
-    │       peta.h
-    │       peta_driver.c
-    │       run.bat
-    │
+    │       
     ├───point
     │       point.c
     │       point.h
+    │       point_driver.c
+    │       run.bat
     │
     ├───PrioQueue
     │       prioqueue.c
     │       prioqueue.h
-    │
-    ├───queue
-    │       queue.c
-    │       queue.h
+    │       prioqueue_driver.c
+    │       run.bat
     │
     ├───stack
     │       run.bat
     │       stack.c
     │       stack.h
     │       stack_driver.c
-    │       stack_driver.exe
     │
     ├───utility
-    │       adjmatrix.c
-    │       adjmatrix.h
     │       boolean.h
     │       const.h
     │       game.c
     │       game.h
+    │       game_driver.c
+    │       run.bat
     │       utility.c
     │       utility.h
     │
     └───wordmachine
             charmachine.c
             charmachine.h
-            cipher.c
             wordmachine.c
             wordmachine.h
 ```
+
+## Room for Improvement
+
+## References
+
