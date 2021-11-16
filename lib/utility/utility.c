@@ -149,7 +149,7 @@ int checkMenuInput(Word w){
     Word BUY = {"BUY", 3};
     Word INVENTORY = {"INVENTORY", 9};
     Word HELP = {"HELP", 4};
-    Word RETURN = {"RETURN, 6"};
+    Word RETURN = {"RETURN", 6};
     // Might need later //
     Word SAVE_GAME = {"SAVE_GAME", 9};
     Word DEBUG = {"DEBUG", 5};

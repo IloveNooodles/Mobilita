@@ -63,7 +63,6 @@ int main(){
             input = checkMenuInput(currentWord);
             switch(input){
                 case 0:
-                    checkHeavyIteminBag(&game.b, game.tas);
                     move(&game);
                     break;
                 case 1:
@@ -88,11 +87,10 @@ int main(){
                     displayInventory(&game.gl, &game);
                     break;
                 case 8:
-                    // HELP
                     help();
                     break;
                 case 9:
-                    activateReturnToSender(game.b,game.tas,inProgress,TODO);
+                    activateReturnToSender(&game.b,&game.tas, &TODO, &inProgress);
                     break;
                 // case 10:
                 //     printf("save\n");

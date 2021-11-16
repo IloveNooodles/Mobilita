@@ -21,7 +21,6 @@ typedef struct {
   Matrix adj;
   Ability b;
   Stack tas;
-  Gadget g;
   GadgetList gl;
   int jumlah_pesanan;
   Pesanan psn[30];

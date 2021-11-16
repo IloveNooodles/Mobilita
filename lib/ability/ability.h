@@ -25,9 +25,9 @@ typedef struct {
 
 void createAbility(Ability *b);
 void checkHeavyIteminBag(Ability *b, Stack s);
-void activateSpeedBoost(Ability b);
-void deactivateSpeedBoost(Ability b);
+void activateSpeedBoost(Ability *b);
+void deactivateSpeedBoost(Ability *b);
 void activateIncreaseCapacity();
-void activateReturnToSender(Ability b, Stack s, List l1, List l2);
+void activateReturnToSender(Ability *b, Stack *s, List *Todo, List *inProgress);
 
 #endif

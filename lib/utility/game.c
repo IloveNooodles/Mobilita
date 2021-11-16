@@ -16,7 +16,8 @@ void startGame(Game *game){
   CreateLinkedList(&inProgress); // buat  inprogress
   CreateStack(&game->tas); // buat tas baru
   createInventory(&game->gl); // ini buat new inven
-  gadgetInfo(&Toko); //NOTE ini inisialisasi toko
+  gadgetInfo(&Toko); // ini inisialisasi toko
+  createAbility(&game->b);
 }
 
 void buy(Game *g){
@@ -100,18 +101,22 @@ void move(Game *g){
             return;
         }
         else{
-            // ! CurrentTime diupdate tanpa mengecek item yang sedang dicarry. Harus diubah nanti
-            // currentTime += selisih(possibleMoves[choice-1].koor, currentLocation.koor); 
-            // NOTE ini currentTime nya nambah 1 setiap move ga nambah selisih dari pointnya aing salah ngerti kayaknya
+            checkHeavyIteminBag(&g->b, g->tas);
+            if(HEAVYITEM(g->b) && FREEZE(g->b)){
+              TIME(g->b) = 0;
+              deactivateSpeedBoost(&g->b);
+            }
             if(FREEZE(g->b)){
-              if(TIME(g->b) % 2 != 0){
-                TIME(g->b)--;
-              }else{
+              TIME(g->b)--;
+              if(TIME(g->b) % 2 == 0 && TIME(g->b) < 10){
                 currentTime++;
               }
-            }else if(HEAVY(g->tas) >= 1){
+              deactivateSpeedBoost(&g->b);
+            }
+            else if(HEAVY(g->tas) >= 1){
               currentTime = currentTime + HEAVY(g->tas) + 1;
-            }else{
+            }
+            else{
               currentTime++;
             }
             progress(g);
@@ -268,7 +273,6 @@ void updatePosition(Lokasi l){
 }
 
 void dropOff(Game *g){
-    // NOTE belom dicek karena ngantuk
     if (!isStackEmpty(g->tas)){
         if (getTipeBangunan(currentLocation) == DROPOFF(TOP(g->tas))){
             Pesanan dropped;
@@ -285,7 +289,7 @@ void dropOff(Game *g){
                     break;
                 case 'H':
                     checkHeavyIteminBag(&g->b, g->tas);
-                    activateSpeedBoost(g->b);
+                    activateSpeedBoost(&g->b);
                     break;
                 case 'P':
                     activateIncreaseCapacity();
@@ -334,7 +338,7 @@ void pintuKemanaSaja(Game *g){
 }
 
 void senterPengecil(Game *g){
-  if(HEAVYITEM(g->b)){
+  if(TOP(g->tas).tipeItem.type == 'H'){
     SENTERPENGECIL(g->b) = true;
     HEAVY(g->tas)--;
     printf("Senter pengecil berhasil digunakan\n");
