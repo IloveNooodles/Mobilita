@@ -6,6 +6,26 @@ Mobilita is CLI (Command Line Interface) Game that includes a lot of data struct
 
 The game goals is to deliver many item as possible to get a lot of money
 
+## Setup
+- Install GNU Compiler (GCC) and set the PATH
+
+## Usage
+1. Clone this repository
+2. If you want to edit the configuration file, it is inside `config/config.txt`
+3. Execute `run.bat`
+
+## Features Done
+- MOVE
+- PICK_UP
+- DROP_OFF
+- MAP
+- TO_DO
+- IN_PROGRESS
+- BUY
+- INVENTORY
+- HELP
+- RETURN
+
 ### Member List:
 | Nama | NIM |
 | ------------- |:-------------:|
