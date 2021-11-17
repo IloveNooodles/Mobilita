@@ -12,9 +12,9 @@
 - Ability (Dropoff activate), Pickup
 - Buy Inventory (Gare)
 - ~~Pickup: cek lokasi pickup (map), Apus dari todo, masukin inprogress, perhatikan perishable. Prioqueue: bikin fungsi deleteat~~ Tinggal perishable (Gare)
-- ~~Dropoff: Cek lokasi dropoff (map), Apus dari inprogress, tambahin duit, activate ability (kalo ada)~~ Tinggal ability (Gare & arik)
+- ~~Dropoff: Cek lokasi dropoff (map), Apus dari inprogress, tambahin duit, activate ability (kalo ada) Tinggal ability (Gare & arik)
 - Gadget pintu kemana saja
-- Fungsi deactivateSpeedBoost belum dipakai (arik)
+- ~~Fungsi deactivateSpeedBoost belum dipakai (arik)
 - Save/Load udah kebayang, tapi belom work.
 - Ability default freezenya gua false in lagi, tadi masih true
 
