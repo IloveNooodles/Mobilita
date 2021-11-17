@@ -75,8 +75,8 @@ void inputConfigFile(Game *g, Word cfg){
     Word EMPTY = {"", 0};
     currentWord = EMPTY;
     Word dir = {"./config/", 9};
-    Word path = concatWord(dir, cfg);
-    // displayWord(path);
+    Word path = EMPTY;
+    path = concatWord(dir, cfg);
     startFromFile(path.contents);
     CreateListDin(&g->bangunan, 30);
     advWord();
