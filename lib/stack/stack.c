@@ -75,7 +75,9 @@ void setCapacity(int amount){
 void displayStack(Stack s){
   for(int i = 0; i <= IDX_TOP(s); i++){
     printf("%d. ", i+1);
+    printf("Tujuan: %c ", s.buffer[i].dropOff);
     displayItem(tipeItem(s.buffer[i]));
+    
   }
 }
 

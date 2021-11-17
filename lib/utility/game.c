@@ -160,8 +160,7 @@ void move(Game *g){
               currentTime++;
             }
             progress(g);
-            updatePosition(possibleMoves[choice-1]);
-            // printf("Mobita sekarang berada di titik "); TulisLokasi(currentLocation);
+            updatePosition(possibleMoves[choice-1]);           
         }
     }
 }
@@ -220,8 +219,8 @@ void displayPeta(Game g, int time){
     }
     for(int i = 0; i < row-1; i++){
         if(i == row - 1){
-        printf("*");
-        }else printf("* ");
+        sprint_magenta("*");
+        }else sprint_magenta("* ");
     }
     printf("\n");
 
@@ -239,7 +238,7 @@ void displayPeta(Game g, int time){
             blue = false;
             loc = MATRIXELMT(m, i, j);
             if(j == 0){
-                printf("*");
+                sprint_magenta("*");
             }
             if(loc != -1){
                 for(int k = 0; k < possMoveCnt; k++){
@@ -268,16 +267,12 @@ void displayPeta(Game g, int time){
                     print_green(g.bangunan.buffer[loc].tipeBangunan);
                 }
                 
-                // TODO: Check back ketika sudah ada dropoff dan pickup
-                // else if(dropoffterataspadatas){
-                //     print_blue(g.bangunan.buffer[loc].tipeBangunan);
-                // }
                 else{
                     printf("%c", g.bangunan.buffer[loc].tipeBangunan);
                 }
             }else printf(" ");
             if(j == col - 1){
-                printf("*");
+                sprint_magenta("*");
             }
             }
             printf("\n");
@@ -290,8 +285,8 @@ void displayPeta(Game g, int time){
 
     for(int i = 0; i < row-1; i++){
         if(i == row - 1){
-        printf("*");
-        }else printf("* ");
+        sprint_magenta("*");
+        }else sprint_magenta("* ");
     }
     printf("\n");
 }
@@ -533,7 +528,7 @@ void saveGame(Game g, Word cfg){
     fprintf(save, "%d\n", inprolength);
     if(inprolength > 0){
         for(int i = 0; i < inprolength; i++){
-            Pesanan tempP = getElmt(TODO,i);
+            Pesanan tempP = getElmt(inProgress,i);
             if(tempP.tipeItem.type == 'P'){
                 fprintf(save, "%d %c %c %c %d %d\n", tempP.t, tempP.pickUp, tempP.dropOff, tempP.tipeItem.type, tempP.tipeItem.expiry, tempP.tipeItem.expiry_now);
             }
@@ -690,7 +685,7 @@ void loadGame(Game *g, Word cfg){
 
     advNewline();
     // Currents
-    copyWordFromWord(currentWord, currentConfigFile);
+    copyWordFromWord(currentWord, &currentConfigFile);
     advNewline();
     currentTime = atoi(currentWord.contents);
     advWord();
@@ -706,7 +701,6 @@ void loadGame(Game *g, Word cfg){
     // TODOs
     advNewline();
     int todolength = atoi(currentWord.contents);
-    // printf("%d\n", todolength);
     for(i = 0; i < todolength; i++){
         Pesanan tempP;
         advNewline();
@@ -732,7 +726,6 @@ void loadGame(Game *g, Word cfg){
     // In Progress
     advNewline();
     int inprolength = atoi(currentWord.contents);
-    // printf("%d\n", inprolength);
     for(int i = 0; i < inprolength; i++){
         Pesanan tempP;
         advNewline();
@@ -755,7 +748,6 @@ void loadGame(Game *g, Word cfg){
         }
         insertLast(&inProgress, tempP);
     }
-    // displayInProgressList(inProgress);
 
 
     // PsnTerurut
@@ -766,7 +758,6 @@ void loadGame(Game *g, Word cfg){
         dequeue(&psnTerurut, &temppp);
     }
     int psnlength = atoi(currentWord.contents);
-    // printf("%d\n", psnlength);
     for(int i = 0; i < psnlength; i++){
         Pesanan tempP;
         advNewline();
@@ -800,7 +791,6 @@ void loadGame(Game *g, Word cfg){
     g->tas.idxTop = atoi(currentWord.contents);
     advWord();
     g->tas.heavyItem = atoi(currentWord.contents);
-    // printf("%d %d\n", g->tas.idxTop, g->tas.heavyItem);
 
     for(int i = 0; i < inprolength; i++){
         Pesanan tempP;
@@ -824,7 +814,6 @@ void loadGame(Game *g, Word cfg){
         }
         g->tas.buffer[i] = tempP;
     }
-    // displayStack(g->tas);
 
     // Gadget List
     advNewline();
@@ -848,18 +837,3 @@ void loadGame(Game *g, Word cfg){
     advNewline();
     g->b.isSenterPengecilActivated = atoi(currentWord.contents);
 }
-
-
-// void save(Game *g) {
-//   FILE *savefile;
-//   printf("Masukkan nama save file permainan: ");
-//   startWord();
-//   Word filename = atoi(currentWord);
-//   savefile = fopen(filename, "w");
-//   fprintf(savefile, "%d %d\n", g->size.X, g->size.Y);
-//   fprintf(savefile, "%d %d\n", g->hq.koor.X, g->hq.koor.Y);
-//   fprintf(savefile, "%d\n", g->jumlah_lokasi);
-//   for (int i = 0; i < g->bangunan.nEff; i++) {
-//     fprintf(savefile, "%c %d %d\n", g->bangunan.buffer[i].tipeBangunan, g->bangunan.buffer[i].koor.X, g->bangunan.buffer[i].koor.Y);
-//   }
-// }

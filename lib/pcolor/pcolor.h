@@ -26,3 +26,10 @@ void print_yellow(char c);
 void print_blue(char c);
 void print_magenta(char c);
 void print_cyan(char c);
+
+void sprint_red(char* c);
+void sprint_green(char* c);
+void sprint_yellow(char* c);
+void sprint_blue(char* c);
+void sprint_magenta(char* c);
+void sprint_cyan(char* c);

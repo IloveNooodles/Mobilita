@@ -3,8 +3,8 @@
 #include "utility.h"
 
 void startMenu(){
-    printf("   _____        ___.   .__.__  .__  __          \n  /     \\   ____\\_ |__ |__|  | |__|/  |______   \n /  \\ /  \\ /  _ \\| __ \\|  |  | |  \\   __\\__  \\  \n/    Y    (  <_> ) \\_\\ \\  |  |_|  ||  |  / __ \\_\n\\____|__  /\\____/|___  /__|____/__||__| (____  /\n        \\/           \\/                      \\/ \n");
-    printf("====================THE GAME===================\n");
+    sprint_blue("   _____        ___.   .__.__  .__  __          \n  /     \\   ____\\_ |__ |__|  | |__|/  |______   \n /  \\ /  \\ /  _ \\| __ \\|  |  | |  \\   __\\__  \\  \n/    Y    (  <_> ) \\_\\ \\  |  |_|  ||  |  / __ \\_\n\\____|__  /\\____/|___  /__|____/__||__| (____  /\n        \\/           \\/                      \\/ \n");
+    sprint_yellow("====================THE GAME===================\n");
     printf("1. NEW GAME\n");
     printf("2. LOAD GAME\n");
     printf("3. EXIT\n");
@@ -195,7 +195,9 @@ void checker(){
 
 
 void help(){
+    printf("=================\n");
     printf("==+ HELP MENU +==\n");
+    printf("=================\n");
     printf("1. MOVE -> Untuk berpindah ke lokasi lainnya\n");
     printf("2. PICK_UP -> Untuk mengambil item yang ada di lokasi sekarang\n");
     printf("3. DROP_OFF -> Untuk mengantarkan item ke lokasi jika item di tumpukan teratas tas sesuai dengan pesanan.\n");
@@ -203,8 +205,9 @@ void help(){
     printf("5. TO_DO -> Untuk menampilkan pesanan yang masuk ke dalam To Do List\n");
     printf("6. IN_PROGRESS ->  Untuk menampilkan pesanan yang sedang diantar\n");
     printf("7. BUY -> Untuk membeli gadget (Hanya dapat dilakukan di HQ)\n");
-    printf("8. INVENTORY -> Untuk menampilkan isi inventory.\n");
+    printf("8. INVENTORY -> Untuk menampilkan isi inventory gadget dan menggunakannya.\n");
     printf("9. HELP -> Menampilkan menu Help yang berisi daftar command.\n");
+    printf("10. SAVE_GAME -> Menyimpan state game terkini.\n");
 }
 
 void loading(){

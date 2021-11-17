@@ -27,7 +27,7 @@ int main(){
         }
         input = checkStartInput(wordAr);
         if(input == 0){
-            printf("Input tidak valid. Ulangi input.\n");
+            sprint_red("Input tidak valid. Ulangi input.\n");
         }
     } while(input == 0);
 
@@ -40,32 +40,20 @@ int main(){
             startGameFromLoad(&game);
         }
 
-        // Game game;
-        // printf("Selamat datang di Mobilita!\nSilahkan masukkan nama config file: ");
-        // startWord();
-        // TODO Initialize game bagian ini harusnya masukin ke bagian startgame 
-        // inputConfigFile(&game, Config);
-        // game.endGame = false;
-        // currentTime = 0;
-        // currentLocation = game.hq;
-        // currentMoney = 0;
-        // CreateLinkedList(&TODO);
-        // CreateLinkedList(&inProgress);
-        // CreateStack(&game.tas);
         // Main game loop
         while(!game.endGame){
-            printf("======================MENU=====================\n");
+            printf("%s%s", RED, "======================MENU=====================\n");
+            printf("%s", NORMAL);
             if(!isEmpty(psnTerurut)){
               while(HEAD(psnTerurut).t <= currentTime && !isEmpty(psnTerurut)){
                 insertLast(&TODO, HEAD(psnTerurut));
                 dequeue(&psnTerurut, &tempPesanan);
               }
             }
-            // printf("l %d\n", lengthPrioQueue(psnTerurut));
             displayCurrentLocation();
             printf("Waktu: %d\n", currentTime);
             displayCurrentMoney();
-            printf("ENTER COMMAND: ");
+            sprint_blue("ENTER COMMAND: ");
             startWord();
             input = checkMenuInput(currentWord);
             switch(input){
@@ -102,11 +90,8 @@ int main(){
                 case 10:
                     saveGame(game, currentConfigFile);
                     break;
-                case 11:
-                    // DEBUG
-                    printf("DEBUG MODE ON\n");
                 default:
-                    printf("Invalid input.\n");
+                    sprint_red("Invalid input.\n");
             }
         }
     }
