@@ -61,6 +61,7 @@ int main(){
                 dequeue(&psnTerurut, &tempPesanan);
               }
             }
+            // printf("l %d\n", lengthPrioQueue(psnTerurut));
             displayCurrentLocation();
             printf("Waktu: %d\n", currentTime);
             displayCurrentMoney();

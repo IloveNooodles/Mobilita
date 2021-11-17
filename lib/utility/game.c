@@ -23,21 +23,6 @@ void startGame(Game *game){
   createAbility(&game->b);
 }
 
-void startGameFromLoad(Game *game){
-  printf("Selamat datang di Mobilita!\nSilahkan masukkan nama load file: ");
-  printf("\n");
-  startWord();
-  Word cfg = currentWord;
-  game->endGame = false;
-  CreateLinkedList(&TODO); // buat to do list
-  CreateLinkedList(&inProgress); // buat  inprogress
-  CreateStack(&game->tas); // buat tas baru
-  createInventory(&game->gl); // ini buat new inven
-  gadgetInfo(&Toko); // ini inisialisasi toko
-  createAbility(&game->b);
-  loadGame(game, cfg);
-}
-
 // void startGame(Game *game){
 //   printf("Selamat datang di Mobilita!\nSilahkan masukkan nama config file: ");
 //   printf("\n");
@@ -56,6 +41,24 @@ void startGameFromLoad(Game *game){
 //   gadgetInfo(&Toko); // ini inisialisasi toko
 //   createAbility(&game->b);
 // }
+
+
+void startGameFromLoad(Game *game){
+  printf("Selamat datang di Mobilita!\nSilahkan masukkan nama load file: ");
+  printf("\n");
+  startWord();
+  Word cfg = currentWord;
+  game->endGame = false;
+  CreateLinkedList(&TODO); // buat to do list
+  CreateLinkedList(&inProgress); // buat  inprogress
+  CreatePrioQueue(&psnTerurut);
+  CreateStack(&game->tas); // buat tas baru
+  createInventory(&game->gl); // ini buat new inven
+  gadgetInfo(&Toko); // ini inisialisasi toko
+  createAbility(&game->b);
+  loadGame(game, cfg);
+}
+
 
 void buy(Game *g){
   if(EQ(currentLocation.koor, g->hq.koor)){
@@ -541,7 +544,19 @@ void saveGame(Game g, Word cfg){
     }
 
     // PsnTerurut
-
+    int psnlength = lengthPrioQueue(psnTerurut);
+    fprintf(save, "%d\n", psnlength);
+    if(psnlength > 0){
+        for(int i = 0; i < psnlength; i++){
+            Pesanan tempP = psnTerurut.buffer[i];
+            if(tempP.tipeItem.type == 'P'){
+                fprintf(save, "%d %c %c %c %d %d\n", tempP.t, tempP.pickUp, tempP.dropOff, tempP.tipeItem.type, tempP.tipeItem.expiry, tempP.tipeItem.expiry_now);
+            }
+            else{
+                fprintf(save, "%d %c %c %c\n", tempP.t, tempP.pickUp, tempP.dropOff, tempP.tipeItem.type);
+            }
+        }
+    }
 
 
     // fprintf(save, "TEMPAT Tas\n");
@@ -691,7 +706,7 @@ void loadGame(Game *g, Word cfg){
     // TODOs
     advNewline();
     int todolength = atoi(currentWord.contents);
-    printf("%d\n", todolength);
+    // printf("%d\n", todolength);
     for(i = 0; i < todolength; i++){
         Pesanan tempP;
         advNewline();
@@ -717,7 +732,7 @@ void loadGame(Game *g, Word cfg){
     // In Progress
     advNewline();
     int inprolength = atoi(currentWord.contents);
-    printf("%d\n", inprolength);
+    // printf("%d\n", inprolength);
     for(int i = 0; i < inprolength; i++){
         Pesanan tempP;
         advNewline();
@@ -741,6 +756,42 @@ void loadGame(Game *g, Word cfg){
         insertLast(&inProgress, tempP);
     }
     // displayInProgressList(inProgress);
+
+
+    // PsnTerurut
+
+    advNewline();
+    Pesanan temppp;
+    while(!isEmpty(psnTerurut)){
+        dequeue(&psnTerurut, &temppp);
+    }
+    int psnlength = atoi(currentWord.contents);
+    // printf("%d\n", psnlength);
+    for(int i = 0; i < psnlength; i++){
+        Pesanan tempP;
+        advNewline();
+        tempP.t = atoi(currentWord.contents);
+        advWord();
+        tempP.pickUp = currentWord.contents[0];
+        advWord();
+        tempP.dropOff = currentWord.contents[0];
+        advWord();
+        if(currentWord.contents[0] == 'P'){
+          char temp = currentWord.contents[0];
+          advWord();
+          int temp2 = atoi(currentWord.contents);
+          createItem(&tempP.tipeItem, temp, temp2);
+          advWord();
+          int temp3 = atoi(currentWord.contents);
+          tempP.tipeItem.expiry_now = temp3;
+        }else{
+          createItem(&tempP.tipeItem, currentWord.contents[0], -1);
+        }
+        enqueue(&psnTerurut, tempP);
+        // checker();
+        // displayPesanan(TAIL(psnTerurut));
+    }
+
 
 
     // Tas
@@ -773,13 +824,13 @@ void loadGame(Game *g, Word cfg){
         }
         g->tas.buffer[i] = tempP;
     }
-    displayStack(g->tas);
+    // displayStack(g->tas);
 
     // Gadget List
     advNewline();
     for(int i = 0; i < 5; i++){
-        g->gl.buffer[i].id = atoi(currentWord.contents);
-        printf("%d\n", g->gl.buffer[i].id);
+        int tempid = atoi(currentWord.contents);
+        addGadget(&g->gl, Toko, tempid);
         if(i != 4){
             advNewline();
         }
