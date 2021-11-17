@@ -641,6 +641,7 @@ void saveGame(Game g, Word cfg){
     }
 
     fclose(save);
+    sprint_blue("Game sucessfully saved.\n");
 }
 
 
