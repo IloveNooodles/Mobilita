@@ -99,31 +99,19 @@ void buyGadget(GadgetList L, GadgetList *I, int *money){
 }
 
 void kainPembungkusWaktu(Stack *s, List *l){
-    boolean found = false;
-    for(int i = IDX_TOP(*s); i >= 0; i--){
-        if ((*s).buffer[i].tipeItem.type == 'P'){
-            EXPIRY_NOW((*s).buffer[i].tipeItem) = EXPIRY((*s).buffer[i].tipeItem);
-            found = true;
-            break;
-        }
-    }
-    if (!found){
-        printf("Tidak ditemukan perishable item pada tas!\n");
-    }
-    else{
+    if (TOP(*s).tipeItem.type == 'P'){
         onePerishableList(l);
-        printf("Kain pembungkus waktu berhasil digunakan!\n");
     }
+    printf("Kain pembungkus waktu berhasil digunakan!\n");
+
 }
 
 void senterPembesar (int *stack_capacity){
-    if (*stack_capacity > 50)
-        printf("Maaf Senter Pembesar tidak dapat digunakan. Kapasitas tas saat ini melebihi 50\n");
-    else{
-        *stack_capacity *= 2;
-        printf("Senter Pembesar berhasil digunakan!\n");
-        printf("Kapasitas tas saat ini: %d \n", *stack_capacity);
-    }
+    *stack_capacity *= 2;
+    if (*stack_capacity > 100)
+        *stack_capacity = 100;
+    printf("Senter Pembesar berhasil digunakan!\n");
+    printf("Kapasitas tas saat ini: %d \n", *stack_capacity);
 }
 
 

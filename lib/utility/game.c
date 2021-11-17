@@ -82,7 +82,7 @@ void progress(Game *g){
       if(TYPE(tipeItem(temp)) == 'P'){
         minusExpiry(&temp.tipeItem);
         minusExpiryList(&inProgress);
-        if(temp.tipeItem.expiry_now == 0){
+        if(temp.tipeItem.expiry_now <= 0){
           if(checkInProgress(inProgress, temp) != -1){
             deletePesanan(&inProgress, &temp2, checkInProgress(inProgress, temp));
           }
