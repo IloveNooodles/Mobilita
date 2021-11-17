@@ -31,9 +31,15 @@ int main(){
         }
     } while(input == 0);
 
-    // Input == NEW GAME
-    if(input == 1){
-        startGame(&game);
+    // Input == NEW GAME or LOAD GAME
+    if(input == 1 || input == 3){
+        if(input == 1){
+            startGame(&game);
+        }
+        else{
+            startGameFromLoad(&game);
+        }
+
         // Game game;
         // printf("Selamat datang di Mobilita!\nSilahkan masukkan nama config file: ");
         // startWord();

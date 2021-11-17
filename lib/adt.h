@@ -17,5 +17,6 @@
 #include "./lokasi/lokasi.h"
 #include "./item/item.h"
 #include "gadget/gadget.h"
+// #include "./wordmachine/writemachine.h"
 
 #endif

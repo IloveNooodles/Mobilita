@@ -100,6 +100,15 @@ void copyWord()
     }
 }
 
+void copyWordFromWord(Word w1, Word w2)
+{
+    w2.length = w1.length;
+    for(int i = 0; i < w1.length; i++){
+        w2.contents[i] = w1.contents[i];
+    }
+    
+}
+
 Word concatWord(Word w1, Word w2){
     Word ans;
     ans.length = w1.length + w2.length;

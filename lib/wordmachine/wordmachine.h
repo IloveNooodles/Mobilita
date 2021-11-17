@@ -54,4 +54,6 @@ boolean isWordEqual(Word a, Word b);
 
 void displayWord(Word w);
 
+void copyWordFromWord(Word w1, Word w2);
+
 #endif

@@ -7,6 +7,7 @@ void startMenu(){
     printf("====================THE GAME===================\n");
     printf("1. NEW GAME\n");
     printf("2. EXIT\n");
+    // printf("3. LOAD GAME\n");
 }
 
 // boolean isWordEqual(Word a, Word b){
@@ -37,6 +38,7 @@ void startMenu(){
 int checkStartInput(Word a[]){
     Word EXIT = {"EXIT", 4};
     Word NEW = {"NEW", 3};
+    Word LOAD = {"LOAD", 4};
     Word GAME = {"GAME", 4};
     Word EMPTY = {"", 0};
     if(isWordEqual(a[0], EXIT)){
@@ -51,6 +53,14 @@ int checkStartInput(Word a[]){
         if(isWordEqual(a[1], GAME)){
             if(isWordEqual(a[2], EMPTY)){
                 return 1;
+            }
+        }
+        return 0;
+    }
+    else if(isWordEqual(a[0], LOAD)){
+        if(isWordEqual(a[1], GAME)){
+            if(isWordEqual(a[2], EMPTY)){
+                return 3;
             }
         }
         return 0;

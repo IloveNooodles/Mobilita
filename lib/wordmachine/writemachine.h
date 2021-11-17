@@ -11,4 +11,6 @@ void copyFromFile(Word cfg, Word savefile);
 
 void saveGame(Game g, Word cfg);
 
+void loadGame(Game *g, Word cfg);
+
 #endif

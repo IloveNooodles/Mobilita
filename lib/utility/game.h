@@ -29,8 +29,10 @@ typedef struct {
 } Game;
 
 void startGame(Game *game);
-void saveGame();
-void loadGame();
+void startGameFromLoad(Game *game);
+
+// void saveGame();
+// void loadGame();
 
 //SELEKTOR PESANAN
 #define WAKTUPESANAN(l) (l).t
@@ -67,6 +69,14 @@ void senterPengecil(Game *g);
 
 void pintuKemanaSaja(Game *g);
 
-void save(Game *g);
+void copyFromFile(Word cfg, Word savefile);
+
+void saveGame(Game g, Word cfg);
+
+void loadGame(Game *g, Word cfg);
+
+// void save(Game *g);
+
+
 
 #endif
