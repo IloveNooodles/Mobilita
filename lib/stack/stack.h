@@ -7,7 +7,7 @@
 
 #include "../utility/boolean.h"
 #include "../utility/const.h"
-#include "../PrioQueue/prioqueue.c"
+#include "../PrioQueue/prioqueue.h"
 
 typedef Pesanan StackElType;
 typedef struct {

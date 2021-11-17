@@ -1,4 +1,4 @@
-#include "ability.c"
+#include "ability.h"
 #include <stdio.h>
 
 int main(){

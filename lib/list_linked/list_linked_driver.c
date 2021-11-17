@@ -1,4 +1,4 @@
-#include "list_linked.c"
+#include "list_linked.h"
 
 //NOTE buat perishable item belom bisa kayaknya
 int main(){

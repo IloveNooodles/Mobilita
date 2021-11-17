@@ -1,4 +1,4 @@
-#include "lokasi.c"
+#include "lokasi.h"
 
 int main(){
   Lokasi l;

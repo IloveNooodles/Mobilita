@@ -1,4 +1,4 @@
-#include "point.c"
+#include "point.h"
 
 int main(){
   POINT p1 = MakePOINT(3, 5);

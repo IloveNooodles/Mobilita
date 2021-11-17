@@ -1,5 +1,5 @@
-#include "game.c"
-#include "utility.c"
+#include "game.h"
+#include "utility.h"
 
 int main(){
   Game g;

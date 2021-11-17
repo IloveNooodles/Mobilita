@@ -1,11 +1,11 @@
 #ifndef ABILITY_H
 #define ABILITY_H
 
-#include "../stack/stack.c"
+#include "../stack/stack.h"
 #include "../utility/boolean.h"
-#include "../lokasi/lokasi.c"
-#include "../item/item.c"
-#include "../list_linked/list_linked.c"
+#include "../lokasi/lokasi.h"
+#include "../item/item.h"
+#include "../list_linked/list_linked.h"
 
 typedef struct {
   int time; //ngitung dari 10 sampe 1 atau dari 1 smpe 10 nanti baru set freezenya off

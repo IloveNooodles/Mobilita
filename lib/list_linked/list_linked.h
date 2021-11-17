@@ -6,10 +6,10 @@
 #ifndef LIST_H
 #define LIST_H
 
-#include "../lokasi/lokasi.c"
+#include "../lokasi/lokasi.h"
 #include "../utility/boolean.h"
 #include "../utility/const.h"
-#include "node.c"
+#include "node.h"
 
 typedef Address List;
 

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "listdin.c"
+#include "listdin.h"
 
 int main(){
   ListDin l;

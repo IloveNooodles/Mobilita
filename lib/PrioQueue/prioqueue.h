@@ -6,7 +6,7 @@
 #define PRIOQUEUE_H
 
 #include "../utility/boolean.h"
-#include "../item/item.c"
+#include "../item/item.h"
 #include <stdio.h>
 #include <stdlib.h>
 
