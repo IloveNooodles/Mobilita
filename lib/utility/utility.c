@@ -6,8 +6,8 @@ void startMenu(){
     printf("   _____        ___.   .__.__  .__  __          \n  /     \\   ____\\_ |__ |__|  | |__|/  |______   \n /  \\ /  \\ /  _ \\| __ \\|  |  | |  \\   __\\__  \\  \n/    Y    (  <_> ) \\_\\ \\  |  |_|  ||  |  / __ \\_\n\\____|__  /\\____/|___  /__|____/__||__| (____  /\n        \\/           \\/                      \\/ \n");
     printf("====================THE GAME===================\n");
     printf("1. NEW GAME\n");
-    printf("2. EXIT\n");
-    // printf("3. LOAD GAME\n");
+    printf("2. LOAD GAME\n");
+    printf("3. EXIT\n");
 }
 
 // boolean isWordEqual(Word a, Word b){

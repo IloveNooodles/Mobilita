@@ -470,20 +470,46 @@ void copyFromFile(Word cfg, Word savefile){
 
 void saveGame(Game g, Word cfg){
     FILE *save;
-
+    FILE *source;
+    char ch;
     printf("Masukkan nama file penyimpanan: ");
     startWord();
     Word savefile = currentWord;
-    copyFromFile(cfg, savefile);
     Word dir = {"./config/", 9};
     Word savepath = concatWord(dir, savefile);
-    save = fopen("./config/coba.txt", "w");
+    Word NulTerm = {"\0", 1};
+    Word path = concatWord(dir, cfg);
+    savepath = concatWord(savepath, NulTerm);
+    path = concatWord(path, NulTerm);
+    source = fopen(path.contents, "r");
+    // source = fopen("./config/config.txt", "r");
+    if(source == NULL){
+        printf("Error: File source not found. Exiting..\n");
+        exit(0);
+    }
+    save = fopen(savepath.contents, "w");
+    // save = fopen("./config/coba.txt", "w");
+    if(save == NULL){
+        printf("Error: File not found. Exiting..\n");
+        exit(0);
+    }
+    while((ch = fgetc(source)) != EOF){
+        fputc(ch, save);
+    }
+    fclose(source);
+    // fclose(target);
+
+    // fclose(save);
     // Curr Config File
     fprintf(save, "%s\n", currentConfigFile.contents);
     // Curr Time Curr Money
     fprintf(save, "%d %d\n", currentTime, currentMoney);
     // Curr Loc
     fprintf(save, "%c %d %d\n", currentLocation.tipeBangunan, currentLocation.koor.X, currentLocation.koor.Y);
+
+
+
+    // fprintf(save, "TEMPAT TODO\n");
     // TODO
     int todolength = listLinkedLength(TODO);
     fprintf(save, "%d\n", todolength);
@@ -496,39 +522,55 @@ void saveGame(Game g, Word cfg){
             fprintf(save, "%d %c %c %c\n", tempP.t, tempP.pickUp, tempP.dropOff, tempP.tipeItem.type);
         }
     }
+
+
+    // fprintf(save, "TEMPAT InPro\n");
     // InProgress
     int inprolength = listLinkedLength(inProgress);
     fprintf(save, "%d\n", inprolength);
-    for(int i = 0; i < inprolength; i++){
-        Pesanan tempP = getElmt(TODO,i);
-        if(tempP.tipeItem.type == 'P'){
-            fprintf(save, "%d %c %c %c %d %d\n", tempP.t, tempP.pickUp, tempP.dropOff, tempP.tipeItem.type, tempP.tipeItem.expiry, tempP.tipeItem.expiry_now);
-        }
-        else{
-            fprintf(save, "%d %c %c %c\n", tempP.t, tempP.pickUp, tempP.dropOff, tempP.tipeItem.type);
+    if(inprolength > 0){
+        for(int i = 0; i < inprolength; i++){
+            Pesanan tempP = getElmt(TODO,i);
+            if(tempP.tipeItem.type == 'P'){
+                fprintf(save, "%d %c %c %c %d %d\n", tempP.t, tempP.pickUp, tempP.dropOff, tempP.tipeItem.type, tempP.tipeItem.expiry, tempP.tipeItem.expiry_now);
+            }
+            else{
+                fprintf(save, "%d %c %c %c\n", tempP.t, tempP.pickUp, tempP.dropOff, tempP.tipeItem.type);
+            }
         }
     }
 
     // PsnTerurut
 
 
+
+    // fprintf(save, "TEMPAT Tas\n");
     // Tas
     // idxTop, heavyItem
     fprintf(save, "%d %d\n", g.tas.idxTop, g.tas.heavyItem);
-    for(int i = 0; i < inprolength; i++){
-        Pesanan tempP = g.tas.buffer[i];
-        if(tempP.tipeItem.type == 'P'){
-            fprintf(save, "%d %c %c %c %d %d\n", tempP.t, tempP.pickUp, tempP.dropOff, tempP.tipeItem.type, tempP.tipeItem.expiry, tempP.tipeItem.expiry_now);
-        }
-        else{
-            fprintf(save, "%d %c %c %c\n", tempP.t, tempP.pickUp, tempP.dropOff, tempP.tipeItem.type);
+    if(inprolength > 0){
+        for(int i = 0; i < inprolength; i++){
+            Pesanan tempP = g.tas.buffer[i];
+            if(tempP.tipeItem.type == 'P'){
+                fprintf(save, "%d %c %c %c %d %d\n", tempP.t, tempP.pickUp, tempP.dropOff, tempP.tipeItem.type, tempP.tipeItem.expiry, tempP.tipeItem.expiry_now);
+            }
+            else{
+                fprintf(save, "%d %c %c %c\n", tempP.t, tempP.pickUp, tempP.dropOff, tempP.tipeItem.type);
+            }
         }
     }
+
+
+
+    // fprintf(save, "TEMPAT GL\n");
     // GadgetList
     for(int i = 0; i < 5; i++){
         Gadget tempG = g.gl.buffer[i];
         fprintf(save, "%d\n", tempG.id);
     }
+
+
+    // fprintf(save, "TEMPAT Abil\n");
     // Ability
     fprintf(save, "%d\n", g.b.time);
     if(g.b.freezeTime){
@@ -555,6 +597,8 @@ void saveGame(Game g, Word cfg){
     else{
         fprintf(save, "%d\n", 0);
     }
+
+    fclose(save);
 }
 
 
@@ -627,10 +671,11 @@ void loadGame(Game *g, Word cfg){
     // ! LINE CODE INI JANGAN DIHAPUS, TANPA INI LISTDIN TIDAK STABIL!
     int len = listDinLength(g->bangunan);
 
+
     advNewline();
     // Currents
     copyWordFromWord(currentWord, currentConfigFile);
-    advWord();
+    advNewline();
     currentTime = atoi(currentWord.contents);
     advWord();
     currentMoney = atoi(currentWord.contents);
@@ -639,7 +684,8 @@ void loadGame(Game *g, Word cfg){
     advWord();
     currentLocation.koor.X = atoi(currentWord.contents);
     advWord();
-    currentLocation.koor.X = atoi(currentWord.contents);
+    currentLocation.koor.Y = atoi(currentWord.contents);
+    
     
     // TODOs
     int todolength = atoi(currentWord.contents);
@@ -661,7 +707,7 @@ void loadGame(Game *g, Word cfg){
         }else{
           createItem(&tempP.tipeItem, currentWord.contents[0], -1);
         }
-        setElmt(&TODO, i, tempP);
+        insertFirst(&TODO, tempP);
     }
 
 
@@ -688,7 +734,7 @@ void loadGame(Game *g, Word cfg){
         }else{
           createItem(&tempP.tipeItem, currentWord.contents[0], -1);
         }
-        setElmt(&inProgress, i, tempP);
+        insertLast(&inProgress, tempP);
     }
 
 
