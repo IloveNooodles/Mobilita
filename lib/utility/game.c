@@ -606,7 +606,8 @@ void loadGame(Game *g, Word cfg){
     Word EMPTY = {"", 0};
     currentWord = EMPTY;
     Word dir = {"./config/", 9};
-    Word path = concatWord(dir, cfg);
+    Word path = EMPTY;
+    path = concatWord(dir, cfg);
     // displayWord(path);
     startFromFile(path.contents);
     CreateListDin(&g->bangunan, 30);
@@ -688,7 +689,9 @@ void loadGame(Game *g, Word cfg){
     
     
     // TODOs
+    advNewline();
     int todolength = atoi(currentWord.contents);
+    printf("%d\n", todolength);
     for(i = 0; i < todolength; i++){
         Pesanan tempP;
         advNewline();
@@ -709,11 +712,12 @@ void loadGame(Game *g, Word cfg){
         }
         insertFirst(&TODO, tempP);
     }
-
+    
 
     // In Progress
     advNewline();
     int inprolength = atoi(currentWord.contents);
+    printf("%d\n", inprolength);
     for(int i = 0; i < inprolength; i++){
         Pesanan tempP;
         advNewline();
@@ -736,6 +740,7 @@ void loadGame(Game *g, Word cfg){
         }
         insertLast(&inProgress, tempP);
     }
+    // displayInProgressList(inProgress);
 
 
     // Tas
@@ -744,6 +749,8 @@ void loadGame(Game *g, Word cfg){
     g->tas.idxTop = atoi(currentWord.contents);
     advWord();
     g->tas.heavyItem = atoi(currentWord.contents);
+    // printf("%d %d\n", g->tas.idxTop, g->tas.heavyItem);
+
     for(int i = 0; i < inprolength; i++){
         Pesanan tempP;
         advNewline();
@@ -766,13 +773,15 @@ void loadGame(Game *g, Word cfg){
         }
         g->tas.buffer[i] = tempP;
     }
+    displayStack(g->tas);
 
     // Gadget List
     advNewline();
     for(int i = 0; i < 5; i++){
         g->gl.buffer[i].id = atoi(currentWord.contents);
+        printf("%d\n", g->gl.buffer[i].id);
         if(i != 4){
-            advWord();
+            advNewline();
         }
     }
 
