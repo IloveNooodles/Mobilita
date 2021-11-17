@@ -79,7 +79,7 @@ void buyGadget(GadgetList L, GadgetList *I, int *money){
         startWord();
         user_input = atoi(currentWord.contents);
         if(user_input> 0 && user_input<=5){
-            if (PRICE(L.buffer[user_input-1]) < *money){
+            if (PRICE(L.buffer[user_input-1]) <= *money){
                 printf("%s berhasil dibeli!\n", NAME(L.buffer[user_input-1]));
                 *money = *money- PRICE(L.buffer[user_input-1]);
                 printf("Uang Anda sekarang: %d Yen\n", *money );

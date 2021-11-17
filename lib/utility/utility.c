@@ -10,31 +10,6 @@ void startMenu(){
     printf("3. EXIT\n");
 }
 
-// boolean isWordEqual(Word a, Word b){
-//     if(a.length != b.length){
-//         return false;
-//     }
-//     else{
-//         int i = 0;
-//         boolean flag = true;
-//         while(i < a.length && flag){
-//             if(a.contents[i] != b.contents[i]){
-//                 flag = false;
-//             }
-//             i++;
-//         }
-//         return flag;
-//     }
-// }
-
-// void displayWord(Word w){
-//     int i;
-//     for(i = 0; i<w.length;i++){
-//         printf("%c", w.contents[i]);
-//     }
-//     printf("\n");
-// }
-
 int checkStartInput(Word a[]){
     Word EXIT = {"EXIT", 4};
     Word NEW = {"NEW", 3};
@@ -163,12 +138,11 @@ int checkMenuInput(Word w){
     Word RETURN = {"RETURN", 6};
     // Might need later //
     Word SAVE_GAME = {"SAVE_GAME", 9};
-    Word DEBUG = {"DEBUG", 5};
+    Word QUIT = {"QUIT", 4};
 
-    Word key[] = {MOVE, PICK_UP, DROP_OFF, MAP, TO_DO, IN_PROGRESS, BUY, INVENTORY, HELP, RETURN, SAVE_GAME, DEBUG};
+    Word key[] = {MOVE, PICK_UP, DROP_OFF, MAP, TO_DO, IN_PROGRESS, BUY, INVENTORY, HELP, RETURN, SAVE_GAME, QUIT};
     int i;
-    // ! Change to 10 if there is SAVE_GAME
-    for(i = 0; i < 11; i++){
+    for(i = 0; i < 12; i++){
         if(isWordEqual(w, key[i])){
             return i;
         }
@@ -208,6 +182,7 @@ void help(){
     printf("8. INVENTORY -> Untuk menampilkan isi inventory gadget dan menggunakannya.\n");
     printf("9. HELP -> Menampilkan menu Help yang berisi daftar command.\n");
     printf("10. SAVE_GAME -> Menyimpan state game terkini.\n");
+    printf("11. QUIT -> Keluar dari game.\n");
 }
 
 void loading(){

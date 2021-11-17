@@ -15,6 +15,8 @@ void startGame(Game *game){
   currentTime = 0;
   currentLocation = game->hq;
   currentMoney = 0;
+  totalMoney = 0;
+  finishedPesanan = 0;
   CreateLinkedList(&TODO); // buat to do list
   CreateLinkedList(&inProgress); // buat  inprogress
   CreateStack(&game->tas); // buat tas baru
@@ -98,6 +100,32 @@ void progress(Game *g){
       push(&g->tas, temp);
     }
   }
+}
+
+boolean checkEndGame(Game g){
+    return isStackEmpty(g.tas) && isLinkedListEmpty(TODO) && isLinkedListEmpty(inProgress) && isEmpty(psnTerurut) && isLocationEqual(currentLocation, g.hq);
+}
+
+void endGameReached(Game g){
+    sprint_yellow("SELAMAT! Anda berhasil menamatkan game MOBILITA!\n");
+    sprint_yellow("Dengan ini, kamu berhasil pensiun dari pekerjaanmu sebagai kurir!");
+    sprint_yellow("Pandemi telah usai, mobita pun kembali masuk kampus..\n");
+    sprint_yellow("Finished stats: \n");
+    printf("Pesanan yang telah diantar: ", finishedPesanan); printf("\n");
+    printf("Waktu yang terlampaui: ", currentTime); printf("\n");
+    printf("Total uang yang didapat: ", totalMoney); printf("\n");
+    sprint_yellow("Sampai jumpa di lain waktu!\n");
+}
+
+void quitWithSave(Game g){
+    Word Y = {"Y", 1};
+    sprint_red("Apakah anda ingin menyimpan permainan sebelum quit? (Y/N): ");
+    startWord();
+    if(isWordEqual(Y, currentWord)){
+        saveGame(g, currentConfigFile);
+    }
+    sprint_red("Sampai jumpa di lain waktu!\n");
+    exit(0);
 }
 
 void move(Game *g){
@@ -317,6 +345,8 @@ void dropOff(Game *g){
               SENTERPENGECIL(g->b) = false;
             }
             pop(&g->tas,&dropped);
+            finishedPesanan++;
+            totalMoney += VALUE(tipeItem(dropped));
             currentMoney += VALUE(tipeItem(dropped));
             switch (TYPE(tipeItem(dropped))){
                 case 'V':
@@ -502,6 +532,8 @@ void saveGame(Game g, Word cfg){
     fprintf(save, "%s\n", currentConfigFile.contents);
     // Curr Time Curr Money
     fprintf(save, "%d %d\n", currentTime, currentMoney);
+    // Finished, Total
+    fprintf(save, "%d %d\n", finishedPesanan, totalMoney);
     // Curr Loc
     fprintf(save, "%c %d %d\n", currentLocation.tipeBangunan, currentLocation.koor.X, currentLocation.koor.Y);
 
@@ -618,7 +650,6 @@ void loadGame(Game *g, Word cfg){
     Word dir = {"./config/", 9};
     Word path = EMPTY;
     path = concatWord(dir, cfg);
-    // displayWord(path);
     startFromFile(path.contents);
     CreateListDin(&g->bangunan, 30);
     advWord();
@@ -690,6 +721,11 @@ void loadGame(Game *g, Word cfg){
     currentTime = atoi(currentWord.contents);
     advWord();
     currentMoney = atoi(currentWord.contents);
+    advNewline();
+    finishedPesanan = atoi(currentWord.contents);
+    advWord();
+    totalMoney = atoi(currentWord.contents);
+    
     advNewline();
     currentLocation.tipeBangunan = currentWord.contents[0];
     advWord();

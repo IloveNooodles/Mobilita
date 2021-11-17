@@ -7,6 +7,8 @@
 int currentTime;
 Lokasi currentLocation;
 int currentMoney;
+int totalMoney;
+int finishedPesanan;
 List TODO;
 List inProgress;
 PrioQueue psnTerurut;
@@ -75,6 +77,11 @@ void saveGame(Game g, Word cfg);
 
 void loadGame(Game *g, Word cfg);
 
+void quitWithSave(Game g);
+
+void endGameReached(Game g);
+
+boolean checkEndGame(Game g);
 // void save(Game *g);
 
 

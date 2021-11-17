@@ -90,10 +90,15 @@ int main(){
                 case 10:
                     saveGame(game, currentConfigFile);
                     break;
+                case 11:
+                    quitWithSave(game);
+                    break;
                 default:
                     sprint_red("Invalid input.\n");
             }
         }
+        // End game reached
+        endGameReached(game);
     }
 
     //Input == EXIT
