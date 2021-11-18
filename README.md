@@ -1,24 +1,28 @@
 # Mobilita
 
-Tugas Besar Alstrukdat IF2110  
+Tugas Besar Alstrukdat IF2110
 
 With the COVID-19 pandemic, Mobita's parents' business has decreased income. After the PPKM was eased, Mobita wanted to help his parents
 earn a living as a courier. Your job is to help Mobita
 developed an app that would help him track orders, navigate maps, pick up
-and unload goods. 
+and unload goods.
 
 Mobilita is CLI (Command Line Interface) Game that we made using c language. This game includes a lot of data structure and also Abstract Data Types that we made ourself. Some of them are Stack, Queue, Linked list, and many more. The purpose of the game is to deliver all of the item in TODO list and get the fastest time and also lot of money.
 
 ## Setup
-If you're in windows based, install GNU Compiler (GCC) and set the PATH (Because UNIX already have the gcc installed by the first place).  
+
+- If you're in windows based, install GNU Compiler (GCC) and set the PATH (Because UNIX already have the gcc installed by the first place).
+- If you're in UNIX based just follow the Usage instruction.
 
 ## Usage
+
 1. Clone this repository
 2. If you want to edit the configuration file, it is inside `config/config.txt`
 3. Execute `run.bat` if you're in windows
 4. If you're in UNIX based OS, Execute `run.sh`
 
 ## Features Done
+
 - Main menu
 - Time mechanism
 - Ordered List
@@ -35,20 +39,21 @@ If you're in windows based, install GNU Compiler (GCC) and set the PATH (Because
 
 ## Member List:
 
-| Nama | NIM |
-| ------------- |:-------------:|
-| Vionie Novencia Thanggestyo | 13520006 |
-| Gagas Praharsa Bahar |13520016|
-| Muhammad Garebaldhie Er Rahman | 13520029|
-| Taufan Fajarama Putrawansyah R | 13520031 |
-| Jeremy S.O.N. Simbolon | 13520042 |
-| Arik Rayi Arkananta | 13520048 |
+| Nama                           |   NIM    |                                                   Workload management                                                   |
+| ------------------------------ | :------: | :---------------------------------------------------------------------------------------------------------------------: |
+| Vionie Novencia Thanggestyo    | 13520006 |                                     All of gadget implementation & Inventory gadget                                     |
+| Gagas Praharsa Bahar           | 13520016 |               Start menu and main menu, new game, exit, load/save, mesin kata & karakter, move, map, help               |
+| Muhammad Garebaldhie Er Rahman | 13520029 | Start game, game flow, pickup, dropoff, map,bag, item, ability, VIP Item, Return to sender, TO DO list, inprogress list |
+| Taufan Fajarama Putrawansyah R | 13520031 |                                       Daftar Pesanan, TO DO list, inprogress list                                       |
+| Jeremy S.O.N. Simbolon         | 13520042 |                                     Bag, Normal item, Heavy item, Perishable item.                                      |
+| Arik Rayi Arkananta            | 13520048 |                             Speed boost, increase capacity, map, dropoff, return to sender                              |
 
 ## Program Structure
 
 ```
 │   .gitignore
 │   main.c
+│   main.exe
 │   README.md
 │   run.bat
 │   run.sh
@@ -58,10 +63,17 @@ If you're in windows based, install GNU Compiler (GCC) and set the PATH (Because
 │       settings.json
 │
 ├───config
+│       1241.txt
+│       a.txt
 │       config.txt
+│       config2.txt
+│       end.txt
+│       misalnyasave.txt
+│       test.txt
 │
 ├───Doc
 │       IF2110_FormAsistensiTB.doc
+│       IF2110_TB_01_01.pdf
 │       IF2110_TemplateLaporanTB.doc
 │       Pedoman Tubes 2021-2022.pdf
 │       Spesifikasi Tugas Besar IF2110 .pdf
@@ -73,6 +85,7 @@ If you're in windows based, install GNU Compiler (GCC) and set the PATH (Because
     │
     ├───ability
     │       ability.c
+    │       ability.exe
     │       ability.h
     │       ability_driver.c
     │       run.bat
@@ -84,12 +97,14 @@ If you're in windows based, install GNU Compiler (GCC) and set the PATH (Because
     │
     ├───item
     │       item.c
+    │       item.exe
     │       item.h
     │       item_driver.c
     │       run.bat
     │
     ├───listdin
     │       listdin.c
+    │       listdin.exe
     │       listdin.h
     │       listdin_driver.c
     │       run.bat
@@ -100,6 +115,7 @@ If you're in windows based, install GNU Compiler (GCC) and set the PATH (Because
     │
     ├───list_linked
     │       list_linked.c
+    │       list_linked.exe
     │       list_linked.h
     │       list_linked_driver.c
     │       node.c
@@ -108,12 +124,14 @@ If you're in windows based, install GNU Compiler (GCC) and set the PATH (Because
     │
     ├───lokasi
     │       lokasi.c
+    │       lokasi.exe
     │       lokasi.h
     │       lokasi_driver.c
     │       run.bat
     │
     ├───matrix
     │       matrix.c
+    │       matrix.exe
     │       matrix.h
     │       matrix_driver.c
     │       run.bat
@@ -122,15 +140,17 @@ If you're in windows based, install GNU Compiler (GCC) and set the PATH (Because
     │       pcolor.c
     │       pcolor.h
     │       pcolor_driver.c
-    │       
+    │
     ├───point
     │       point.c
+    │       point.exe
     │       point.h
     │       point_driver.c
     │       run.bat
     │
     ├───PrioQueue
     │       prioqueue.c
+    │       prioqueue.exe
     │       prioqueue.h
     │       prioqueue_driver.c
     │       run.bat
@@ -140,11 +160,13 @@ If you're in windows based, install GNU Compiler (GCC) and set the PATH (Because
     │       stack.c
     │       stack.h
     │       stack_driver.c
+    │       stack_driver.exe
     │
     ├───utility
     │       boolean.h
     │       const.h
     │       game.c
+    │       game.exe
     │       game.h
     │       game_driver.c
     │       run.bat
@@ -157,8 +179,3 @@ If you're in windows based, install GNU Compiler (GCC) and set the PATH (Because
             wordmachine.c
             wordmachine.h
 ```
-
-## Room for Improvement
-
-## References
-
