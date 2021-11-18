@@ -364,6 +364,8 @@ void dropOff(Game *g){
             }
             printf("Pesanan %s berhasil diantarkan.\n", TYPE_DESC(tipeItem(dropped)));
             printf("Uang yang didapatkan: %d Yen\n", VALUE(tipeItem(dropped)));
+        }else{
+          printf("Bukan Lokasi yang tepat!\n");
         }
     }else{
         printf("Tidak ada pesanan yang dapat diantarkan!\n");
