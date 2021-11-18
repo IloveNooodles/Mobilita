@@ -108,12 +108,12 @@ boolean checkEndGame(Game g){
 
 void endGameReached(Game g){
     sprint_yellow("SELAMAT! Anda berhasil menamatkan game MOBILITA!\n");
-    sprint_yellow("Dengan ini, kamu berhasil pensiun dari pekerjaanmu sebagai kurir!");
-    sprint_yellow("Pandemi telah usai, mobita pun kembali masuk kampus..\n");
+    sprint_yellow("Dengan ini, kamu berhasil pensiun dari pekerjaanmu sebagai kurir!\n");
+    sprint_yellow("Pandemi telah usai, mobita pun kembali masuk kampus..\n\n");
     sprint_yellow("Finished stats: \n");
-    printf("Pesanan yang telah diantar: ", finishedPesanan); printf("\n");
-    printf("Waktu yang terlampaui: ", currentTime); printf("\n");
-    printf("Total uang yang didapat: ", totalMoney); printf("\n");
+    printf("Pesanan yang telah diantar: %i", finishedPesanan); printf("\n");
+    printf("Waktu yang terlampaui: %i", currentTime); printf("\n");
+    printf("Total uang yang didapat: %i", totalMoney); printf("\n");
     sprint_yellow("Sampai jumpa di lain waktu!\n");
 }
 
@@ -643,7 +643,7 @@ void saveGame(Game g, Word cfg){
     }
 
     fclose(save);
-    sprint_blue("Game sucessfully saved.\n");
+    sprint_blue("Game successfully saved.\n");
 }
 
 

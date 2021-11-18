@@ -96,6 +96,7 @@ int main(){
                 default:
                     sprint_red("Invalid input.\n");
             }
+            game.endGame = checkEndGame(game);
         }
         // End game reached
         endGameReached(game);
