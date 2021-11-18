@@ -65,7 +65,7 @@ void sprint_magenta(char* c) {
 }
 
 void sprint_cyan(char* c) {
-    printf("%s%c", MAGENTA, c);
+    printf("%s%s", MAGENTA, c);
     printf("%s", NORMAL);
 }
 
