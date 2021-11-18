@@ -36,6 +36,7 @@ Mobilita is CLI (Command Line Interface) Game that we made using c language. Thi
 - Peta
 - Command includes (MOVE, PICK_UP, DROP_OFF, MAP, TO_DO, IN_PROGRESS, BUY, INVENTORY, HELP, RETURN)
 - Game Flow
+- All the bonus includes save game/load game, vip item, gadget and ability.
 
 ## Member List:
 
